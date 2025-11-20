@@ -1,0 +1,450 @@
+/* ===============================================
+   VARIABLES GLOBALES
+================================================ */
+:root {
+    --navy-dark: #020617;
+    --navy: #0b1120;
+    --navy-soft: #111827;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --white: #ffffff;
+    --gray-light: #f3f4f6;
+    --gray: #e5e7eb;
+    --text: #0f172a;
+    --muted: #6b7280;
+  
+    --radius-lg: 22px;
+    --radius-md: 16px;
+    --transition: 0.25s ease;
+    --shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+    --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.10);
+  }
+  
+  /* ===============================================
+     RESET
+  ================================================ */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+  }
+  
+  body {
+    background: var(--gray-light);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  
+  .container {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* ===============================================
+     HEADER
+  ================================================ */
+  .main-header {
+    background: linear-gradient(to bottom, var(--navy), var(--navy-dark));
+    padding-bottom: 2rem;
+    color: var(--white);
+    box-shadow: var(--shadow);
+  
+    /* ARRONDIS SUR LES 4 COINS */
+    border-radius: 40px;
+  }
+  
+  /* NAVBAR */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.2rem;
+  }
+  
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  
+  .logo-img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.4rem;
+  }
+  
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .nav-links a:hover {
+    color: var(--primary);
+  }
+  
+  /* ===============================================
+     HERO
+  ================================================ */
+  .hero {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  /* HERO LEFT */
+  .hero-title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--white);
+  }
+  
+  .hero-title .blue {
+    color: var(--primary);
+  }
+  
+  .hero-desc {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--gray);
+    width: 90%;
+  }
+  
+  .hero-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .btn-primary {
+    background: var(--primary);
+    padding: 0.8rem 1.4rem;
+    color: var(--white);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+    display: inline-block;
+  }
+  
+  .btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline {
+    padding: 0.8rem 1.4rem;
+    border: 1px solid var(--gray);
+    border-radius: var(--radius-md);
+    color: var(--white);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+  }
+  
+  /* ===============================================
+     HERO RIGHT — DEUX BLOCS ÉGAUX
+  ================================================ */
+  
+  .hero-right {
+    width: 100%;
+  }
+  
+  .hero-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem;
+  }
+  
+  /* STYLE DES DEUX BLOCS */
+  .hero-card {
+    background: var(--white);
+    padding: 1.6rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    min-height: 260px; /* même hauteur pour les deux blocs */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+ /* ================================
+   Bloc A : Suivi Colis (Version Premium)
+================================ */
+
+.follow-card {
+    background: var(--white);
+    padding: 1.8rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.08);
+    border: 1px solid #dce3ef;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  
+  .follow-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Titre du bloc */
+  .follow-card h3 {
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+  }
+  
+  /* Description */
+  .follow-card p {
+    font-size: 0.92rem;
+    margin-bottom: 1.2rem;
+    color: var(--muted);
+  }
+  
+  /* Champ texte */
+  .follow-card input {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 14px;
+    border: 1px solid #cfd6e2;
+    background: #f9fafb;
+    font-size: 0.95rem;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .follow-card input:focus {
+    border-color: var(--primary);
+    background: var(--white);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+    outline: none;
+  }
+  
+  /* Bouton */
+  .follow-card button {
+    width: 100%;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 14px;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  }
+  
+  .follow-card button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 35px rgba(37, 99, 235, 0.45);
+  }
+  
+  
+  /* Bloc B : Logo ORYX */
+  .logo-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .big-logo {
+    width: 80%;
+    max-width: 180px;
+    border-radius: 18px;
+    object-fit: cover;
+  }
+  
+  /* ===============================================
+     SECTIONS
+  ================================================ */
+  .section {
+    margin-top: 4rem;
+  }
+  
+  .section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1.2rem;
+    font-weight: 800;
+  }
+  
+  .section-card {
+    background: var(--white);
+    padding: 1.6rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+  }
+  
+  /* Services cards */
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.3rem;
+  }
+  
+  .card {
+    background: var(--white);
+    padding: 1.4rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  /* ===============================================
+     CONTACT
+  ================================================ */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--gray);
+    margin-bottom: 1rem;
+  }
+  
+  .contact-info {
+    background: var(--navy-soft);
+    color: var(--white);
+    padding: 2.2rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Ajoute de la respiration */
+}
+
+.contact-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info p {
+    font-size: 1rem;            /* + lisible */
+    line-height: 1.7;           /* + aéré */
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;                /* espace icône */
+}
+
+.contact-info p::before {
+    content: "•";               /* icône simple & propre */
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+  
+  
+  /* ===============================================
+     FOOTER
+  ================================================ */
+  .footer {
+    background: var(--navy);
+    margin-top: 4rem;
+    padding: 3rem 0;
+    color: var(--gray);
+  
+    /* 4 COINS ARRONDIS */
+    border-radius: 40px;
+  }
+  
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  /* Langues */
+  .lang-select {
+    padding: 0.6rem;
+    width: 130px;
+    border-radius: var(--radius-md);
+    border: none;
+  }
+  
+  /* Réseaux */
+  .socials a {
+    display: inline-block;
+    margin-right: 0.7rem;
+    color: var(--gray);
+    text-decoration: none;
+  }
+  
+  .socials a:hover {
+    color: var(--primary);
+  }
+  
+  /* Copyright */
+  .footer-copy {
+    grid-column: 1 / -1;
+    text-align: center;      
+    margin-top: 2rem;        
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+  
+  
+  /* ===============================================
+     RESPONSIVE
+  ================================================ */
+  
+  @media screen and (max-width: 900px) {
+  
+    .hero {
+      grid-template-columns: 1fr;
+    }
+  
+    .hero-cards {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+  
+    .nav-links { display: none; }
+  
+    .hero-cards {
+      grid-template-columns: 1fr;
+    }
+  
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .footer-copy {
+      text-align: center;
+    }
+  }
+  
