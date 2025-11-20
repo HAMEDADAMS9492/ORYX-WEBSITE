@@ -1,0 +1,11 @@
+node_modules/
+.next/
+dist/
+out/
+.vscode/
+.DS_Store
+.gradle/
+build/
+**/build/
+.idea/
+
