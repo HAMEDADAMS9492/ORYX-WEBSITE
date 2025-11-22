@@ -5,35 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORYX Transport Logistique</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
-<!-- ===========================
-      HEADER
-=========================== -->
 <header class="main-header">
     <nav class="nav container">
         <div class="logo-area">
             <img src="image/oryx.jpg" class="logo-img" alt="ORYX Logo">
-            <span class="logo-text">ORYX TRANSPORT LOGISTIQUE</span>
+            <span class="logo-text"> ORYX LOGISTIQUE </span>
         </div>
 
         <div class="nav-links">
-            <a href="#presentation">Présentation</a>
-            <a href="#services">Services B2B</a>
-            <a href="#flotte">Flotte & Chauffeurs</a>
+            <a href="#presentation">    Acceuils </a>
+            <a href="#services">Nos Services</a>
+            <a href="#flotte">Flotte & Équipe</a>
+            <a href="#rse">Engagement RSE</a>
             <a href="#contact">Contact</a>
         </div>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="hero container">
         <div class="hero-left">
             <h1 class="hero-title">
                 Votre partenaire last mile 
-                <span class="blue">fiable</span> et 
-                <span class="blue">performant.</span>
+                <span class="highlight">fiable</span> et 
+                <span class="highlight">performant.</span>
             </h1>
 
             <p class="hero-desc">
@@ -42,17 +43,15 @@
 
             <div class="hero-actions">
                 <a href="#contact" class="btn-primary">Devenir partenaire</a>
-                <a href="#presentation" class="btn-outline">Découvrir ORYX</a>
+                <a href="#presentation" class="btn-outline">Qui sommes-nous ?</a>
             </div>
         </div>
 
-        <!-- TWO EQUAL BLOCKS -->
         <div class="hero-right">
             <div class="hero-cards">
                 
-                <!-- Bloc A : Suivi colis -->
                 <div class="hero-card follow-card">
-                    <h3>Suivre un colis</h3>
+                    <h3>Suivre un colis <i class="fas fa-truck-fast"></i></h3>
                     <p>Entrez le numéro de Suivi pour consulter son statut :</p>
 
                     <form>
@@ -61,9 +60,8 @@
                     </form>
                 </div>
 
-                <!-- Bloc B : Logo agrandi dans un card -->
-                <div class="hero-card logo-card">
-                    <img src="image/oryx.jpg" alt="ORYX Logo" class="big-logo">
+                <div class="hero-card map-card">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20991.14144848443!2d2.2764832332146274!3d48.879322376549126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x875fc2d7566063bf%3A0xa18719899cd9946e!2sPROSPERITY%20GROUPE%20(%20Transport%20%26%20Logistique%20)!5e0!3m2!1sfr!2sng!4v1763804270564!5m2!1sfr!2sng" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
             </div>
@@ -72,51 +70,195 @@
 </header>
 
 
-<!-- ===========================
-      PRESENTATION
-=========================== -->
 <section id="presentation" class="section container">
-    <h2>Présentation ORYX</h2>
+    <h2>Qui sommes-nous ?</h2>
     <div class="section-card">
         <p>
-            ORYX Transport Logistique est une société spécialisée dans la livraison du dernier kilomètre...
+            ORYX Transport Logistique est un acteur spécialisé dans la livraison du dernier kilomètre (Last Mile) en Île-de-France, dédié exclusivement aux besoins des entreprises du secteur logistique, e-commerce et distribution.
+        </p>
+        <p>
+            Nous offrons une solution clé-en-main, flexible et scalable, permettant à nos partenaires de sécuriser leurs flux et d'optimiser leurs circuits de distribution en Île-de-France.
+        </p>
+        <p>
+            Nous nous positionnons comme un partenaire stratégique, flexible, et opérationnel.
+        </p>
+        <p>
+            Notre vision : devenir un acteur incontournable de la sous-traitance premium, où chaque livraison reflète une garantie de satisfaction client.
         </p>
     </div>
 </section>
 
 
-<!-- ===========================
-      SERVICES B2B
-=========================== -->
 <section id="services" class="section container">
-    <h2>Services Last Mile B2B</h2>
+    <h2>Nos Services Last Mile B2B</h2>
 
-    <div class="grid-4">
-        <div class="card">Livraison dernier kilomètre</div>
-        <div class="card">Tournées sectorisées</div>
-        <div class="card">Collecte & retours</div>
-        <div class="card">Traçabilité & reporting</div>
+    <div class="collapsible-container grid-2">
+        <div class="collapsible-item card service-card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="service-distribution">
+                <i class="fas fa-box-open icon-service"></i>
+                <h3>Distribution rapide, sécurisée et optimisée <i class="fas fa-chevron-down toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="service-distribution">
+                <p>Notre solution de livraison flexible et fiable, adaptée à vos besoins. Nous garantissons :</p>
+                <ul>
+                    <li>Respect des créneaux,</li>
+                    <li>Gestion des volumes variables.</li>
+                    <li>Reporting complet,</li>
+                    <li>Disponibilité.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapsible-item card service-card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="service-retours">
+                <i class="fas fa-undo icon-service"></i>
+                <h3>Collecte & retours <i class="fas fa-chevron-down toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="service-retours">
+                <p>Prise en charge de retours, enlèvements programmés ou urgents :</p>
+                <ul>
+                    <li>Reverse logistics,</li>
+                    <li>Collecte multi-sites,</li>
+                    <li>Acheminement vers hubs partenaires.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapsible-item card service-card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="service-tracabilite">
+                <i class="fas fa-chart-line icon-service"></i>
+                <h3>Traçabilité en temps réel <i class="fas fa-chevron-down toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="service-tracabilite">
+                <p>Chaque colis est suivi, permettant à nos clients une visibilité complète sur l'avancement des opérations.</p>
+                <p>Grâce à nos outils de suivi avancés, vous avez un contrôle total de la chaîne logistique, de l'enlèvement à la livraison.</p>
+                <ul>
+                    <li>Suivi GPS en direct des véhicules.</li>
+                    <li>Notifications automatiques d'état des livraisons.</li>
+                    <li>Rapports détaillés sur les performances.</li>
+                </ul>
+                <a href="#" class="btn-primary small-btn">Suivre un colis</a>
+            </div>
+        </div>
+
+        <div class="collapsible-item card service-card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="service-tournees">
+                <i class="fas fa-route icon-service"></i>
+                <h3>Tournées sectorisées <i class="fas fa-chevron-down toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="service-tournees">
+                <p>Des itinéraires intelligents pour maximiser la ponctualité et réduire les coûts.</p>
+                <p>Nous utilisons des algorithmes avancés pour optimiser chaque parcours, réduisant ainsi les temps de livraison et l'empreinte carbone.</p>
+                <ul>
+                    <li>Optimisation des trajets en temps réel.</li>
+                    <li>Réduction des coûts de carburant et d'entretien.</li>
+                    <li>Amélioration de la satisfaction client grâce à la ponctualité.</li>
+                </ul>
+                <a href="#" class="btn-primary small-btn">Découvrir nos solutions</a>
+            </div>
+        </div>
     </div>
 </section>
 
-
-<!-- ===========================
-      FLOTTE
-=========================== -->
 <section id="flotte" class="section container">
-    <h2>Flotte & Chauffeurs</h2>
+    <h2>Notre Flotte & Équipe</h2>
 
-    <div class="section-card">
-        <p>
-            Véhicules utilitaires adaptés, chauffeurs formés, couverture IDF...
-        </p>
+    <div class="collapsible-container grid-2"> <div class="collapsible-item card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="flotte-details">
+                <h3>Notre Flotte de Véhicules <i class="fas fa-truck icon-service toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="flotte-details">
+                <p>Notre flotte se compose de :</p>
+                <ul>
+                    <li> Renault Trafic 6m³ : Idéal pour les livraisons de taille moyenne.</li>
+                    <li> Renault Master 12m³ : Parfait pour les volumes plus importants.</li>
+                    <li> Véhicule électrique : Parfaitement adapté aux tournées last mile pour une approche écologique.</li>
+                </ul>
+                <p>Ces véhicules offrent une haute maniabilité, fiabilité, et des performances adaptées aux zones urbaines pour une efficacité maximale.</p>
+                </div>
+        </div>
+
+        <div class="collapsible-item card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="chauffeurs-details">
+                <h3>Nos Chauffeurs Qualifiés <i class="fas fa-user-tie icon-service toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="chauffeurs-details">
+                <p>Chaque chauffeur ORYX TL est :</p>
+                <ul>
+                    <li>Formé au last mile professionnel.</li>
+                    <li>Certifié en éco-conduite, pour une consommation réduite et une conduite sécurisée.</li>
+                    <li>Sensibilisé à la sécurité des colis.</li>
+                    <li>Capable de gérer la charge, le tri, la navigation et la relation B2B avec maturité.</li>
+                </ul>
+                <p class="secondary-text">Nous mettons un point d'honneur à la formation continue de nos équipes, assurant ainsi un service irréprochable.</p>
+                </div>
+        </div>
+
+        <div class="collapsible-item card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="recrutement-details">
+                <h3>Rejoignez notre équipe <i class="fas fa-handshake icon-service toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="recrutement-details">
+                <p>Vous souhaitez intégrer l'équipe ORYX TL et devenir un livreur professionnel ?</p>
+                <p>Nous recherchons des talents motivés, engagés et désireux de participer à l'excellence de la livraison du dernier kilomètre. Si vous êtes rigoureux, orienté client et que vous avez le sens des responsabilités, votre place est parmi nous.</p>
+                <a href="#contact" class="btn-primary small-btn">Postuler maintenant <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
     </div>
 </section>
 
 
-<!-- ===========================
-      CONTACT
-=========================== -->
+<section id="rse" class="section container">
+    <h2>Notre Engagement RSE</h2>
+
+    <div class="collapsible-container grid-2"> <div class="collapsible-item card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="rse-demarche">
+                <h3>Démarche Responsable <i class="fas fa-leaf icon-service toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="rse-demarche">
+                <p>ORYX adopte une démarche responsable visant à réduire son impact environnemental et à promouvoir une logistique plus durable.</p>
+            </div>
+        </div>
+
+        <div class="collapsible-item card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="rse-vehicules-verts">
+                <h3>Véhicules Verts <i class="fas fa-charging-station icon-service toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="rse-vehicules-verts">
+                <p>Notre flotte comporte 3 véhicules verts (électriques) pour réduire l'impact carbone de nos opérations.</p>
+            </div>
+        </div>
+
+        <div class="collapsible-item card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="rse-co2-optimisation">
+                <h3>Optimisation CO₂ <i class="fas fa-smog icon-service toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="rse-co2-optimisation">
+                <ul>
+                    <li>Optimisation des routes,</li>
+                    <li>Réduction des kilomètres à vide,</li>
+                    <li>Analyse des tournées pour limiter les rejets.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="collapsible-item card">
+            <button class="collapsible-header" aria-expanded="false" aria-controls="rse-eco-conduite">
+                <h3>Éco-conduite <i class="fas fa-car-alt icon-service toggle-icon"></i></h3>
+            </button>
+            <div class="collapsible-content" id="rse-eco-conduite">
+                <p>Chaque conducteur est formé à l'éco-conduite, permettant :</p>
+                <ul>
+                    <li>Réduction de la consommation,</li>
+                    <li>Conduite plus souple et sécurisée,</li>
+                    <li>Diminution de l'empreinte carbone.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <section id="contact" class="section container">
     <h2>Contact & partenariats</h2>
 
@@ -126,22 +268,19 @@
             <input type="email" placeholder="Adresse email professionnelle" required>
             <input type="text" placeholder="Téléphone" required>
             <textarea placeholder="Décrivez vos besoins..." required></textarea>
-            <button class="btn-primary">Envoyer la demande</button>
+            <button class="btn-primary">Envoyer la demande <i class="fas fa-paper-plane"></i></button>
         </form>
 
         <div class="contact-info">
             <h3>Coordonnées</h3>
-            <p>Email : contact@oryx-logistique.fr</p>
-            <p>Téléphone : +33 6 21 56 91 94</p>
-            <p>Siège social : 165 Route de Vienne, 69008 Lyon</p>
+            <p><i class="fas fa-envelope"></i> Email : oryx-logistique@gmail.fr</p>
+            <p><i class="fas fa-phone-alt"></i> Téléphone : +33 6 21 56 91 94</p>
+            <p><i class="fas fa-map-marker-alt"></i> Siège social : 165 Route de Vienne, 69008 Lyon</p>
         </div>
     </div>
 </section>
 
 
-<!-- ===========================
-      FOOTER
-=========================== -->
 <footer class="footer">
     <div class="footer-grid container">
 
@@ -160,27 +299,63 @@
 
         <div>
             <h4>Langue</h4>
-            <select class="lang-select">
-                <option>Français</option>
-                <option>English</option>
-            </select>
+            <div class="lang-selector-wrapper">
+                <i class="fas fa-globe"></i>
+                <select class="lang-select">
+                    <option>Français</option>
+                    <option>English</option>
+                </select>
+            </div>
         </div>
 
         <div>
             <h4>Réseaux sociaux</h4>
             <div class="socials">
-                <a href="#">LinkedIn</a>
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
+                <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
             </div>
         </div>
 
-        <div class="footer-copy">
-            © 2025 ORYX Transport Logistique Tous droits réservés.
+        <div class="footer-bottom">
+            <p>© 2025 ORYX Transport Logistique Tous droits réservés.</p>
         </div>
-
     </div>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // JavaScript pour les accordéons
+        const collapsibleHeaders = document.querySelectorAll('.collapsible-header');
+
+        collapsibleHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling; // Le contenu est l'élément suivant
+                const icon = header.querySelector('.toggle-icon'); // L'icône à faire pivoter
+
+                header.classList.toggle('active');
+                if (header.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px"; // Déroule le contenu
+                    icon.classList.replace('fa-chevron-down', 'fa-chevron-up'); // Change l'icône
+                    header.setAttribute('aria-expanded', 'true');
+                } else {
+                    content.style.maxHeight = "0"; // Enroule le contenu
+                    icon.classList.replace('fa-chevron-up', 'fa-chevron-down'); // Change l'icône
+                    header.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

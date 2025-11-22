@@ -1,450 +1,1764 @@
 /* ===============================================
-   VARIABLES GLOBALES
+    VARIABLES GLOBALES
 ================================================ */
 :root {
-    --navy-dark: #020617;
-    --navy: #0b1120;
-    --navy-soft: #111827;
-    --primary: #2563eb;
-    --primary-dark: #1d4ed8;
-    --white: #ffffff;
-    --gray-light: #f3f4f6;
-    --gray: #e5e7eb;
-    --text: #0f172a;
-    --muted: #6b7280;
-  
-    --radius-lg: 22px;
-    --radius-md: 16px;
-    --transition: 0.25s ease;
-    --shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
-    --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.10);
-  }
-  
-  /* ===============================================
-     RESET
-  ================================================ */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: system-ui, sans-serif;
-  }
-  
-  body {
-    background: var(--gray-light);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  
-  .container {
-    width: 92%;
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  /* ===============================================
-     HEADER
-  ================================================ */
-  .main-header {
-    background: linear-gradient(to bottom, var(--navy), var(--navy-dark));
-    padding-bottom: 2rem;
-    color: var(--white);
-    box-shadow: var(--shadow);
-  
-    /* ARRONDIS SUR LES 4 COINS */
-    border-radius: 40px;
-  }
-  
-  /* NAVBAR */
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1.2rem;
-  }
-  
-  .logo-area {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-  }
-  
-  .logo-img {
-    width: 55px;
-    height: 55px;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-  
-  .logo-text {
-    font-size: 1.1rem;
-    font-weight: 900;
-    letter-spacing: 0.04em;
-  }
-  
-  .nav-links {
-    display: flex;
-    gap: 1.4rem;
-  }
-  
-  .nav-links a {
-    color: var(--gray);
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-  }
-  
-  .nav-links a:hover {
-    color: var(--primary);
-  }
-  
-  /* ===============================================
-     HERO
-  ================================================ */
-  .hero {
-    margin-top: 2.5rem;
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-  }
-  
-  /* HERO LEFT */
-  .hero-title {
-    font-size: 2.4rem;
-    font-weight: 900;
-    color: var(--white);
-  }
-  
-  .hero-title .blue {
-    color: var(--primary);
-  }
-  
-  .hero-desc {
-    margin-top: 1rem;
-    font-size: 1rem;
-    color: var(--gray);
-    width: 90%;
-  }
-  
-  .hero-actions {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .btn-primary {
-    background: var(--primary);
-    padding: 0.8rem 1.4rem;
-    color: var(--white);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    font-weight: 700;
-    transition: var(--transition);
-    display: inline-block;
-  }
-  
-  .btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-  }
-  
-  .btn-outline {
-    padding: 0.8rem 1.4rem;
-    border: 1px solid var(--gray);
-    border-radius: var(--radius-md);
-    color: var(--white);
-    text-decoration: none;
-    transition: var(--transition);
-  }
-  
-  .btn-outline:hover {
-    background: rgba(255,255,255,0.1);
-  }
-  
-  /* ===============================================
-     HERO RIGHT — DEUX BLOCS ÉGAUX
-  ================================================ */
-  
-  .hero-right {
-    width: 100%;
-  }
-  
-  .hero-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.3rem;
-  }
-  
-  /* STYLE DES DEUX BLOCS */
-  .hero-card {
-    background: var(--white);
-    padding: 1.6rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    min-height: 260px; /* même hauteur pour les deux blocs */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
- /* ================================
-   Bloc A : Suivi Colis (Version Premium)
+  --navy-dark: #0a192f; /* Plus profond */
+  --navy: #1c2b42; /* Plus de contraste */
+  --navy-soft: #283747; /* Doux */
+
+  --primary: #5eead4; /* Couleur vive et moderne (s'inspire de Colicoli) */
+  --primary-dark: #2dd4bf; /* Variante plus foncée */
+  --primary-light: #99f6e4; /* Variante plus claire */
+
+  --white: #ffffff;
+  --gray-light: #f8fafc; /* Arrière-plan plus clair pour la légèreté */
+  --gray: #e2e8f0; /* Bordures et séparations douces */
+  --text: #1e293b; /* Texte plus sombre pour la lisibilité */
+  --muted: #64748b; /* Texte secondaire */
+
+  --radius-lg: 30px; /* Plus arrondis pour la fluidité */
+  --radius-md: 18px;
+  --transition: 0.3s ease-out; /* Transition plus douce */
+  --shadow: 0 25px 60px rgba(15, 23, 42, 0.18); /* Ombre plus prononcée mais douce */
+  --shadow-soft: 0 15px 35px rgba(15, 23, 42, 0.12); /* Ombre légère */
+}
+
+/* ===============================================
+
+    RESET
+
+================================================ */
+
+* {
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif; /* Police moderne et conviviale */
+}
+
+html {
+  scroll-behavior: smooth; /* Défilement doux */
+}
+
+body {
+  background: var(--gray-light);
+
+  color: var(--text);
+
+  line-height: 1.7; /* Plus d'espace pour la lisibilité */
+
+  -webkit-font-smoothing: antialiased;
+
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 90%; /* Un peu plus large pour le contenu */
+
+  max-width: 1300px; /* Augmenter la largeur max */
+
+  margin: auto;
+}
+
+/* Base pour les titres */
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text);
+
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+p {
+  color: var(--muted);
+
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+
+  color: var(--primary);
+
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* ===============================================
+
+    HEADER
+
+================================================ */
+
+.main-header {
+  background: var(--navy-dark); /* Couleur de base pour le dégradé */
+
+  padding-bottom: 3.5rem; /* Plus d'espace en bas */
+
+  color: var(--white);
+
+  box-shadow: var(--shadow);
+
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg); /* Seuls les coins inférieurs */
+
+  /* Image de fond pour le header principal */
+
+  background-image: linear-gradient(
+      rgba(10, 25, 47, 0.85),
+      rgba(10, 25, 47, 0.95)
+    ),
+    url("../image/Fonds.png");
+
+  background-size: cover;
+
+  background-position: center bottom; /* Centre l'image et la positionne en bas */
+
+  background-repeat: no-repeat;
+
+  position: relative; /* Nécessaire pour le pseudo-élément */
+
+  overflow: hidden; /* Masque les débordements */
+}
+
+/* NAVBAR */
+
+.nav {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-top: 1.5rem; /* Plus d'espace en haut */
+
+  padding-bottom: 1.5rem;
+}
+
+.logo-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+}
+
+/* EXEMPLE DE MODIFICATION POUR UN LOGO PLUS GRAND */
+.logo-img {
+    width: 80px; /* Nouvelle taille, par exemple */
+    height: 80px; /* Nouvelle taille, par exemple */
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 15px rgba(94, 234, 212, 0.4);
+}
+
+.logo-text {
+  font-size: 1.3rem; /* Plus grand */
+
+  font-weight: 800; /* Moins épais, plus lisible */
+
+  letter-spacing: 0.05em; /* Un peu plus d'espacement */
+
+  color: var(--white); /* S'assure que le texte est blanc */
+
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Légère ombre pour le contraste */
+}
+
+.nav-links {
+  display: flex;
+
+  gap: 2rem; /* Plus d'espace entre les liens */
+}
+
+.nav-links a {
+  color: var(--primary-light); /* Couleur des liens plus visible */
+
+  text-decoration: none;
+
+  font-weight: 600; /* Plus de poids */
+
+  padding: 0.5rem 0.8rem;
+
+  border-radius: var(--radius-md);
+
+  transition: var(--transition);
+
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+
+  background: rgba(94, 234, 212, 0.15); /* Fond légèrement coloré au survol */
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 0;
+
+  transform: translateX(-50%) scaleX(0);
+
+  width: 80%;
+
+  height: 3px;
+
+  background-color: var(--primary);
+
+  transition: transform var(--transition);
+}
+
+.nav-links a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Menu Burger pour mobile */
+
+.menu-toggle {
+  display: none; /* Cache par défaut */
+
+  background: none;
+
+  border: none;
+
+  color: var(--primary-light);
+
+  font-size: 1.8rem;
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+/* ===============================================
+
+    HERO
+
+================================================ */
+
+.hero {
+  margin-top: 4rem; /* Plus d'espace en haut */
+
+  display: grid;
+
+  grid-template-columns: 1.2fr 1fr; /* Léger ajustement */
+
+  gap: 3rem; /* Plus d'espace entre les colonnes */
+
+  align-items: center;
+}
+
+/* HERO LEFT */
+
+.hero-title {
+  font-size: 3.2rem; /* Plus grand et impactant */
+
+  font-weight: 900;
+
+  line-height: 1.2; /* Meilleure lisibilité */
+
+  color: var(--white);
+
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title .highlight {
+  /* Renommé en highlight pour la généralité */
+
+  color: var(--primary); /* Couleur d'accentuation */
+}
+
+.hero-desc {
+  margin-top: 1.5rem;
+
+  font-size: 1.1rem; /* Plus grand */
+
+  color: var(--primary-light); /* Couleur douce */
+
+  width: 95%; /* Un peu plus large */
+
+  opacity: 0.9;
+}
+
+.hero-actions {
+  margin-top: 2.2rem; /* Plus d'espace */
+
+  display: flex;
+
+  gap: 1.2rem; /* Espace entre les boutons */
+}
+
+.btn-primary {
+  background: var(--primary);
+
+  padding: 1rem 1.8rem; /* Plus grand */
+
+  color: var(--navy-dark); /* Texte foncé sur bouton clair */
+
+  border-radius: var(--radius-md);
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  transition: var(--transition);
+
+  display: inline-flex; /* Pour centrer l'icône si ajoutée */
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  box-shadow: 0 10px 25px rgba(94, 234, 212, 0.4); /* Ombre plus visible */
+
+  border: 2px solid var(--primary); /* Bordure pour contraste */
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+
+  transform: translateY(-3px); /* Effet 3D léger */
+
+  box-shadow: 0 15px 35px rgba(94, 234, 212, 0.5);
+
+  border-color: var(--primary-dark);
+}
+
+.btn-outline {
+  padding: 1rem 1.8rem;
+
+  border: 2px solid var(--primary-light); /* Bordure plus visible */
+
+  border-radius: var(--radius-md);
+
+  color: var(--white);
+
+  text-decoration: none;
+
+  transition: var(--transition);
+
+  display: inline-block;
+
+  font-weight: 600;
+
+  background: rgba(255, 255, 255, 0.05); /* Léger fond pour le contraste */
+}
+
+.btn-outline:hover {
+  background: rgba(94, 234, 212, 0.15); /* Fond plus prononcé au survol */
+
+  border-color: var(--primary);
+
+  transform: translateY(-3px);
+
+  color: var(--primary);
+}
+
+/* ===============================================
+
+    HERO RIGHT — DEUX BLOCS ÉGAUX
+
+================================================ */
+
+.hero-right {
+  width: 100%;
+
+  margin-top: 2rem; /* Pour aligner avec le contenu de gauche */
+}
+
+.hero-cards {
+  display: grid;
+
+  grid-template-columns: 1fr; /* Par défaut une colonne sur mobile */
+
+  gap: 1.5rem; /* Plus d'espace */
+}
+
+/* STYLE DES DEUX BLOCS */
+
+.hero-card {
+  background: var(--white);
+
+  padding: 2rem; /* Plus de padding */
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+
+  min-height: 280px; /* Légèrement plus grand */
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  border: 1px solid var(--gray); /* Bordure douce */
+}
+
+/* ================================
+
+    Bloc A : Suivi Colis (Version Premium)
+
 ================================ */
 
 .follow-card {
-    background: var(--white);
-    padding: 1.8rem;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.08);
-    border: 1px solid #dce3ef;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  
-  .follow-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
-  }
-  
-  /* Titre du bloc */
-  .follow-card h3 {
-    font-weight: 900;
-    font-size: 1.25rem;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.01em;
-  }
-  
-  /* Description */
-  .follow-card p {
-    font-size: 0.92rem;
-    margin-bottom: 1.2rem;
-    color: var(--muted);
-  }
-  
-  /* Champ texte */
-  .follow-card input {
-    width: 100%;
-    padding: 0.9rem;
-    border-radius: 14px;
-    border: 1px solid #cfd6e2;
-    background: #f9fafb;
-    font-size: 0.95rem;
-    transition: border 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .follow-card input:focus {
-    border-color: var(--primary);
-    background: var(--white);
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
-    outline: none;
-  }
-  
-  /* Bouton */
-  .follow-card button {
-    width: 100%;
-    padding: 0.85rem;
-    border: none;
-    border-radius: 14px;
-    background: var(--primary);
-    color: var(--white);
-    font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
-    transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-  }
-  
-  .follow-card button:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 18px 35px rgba(37, 99, 235, 0.45);
-  }
-  
-  
-  /* Bloc B : Logo ORYX */
-  .logo-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .big-logo {
-    width: 80%;
-    max-width: 180px;
-    border-radius: 18px;
-    object-fit: cover;
-  }
-  
-  /* ===============================================
-     SECTIONS
-  ================================================ */
-  .section {
-    margin-top: 4rem;
-  }
-  
-  .section h2 {
-    font-size: 1.7rem;
-    margin-bottom: 1.2rem;
-    font-weight: 800;
-  }
-  
-  .section-card {
-    background: var(--white);
-    padding: 1.6rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-  }
-  
-  /* Services cards */
-  .grid-4 {
+  background: linear-gradient(
+    135deg,
+    var(--white),
+    var(--gray-light)
+  ); /* Léger dégradé */
+
+  padding: 2.2rem; /* Plus de padding */
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+
+  border: 1px solid var(--gray);
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.follow-card:hover {
+  transform: translateY(-6px); /* Effet plus prononcé */
+
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.15);
+}
+
+/* Titre du bloc */
+
+.follow-card h3 {
+  font-weight: 800; /* Moins épais */
+
+  font-size: 1.4rem; /* Plus grand */
+
+  color: var(--text);
+
+  margin-bottom: 0.8rem;
+
+  letter-spacing: -0.01em;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.6rem;
+}
+
+/* Description */
+
+.follow-card p {
+  font-size: 1rem;
+
+  margin-bottom: 1.5rem; /* Plus d'espace */
+
+  color: var(--muted);
+}
+
+/* Champ texte */
+
+.follow-card form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1rem; /* Espace entre input et button */
+}
+
+.follow-card input {
+  width: 100%;
+
+  padding: 1.1rem; /* Plus de padding */
+
+  border-radius: 16px; /* Plus arrondis */
+
+  border: 1px solid var(--gray);
+
+  background: #f0f4f8; /* Fond plus doux */
+
+  font-size: 1rem;
+
+  color: var(--text);
+
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.follow-card input:focus {
+  border-color: var(--primary-dark);
+
+  background: var(--white);
+
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.3); /* Ombre focus plus claire */
+
+  outline: none;
+}
+
+/* Bouton */
+
+.follow-card button {
+  width: 100%;
+
+  padding: 1rem; /* Plus de padding */
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: var(--primary);
+
+  color: var(--navy-dark);
+
+  font-weight: 700;
+
+  font-size: 1.05rem; /* Plus grand */
+
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  box-shadow: 0 14px 30px rgba(94, 234, 212, 0.4);
+
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.follow-card button:hover {
+  background: var(--primary-dark);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 20px 40px rgba(94, 234, 212, 0.55);
+}
+
+/* Nouveau style pour le bloc de carte */
+
+.map-card {
+  background: var(--white); /* Le fond sera la carte, mais garde un fallback */
+
+  padding: 0; /* Pas de padding pour que la carte prenne tout l'espace */
+
+  display: flex; /* Pour s'assurer que l'iframe remplit l'espace */
+
+  justify-content: center;
+
+  align-items: center;
+
+  overflow: hidden; /* Important pour que la carte ne dépasse pas les bords arrondis */
+
+  border: 1px solid var(--gray); /* Garder la bordure du thème */
+}
+
+.map-card iframe {
+  border-radius: var(
+    --radius-lg
+  ); /* Appliquer le border-radius de la carte à l'iframe */
+
+  width: 100%;
+
+  height: 100%;
+
+  display: block; /* Supprime l'espace en bas de l'iframe */
+}
+
+/* ===============================================
+
+    SECTIONS
+
+================================================ */
+
+.section {
+  margin-top: 6rem; /* Plus d'espace entre les sections */
+
+  position: relative;
+
+  z-index: 1; /* Assure que les sections sont au-dessus du body background si jamais */
+}
+
+.section h2 {
+  font-size: 2.2rem;
+
+  margin-bottom: 2rem; /* Plus d'espace */
+
+  font-weight: 800;
+
+  text-align: center; /* Centrer les titres de section */
+
+  color: var(--text);
+}
+
+.section-card {
+  background: var(--white);
+
+  padding: 2.5rem; /* Plus de padding */
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+
+  border: 1px solid var(--gray);
+}
+
+.section-card p {
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+}
+
+.section-card .secondary-text {
+  margin-top: 1.5rem;
+
+  font-style: italic;
+
+  color: var(--muted);
+
+  font-size: 0.95rem;
+}
+
+/* Services cards */
+
+/* La classe .grid-4 est maintenant fusionnée avec .collapsible-container pour plus de cohérence
+
+   dans le cas où tous les éléments deviennent des accordéons.
+
+   Si certains éléments doivent rester des cartes simples, cette classe sera à réappliquer
+
+   sur un div conteneur séparé ou ajuster la structure.
+
+   Pour l'instant, on se base sur la structure HTML des accordéons.
+
+*/
+
+/* .grid-4 {
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.3rem;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 1.8rem;
+
+} */
+
+.service-card {
+  /* Renommé pour plus de spécificité */
+
+  background: var(--white);
+
+  padding: 2rem;
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+
+  text-align: center;
+
+  font-weight: 600;
+
+  transition: var(--transition);
+
+  border: 1px solid var(--gray);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.8rem;
+
+  min-height: 220px;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+
+  border-color: var(--primary-light);
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+
+  color: var(--text);
+
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+
+  line-height: 1.6;
+}
+
+.icon-service {
+  font-size: 3rem; /* Icônes plus grandes */
+
+  color: var(--primary);
+
+  margin-bottom: 1rem;
+
+  animation: pulse 2s infinite ease-in-out; /* Petite animation */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  .card {
-    background: var(--white);
-    padding: 1.4rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-soft);
-    text-align: center;
-    font-weight: 600;
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
   }
-  
-  /* ===============================================
-     CONTACT
-  ================================================ */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 2rem;
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--gray);
-    margin-bottom: 1rem;
-  }
-  
-  .contact-info {
-    background: var(--navy-soft);
-    color: var(--white);
-    padding: 2.2rem;
-    border-radius: var(--radius-lg);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; /* Ajoute de la respiration */
+}
+
+/* ===============================================
+
+    AJOUTS POUR LES ACCORDÉONS (Collapsible)
+
+================================================ */
+
+/* Conteneur général des accordéons, surtout utile pour les grilles */
+
+.collapsible-container {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptatif */
+
+  gap: 1.8rem; /* Espace comme vos autres grilles */
+}
+
+/* Style de base pour chaque élément d'accordéon (carte) */
+
+.collapsible-item.card {
+  background: var(--white);
+
+  padding: 1.5rem 2rem; /* Légèrement moins de padding pour les en-têtes */
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+
+  border: 1px solid var(--gray);
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
+    border-color 0.3s ease;
+
+  overflow: hidden; /* Important pour masquer le contenu initiallement et pour les border-radius */
+
+  display: flex; /* Pour aligner le header et l'icône */
+
+  flex-direction: column;
+}
+
+.collapsible-item.card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+
+  border-color: var(--primary-light);
+}
+
+/* En-tête de l'accordéon (le bouton cliquable) */
+
+.collapsible-header {
+  background: none; /* Pas de fond de bouton */
+
+  border: none;
+
+  width: 100%;
+
+  text-align: left;
+
+  padding: 0; /* Pas de padding car il est géré par .collapsible-item */
+
+  cursor: pointer;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  font-size: 1.25rem; /* Taille du titre */
+
+  font-weight: 700;
+
+  color: var(--text);
+
+  transition: color var(--transition);
+}
+
+.collapsible-header:hover {
+  color: var(--primary);
+}
+
+.collapsible-header h3 {
+  margin: 0; /* Supprime le margin par défaut du h3 */
+
+  font-size: 1.3rem; /* Ajuster la taille du h3 dans l'en-tête */
+
+  color: inherit; /* Hérite la couleur du parent .collapsible-header */
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem; /* Espace entre le texte du titre et l'icône de service */
+}
+
+/* Icône de bascule (flèche) */
+
+.collapsible-header .toggle-icon {
+  font-size: 1.2rem; /* Taille de l'icône flèche */
+
+  color: var(--primary);
+
+  transition: transform var(--transition);
+}
+
+/* Rotation de l'icône quand l'accordéon est actif */
+
+.collapsible-header.active .toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Contenu de l'accordéon */
+
+.collapsible-content {
+  max-height: 0; /* Caché par défaut */
+
+  overflow: hidden;
+
+  transition: max-height var(--transition); /* Transition pour l'animation de déploiement */
+
+  padding-top: 0; /* Pas de padding quand caché */
+
+  opacity: 0; /* Caché par défaut */
+
+  transition: max-height var(--transition), opacity var(--transition);
+}
+
+/* Style du contenu une fois visible */
+
+.collapsible-header.active + .collapsible-content {
+  padding-top: 1rem; /* Padding une fois déroulé */
+
+  opacity: 1; /* Visible */
+}
+
+.collapsible-content p {
+  margin-bottom: 0.8rem; /* Espacement entre les paragraphes dans le contenu */
+
+  font-size: 0.95rem; /* Taille de texte cohérente */
+
+  color: var(--muted);
+}
+
+.collapsible-content ul {
+  list-style-type: none; /* Enlève les puces par défaut */
+
+  padding-left: 0;
+
+  margin-bottom: 0.8rem;
+}
+
+.collapsible-content ul li {
+  position: relative;
+
+  padding-left: 1.8rem; /* Espace pour une puce personnalisée */
+
+  margin-bottom: 0.5rem;
+
+  font-size: 0.95rem;
+
+  color: var(--muted);
+}
+
+.collapsible-content ul li::before {
+  content: "\f058"; /* Icône de coche Font Awesome */
+
+  font-family: "Font Awesome 5 Free";
+
+  font-weight: 900;
+
+  color: var(--primary);
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+}
+
+/* Ajustement pour les boutons à l'intérieur des accordéons (ex: Rejoignez notre équipe) */
+
+.collapsible-content .small-btn {
+  padding: 0.8rem 1.5rem;
+
+  font-size: 0.9rem;
+
+  margin-top: 1rem;
+}
+
+/* ===============================================
+
+    CONTACT
+
+================================================ */
+
+.contact-grid {
+  display: grid;
+
+  grid-template-columns: 1.5fr 1fr; /* Contact form plus large */
+
+  gap: 3rem; /* Plus d'espace */
+}
+
+.contact-form {
+  background: var(--white);
+
+  padding: 2.5rem;
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+
+  border: 1px solid var(--gray);
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+
+  padding: 1.1rem 1.2rem; /* Plus de padding */
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid var(--gray);
+
+  margin-bottom: 1.2rem; /* Plus d'espace */
+
+  font-size: 1rem;
+
+  color: var(--text);
+
+  background: #f0f4f8;
+
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-dark);
+
+  background: var(--white);
+
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.3);
+
+  outline: none;
+}
+
+.contact-form textarea {
+  min-height: 150px; /* Hauteur minimale plus grande */
+
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 1rem; /* Espace au-dessus du bouton */
+}
+
+.contact-info {
+  background: var(--navy-soft);
+
+  color: var(--white);
+
+  padding: 2.8rem; /* Plus de padding */
+
+  border-radius: var(--radius-lg);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center; /* Centrer verticalement */
+
+  gap: 1.5rem; /* Augmente la respiration */
+
+  /* Image de fond pour le bloc contact-info */
+
+  background-image: linear-gradient(
+      rgba(40, 55, 71, 0.85),
+      rgba(40, 55, 71, 0.95)
+    ),
+    url("../image/Fonds.png");
+
+  background-size: cover;
+
+  background-position: center bottom;
+
+  background-repeat: no-repeat;
+
+  box-shadow: var(--shadow); /* Nouvelle ombre */
 }
 
 .contact-info h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+  font-size: 1.6rem; /* Plus grand */
+
+  margin-bottom: 1.2rem; /* Plus d'espace */
+
+  color: var(--primary-light); /* Couleur d'accent */
+
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .contact-info p {
-    font-size: 1rem;            /* + lisible */
-    line-height: 1.7;           /* + aéré */
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;                /* espace icône */
+  font-size: 1.05rem; /* Plus lisible */
+
+  line-height: 1.8;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem; /* Espace icône et texte */
+
+  color: var(--gray); /* Texte plus clair */
 }
 
-.contact-info p::before {
-    content: "•";               /* icône simple & propre */
-    font-size: 1.4rem;
-    color: var(--primary);
+.contact-info p i {
+  /* Style pour les icônes Font Awesome */
+
+  font-size: 1.3rem;
+
+  color: var(--primary);
+
+  width: 25px; /* Largeur fixe pour alignement */
+
+  text-align: center;
 }
 
-  
-  
-  /* ===============================================
-     FOOTER
-  ================================================ */
-  .footer {
-    background: var(--navy);
-    margin-top: 4rem;
-    padding: 3rem 0;
-    color: var(--gray);
-  
-    /* 4 COINS ARRONDIS */
-    border-radius: 40px;
+/* ===============================================
+
+    FOOTER 
+
+================================================ */
+
+.footer {
+  background: var(--navy-dark);
+
+  margin-top: 6rem; /* Plus d'espace avant le footer */
+
+  padding: 4rem 0; /* Plus de padding */
+
+  color: var(--gray);
+
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0; /* Seulement les coins supérieurs */
+
+  box-shadow: var(--shadow);
+
+  /* Image de fond pour le footer */
+
+  background-image: linear-gradient(
+      rgba(10, 25, 47, 0.9),
+      rgba(10, 25, 47, 0.95)
+    ),
+    url("../image/Fonds.png");
+
+  background-size: cover;
+
+  background-position: center bottom;
+
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.footer::before {
+  /* Pseudo-élément pour un léger effet de vague ou séparation */
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 10px; /* Hauteur de la "vague" */
+
+  background: linear-gradient(
+    to right,
+    var(--primary-dark),
+    var(--primary-light)
+  );
+
+  clip-path: ellipse(100% 100% at 50% 100%); /* Forme elliptique */
+
+  opacity: 0.2;
+}
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Plus flexible */
+
+  gap: 2.5rem; /* Plus d'espace */
+}
+
+.footer-grid h4 {
+  color: var(--primary-light); /* Titres de footer en couleur d'accent */
+
+  margin-bottom: 1.2rem;
+
+  font-size: 1.2rem;
+}
+
+.footer-grid p {
+  font-size: 0.95rem;
+
+  line-height: 1.6;
+
+  color: var(--gray);
+}
+
+.footer-grid a {
+  color: var(--gray);
+
+  text-decoration: none;
+
+  font-size: 0.95rem;
+
+  line-height: 2; /* Espacement entre les liens */
+
+  display: block; /* Chaque lien sur sa propre ligne */
+
+  transition: var(--transition);
+}
+
+.footer-grid a:hover {
+  color: var(--primary);
+
+  transform: translateX(5px);
+}
+
+/* Langues */
+
+.lang-selector-wrapper {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  background: var(--navy-soft);
+
+  border-radius: var(--radius-md);
+
+  padding: 0.5rem 0.8rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.lang-selector-wrapper i {
+  color: var(--primary);
+
+  margin-right: 0.5rem;
+
+  font-size: 1.1rem;
+}
+
+.lang-select {
+  padding: 0.4rem 0.2rem;
+
+  width: 100px; /* Fixer la largeur */
+
+  border-radius: var(--radius-md);
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--white);
+
+  font-size: 0.95rem;
+
+  appearance: none; /* Cache la flèche par défaut du select */
+
+  -webkit-appearance: none;
+
+  -moz-appearance: none;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.lang-select option {
+  background: var(--navy-soft);
+
+  color: var(--white);
+}
+
+/* Réseaux */
+
+.socials {
+  display: flex; /* Aligner les icônes horizontalement */
+
+  gap: 1.2rem; /* Espace entre les icônes */
+
+  margin-top: 0.5rem;
+}
+
+.socials a {
+  color: var(--gray);
+
+  font-size: 1.05rem;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  transition: var(--transition);
+}
+
+.socials a:hover {
+  color: var(--primary);
+
+  transform: translateY(-2px);
+}
+
+.socials a i {
+  font-size: 1.3rem;
+}
+
+/* FOOTER BOTTOM - COPYRIGHT */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    margin-top: 3rem;
+    text-align: center; /* <<< C'est la propriété clé pour centrer le texte */
+    font-size: 0.9em; /* Ou 0.9rem, selon votre système de mesure */
+    color: var(--muted);
+    font-weight: 600; /* Texte en semi-gras */
+
+    /* Ces deux lignes sont généralement déjà implicites pour un div,
+       mais les inclure ne fait pas de mal pour la clarté et la robustesse */
+    width: 100%;
+    display: block;
+}
+
+/* Cible le paragraphe directement à l'intérieur de .footer-bottom */
+.footer-bottom p {
+    margin: 0;   /* Supprime la marge supérieure et inférieure par défaut d'un paragraphe */
+    padding: 0;  /* Supprime le padding par défaut d'un paragraphe */
+    line-height: inherit; /* S'assure que la hauteur de ligne est héritée du parent */
+    color: inherit; /* S'assure que la couleur est héritée du parent */
+    font-weight: inherit; /* S'assure que le gras est hérité du parent */
+}
+
+.footer-bottom a {
+  color: var(--primary-light);
+
+  font-weight: 500;
+}
+
+.footer-bottom a:hover {
+  color: var(--primary);
+
+  text-decoration: underline;
+}
+
+/* ===============================================
+
+    RESPONSIVE DESIGN
+
+================================================ */
+
+/* TABLETTES (768px - 1024px) */
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 92%;
   }
-  
-  
+
+  /* HEADER */
+
+  .logo-text {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+
+    padding: 0.4rem 0.7rem;
+  }
+
+  /* HERO */
+
+  .hero {
+    grid-template-columns: 1fr; /* Une seule colonne sur tablette */
+
+    gap: 4rem;
+
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+
+    width: 90%; /* Limiter la largeur du titre */
+
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+
+    width: 85%;
+
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center; /* Centrer les boutons */
+  }
+
+  .hero-right {
+    margin-top: 0; /* Pas de marge supplémentaire */
+  }
+
+  .hero-cards {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* Deux colonnes si l'espace le permet */
+  }
+
+  /* SECTIONS */
+
+  .section {
+    margin-top: 5rem;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+
+    margin-bottom: 1.8rem;
+  }
+
+  /* Services */
+
+  .service-card {
+    padding: 1.8rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .icon-service {
+    font-size: 2.5rem;
+  }
+
+  /* ACCORDIONS */
+
+  .collapsible-container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .collapsible-item.card {
+    padding: 1.4rem 1.8rem;
+  }
+
+  .collapsible-header h3 {
+    font-size: 1.2rem;
+  }
+
+  /* CONTACT */
+
+  .contact-grid {
+    grid-template-columns: 1fr; /* Une seule colonne */
+
+    gap: 2.5rem;
+  }
+
+  .contact-info {
+    padding: 2.5rem;
+  }
+
+  /* FOOTER */
+
+  .footer {
+    padding: 3rem 0;
+  }
+
   .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
     gap: 2rem;
   }
-  
-  /* Langues */
-  .lang-select {
-    padding: 0.6rem;
-    width: 130px;
-    border-radius: var(--radius-md);
-    border: none;
+}
+
+/* TÉLÉPHONES (moins de 768px) */
+
+@media screen and (max-width: 768px) {
+  /* NAVBAR */
+
+  .nav-links {
+    display: none; /* Cache les liens par défaut */
+
+    flex-direction: column;
+
+    background: var(--navy-dark);
+
+    position: absolute;
+
+    top: 80px; /* Juste en dessous de la navbar */
+
+    left: 0;
+
+    width: 100%;
+
+    padding: 1rem 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+    z-index: 1000;
+
+    transform: translateY(-100%); /* Initialement caché vers le haut */
+
+    transition: transform 0.4s ease-out;
   }
-  
-  /* Réseaux */
-  .socials a {
-    display: inline-block;
-    margin-right: 0.7rem;
-    color: var(--gray);
-    text-decoration: none;
+
+  .nav-links.active {
+    display: flex; /* Affiche quand actif */
+
+    transform: translateY(0);
   }
-  
-  .socials a:hover {
-    color: var(--primary);
+
+  .nav-links a {
+    text-align: center;
+
+    padding: 0.8rem 0;
+
+    font-size: 1.1rem;
+
+    border-radius: 0; /* Pas de coins arrondis pour les liens de menu mobile */
   }
-  
-  /* Copyright */
-  .footer-copy {
-    grid-column: 1 / -1;
-    text-align: center;      
-    margin-top: 2rem;        
+
+  .nav-links a:hover {
+    background: var(--navy-soft);
+  }
+
+  .nav-links a::after {
+    display: none; /* Supprime l'effet de soulignement sur mobile */
+  }
+
+  .menu-toggle {
+    display: block; /* Affiche le bouton burger */
+  }
+
+  /* HERO */
+
+  .hero-title {
+    font-size: 2.2rem;
+
+    width: 100%;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+
+    width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column; /* Boutons l'un en dessous de l'autre */
+
+    gap: 1rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 80%; /* Boutons plus larges */
+
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  /* Follow Card */
+
+  .follow-card {
+    padding: 1.8rem;
+  }
+
+  .follow-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .follow-card p {
     font-size: 0.9rem;
-    opacity: 0.8;
   }
-  
-  
-  /* ===============================================
-     RESPONSIVE
-  ================================================ */
-  
-  @media screen and (max-width: 900px) {
-  
-    .hero {
-      grid-template-columns: 1fr;
-    }
-  
-    .hero-cards {
-      grid-template-columns: 1fr 1fr;
-    }
-  
-    .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
+
+  .follow-card input,
+  .follow-card button {
+    padding: 0.9rem;
+
+    font-size: 0.95rem;
   }
-  
-  @media screen and (max-width: 600px) {
-  
-    .nav-links { display: none; }
-  
-    .hero-cards {
-      grid-template-columns: 1fr;
-    }
-  
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
-  
-    .footer-copy {
-      text-align: center;
-    }
+
+  /* SECTIONS */
+
+  .section {
+    margin-top: 4rem;
   }
-  
+
+  .section h2 {
+    font-size: 1.8rem;
+
+    margin-bottom: 1.5rem;
+  }
+
+  /* Services & Accordions */
+
+  .collapsible-container {
+    grid-template-columns: 1fr; /* Une seule colonne */
+  }
+
+  .collapsible-item.card {
+    padding: 1.2rem 1.5rem; /* Ajuster le padding sur mobile */
+  }
+
+  .collapsible-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .collapsible-content p,
+  .collapsible-content ul li {
+    font-size: 0.9rem;
+  }
+
+  /* Contact */
+
+  .contact-form,
+  .contact-info {
+    padding: 2rem;
+  }
+
+  .contact-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .contact-info p {
+    font-size: 0.95rem;
+
+    flex-direction: column; /* Icône au-dessus du texte si nécessaire */
+
+    align-items: flex-start;
+
+    text-align: left;
+  }
+
+  .contact-info p i {
+    margin-bottom: 0.3rem; /* Espace sous l'icône */
+  }
+
+  /* FOOTER */
+
+  .footer-grid {
+    grid-template-columns: 1fr; /* Une seule colonne */
+
+    text-align: center;
+  }
+
+  .footer-grid h4 {
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-grid p,
+  .footer-grid a {
+    font-size: 0.88rem;
+  }
+
+  .footer-grid a {
+    line-height: 1.5;
+  }
+
+  .socials {
+    justify-content: center; /* Centrer les icônes sociales */
+
+    margin-top: 1rem;
+  }
+
+  .lang-selector-wrapper {
+    margin: 1.5rem auto 0; /* Centrer le sélecteur de langue */
+  }
+
+  .footer-bottom {
+    padding-top: 1.5rem;
+
+    margin-top: 2rem;
+
+    font-size: 0.85rem;
+  }
+}
+
+/* TRÈS PETITS TÉLÉPHONES (moins de 480px) */
+
+@media screen and (max-width: 480px) {
+  /* HEADER */
+
+  .logo-img {
+    width: 50px;
+
+    height: 50px;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  /* HERO */
+
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 95%; /* Boutons encore plus larges */
+
+    padding: 0.9rem 1.5rem;
+
+    font-size: 0.95rem;
+  }
+
+  /* Sections */
+
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .section-card {
+    padding: 1.8rem;
+  }
+
+  /* Accordions / Services */
+
+  .collapsible-item.card {
+    padding: 1rem 1.2rem;
+  }
+
+  .collapsible-header h3 {
+    font-size: 1rem;
+  }
+
+  .collapsible-content p,
+  .collapsible-content ul li {
+    font-size: 0.85rem;
+  }
+
+  .collapsible-content .small-btn {
+    padding: 0.7rem 1.2rem;
+
+    font-size: 0.85rem;
+  }
+
+  /* Contact */
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.9rem 1rem;
+
+    font-size: 0.9rem;
+  }
+
+  .contact-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .contact-info p {
+    font-size: 0.85rem;
+  }
+
+  .contact-info p i {
+    font-size: 1.1rem;
+  }
+
+  /* Footer */
+
+  .footer-grid {
+    gap: 1.5rem;
+  }
+
+  .footer-grid h4 {
+    font-size: 1.1rem;
+  }
+}
