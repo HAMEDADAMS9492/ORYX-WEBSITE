@@ -15,27 +15,24 @@
   --gray: #e2e8f0; /* Bordures et séparations douces */
   --text: #1e293b; /* Texte plus sombre pour la lisibilité */
   --muted: #64748b; /* Texte secondaire */
+  --text-light: #e0e6f0; /* Nouveau: Texte clair pour les fonds sombres (utilisé dans les stats) */
+  --primary-rgb: 94, 234, 212; /* Valeur RGB de --primary pour les ombres */
 
   --radius-lg: 30px; /* Plus arrondis pour la fluidité */
   --radius-md: 18px;
   --transition: 0.3s ease-out; /* Transition plus douce */
   --shadow: 0 25px 60px rgba(15, 23, 42, 0.18); /* Ombre plus prononcée mais douce */
   --shadow-soft: 0 15px 35px rgba(15, 23, 42, 0.12); /* Ombre légère */
+  --shadow-sm: 0 8px 18px rgba(15, 23, 42, 0.08); /* Petite ombre pour les cartes */
 }
 
 /* ===============================================
-
     RESET
-
 ================================================ */
-
 * {
   margin: 0;
-
   padding: 0;
-
   box-sizing: border-box;
-
   font-family: "Poppins", sans-serif; /* Police moderne et conviviale */
 }
 
@@ -45,34 +42,25 @@ html {
 
 body {
   background: var(--gray-light);
-
   color: var(--text);
-
   line-height: 1.7; /* Plus d'espace pour la lisibilité */
-
   -webkit-font-smoothing: antialiased;
-
   -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
   width: 90%; /* Un peu plus large pour le contenu */
-
   max-width: 1300px; /* Augmenter la largeur max */
-
   margin: auto;
 }
 
 /* Base pour les titres */
-
 h1,
 h2,
 h3,
 h4 {
   color: var(--text);
-
   font-weight: 700;
-
   letter-spacing: -0.02em;
 }
 
@@ -94,15 +82,12 @@ h4 {
 
 p {
   color: var(--muted);
-
   font-size: 1rem;
 }
 
 a {
   text-decoration: none;
-
   color: var(--primary);
-
   transition: var(--transition);
 }
 
@@ -111,130 +96,88 @@ a:hover {
 }
 
 /* ===============================================
-
     HEADER
-
 ================================================ */
-
 .main-header {
   background: var(--navy-dark); /* Couleur de base pour le dégradé */
-
   padding-bottom: 3.5rem; /* Plus d'espace en bas */
-
   color: var(--white);
-
   box-shadow: var(--shadow);
-
   border-radius: 0 0 var(--radius-lg) var(--radius-lg); /* Seuls les coins inférieurs */
-
   /* Image de fond pour le header principal */
-
   background-image: linear-gradient(
       rgba(10, 25, 47, 0.85),
       rgba(10, 25, 47, 0.95)
     ),
     url("../image/Fonds.png");
-
   background-size: cover;
-
   background-position: center bottom; /* Centre l'image et la positionne en bas */
-
   background-repeat: no-repeat;
-
   position: relative; /* Nécessaire pour le pseudo-élément */
-
   overflow: hidden; /* Masque les débordements */
 }
 
 /* NAVBAR */
-
 .nav {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   padding-top: 1.5rem; /* Plus d'espace en haut */
-
   padding-bottom: 1.5rem;
 }
 
 .logo-area {
   display: flex;
-
   align-items: center;
-
   gap: 0.8rem;
 }
 
-/* EXEMPLE DE MODIFICATION POUR UN LOGO PLUS GRAND */
 .logo-img {
-    width: 80px; /* Nouvelle taille, par exemple */
-    height: 80px; /* Nouvelle taille, par exemple */
-    object-fit: contain;
-    border-radius: 50%;
-    border: 3px solid var(--primary);
-    box-shadow: 0 0 15px rgba(94, 234, 212, 0.4);
+  width: 80px; /* Nouvelle taille, par exemple */
+  height: 80px; /* Nouvelle taille, par exemple */
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 15px rgba(94, 234, 212, 0.4);
 }
 
 .logo-text {
   font-size: 1.3rem; /* Plus grand */
-
   font-weight: 800; /* Moins épais, plus lisible */
-
   letter-spacing: 0.05em; /* Un peu plus d'espacement */
-
   color: var(--white); /* S'assure que le texte est blanc */
-
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Légère ombre pour le contraste */
 }
 
 .nav-links {
   display: flex;
-
   gap: 2rem; /* Plus d'espace entre les liens */
 }
 
 .nav-links a {
   color: var(--primary-light); /* Couleur des liens plus visible */
-
   text-decoration: none;
-
   font-weight: 600; /* Plus de poids */
-
   padding: 0.5rem 0.8rem;
-
   border-radius: var(--radius-md);
-
   transition: var(--transition);
-
   position: relative;
 }
 
 .nav-links a:hover {
   color: var(--white);
-
   background: rgba(94, 234, 212, 0.15); /* Fond légèrement coloré au survol */
 }
 
 .nav-links a::after {
   content: "";
-
   position: absolute;
-
   left: 50%;
-
   bottom: 0;
-
   transform: translateX(-50%) scaleX(0);
-
   width: 80%;
-
   height: 3px;
-
   background-color: var(--primary);
-
   transition: transform var(--transition);
 }
 
@@ -243,338 +186,219 @@ a:hover {
 }
 
 /* Menu Burger pour mobile */
-
 .menu-toggle {
   display: none; /* Cache par défaut */
-
   background: none;
-
   border: none;
-
   color: var(--primary-light);
-
   font-size: 1.8rem;
-
   cursor: pointer;
-
   transition: var(--transition);
 }
 
 /* ===============================================
-
     HERO
-
 ================================================ */
-
 .hero {
   margin-top: 4rem; /* Plus d'espace en haut */
-
   display: grid;
-
   grid-template-columns: 1.2fr 1fr; /* Léger ajustement */
-
   gap: 3rem; /* Plus d'espace entre les colonnes */
-
   align-items: center;
 }
 
 /* HERO LEFT */
-
 .hero-title {
   font-size: 3.2rem; /* Plus grand et impactant */
-
   font-weight: 900;
-
   line-height: 1.2; /* Meilleure lisibilité */
-
   color: var(--white);
-
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .hero-title .highlight {
-  /* Renommé en highlight pour la généralité */
-
   color: var(--primary); /* Couleur d'accentuation */
 }
 
 .hero-desc {
   margin-top: 1.5rem;
-
   font-size: 1.1rem; /* Plus grand */
-
   color: var(--primary-light); /* Couleur douce */
-
   width: 95%; /* Un peu plus large */
-
   opacity: 0.9;
 }
 
 .hero-actions {
   margin-top: 2.2rem; /* Plus d'espace */
-
   display: flex;
-
   gap: 1.2rem; /* Espace entre les boutons */
 }
 
 .btn-primary {
   background: var(--primary);
-
-  padding: 1rem 1.8rem; /* Plus grand */
-
-  color: var(--navy-dark); /* Texte foncé sur bouton clair */
-
+  padding: 1rem 1.8rem;
+  color: var(--navy-dark);
   border-radius: var(--radius-md);
-
   text-decoration: none;
-
   font-weight: 700;
-
   transition: var(--transition);
-
-  display: inline-flex; /* Pour centrer l'icône si ajoutée */
-
-  align-items: center;
-
+  display: inline-flex; /* Alignement moderne */
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  text-align: center; /* Centre le texte */
   gap: 0.5rem;
-
-  box-shadow: 0 10px 25px rgba(94, 234, 212, 0.4); /* Ombre plus visible */
-
-  border: 2px solid var(--primary); /* Bordure pour contraste */
+  box-shadow: 0 10px 25px rgba(94, 234, 212, 0.4);
+  border: 2px solid var(--primary);
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
-
   transform: translateY(-3px); /* Effet 3D léger */
-
   box-shadow: 0 15px 35px rgba(94, 234, 212, 0.5);
-
   border-color: var(--primary-dark);
 }
 
 .btn-outline {
   padding: 1rem 1.8rem;
-
   border: 2px solid var(--primary-light); /* Bordure plus visible */
-
   border-radius: var(--radius-md);
-
   color: var(--white);
-
   text-decoration: none;
-
   transition: var(--transition);
-
   display: inline-block;
-
   font-weight: 600;
-
   background: rgba(255, 255, 255, 0.05); /* Léger fond pour le contraste */
 }
 
 .btn-outline:hover {
   background: rgba(94, 234, 212, 0.15); /* Fond plus prononcé au survol */
-
   border-color: var(--primary);
-
   transform: translateY(-3px);
-
   color: var(--primary);
 }
 
 /* ===============================================
-
     HERO RIGHT — DEUX BLOCS ÉGAUX
-
 ================================================ */
-
 .hero-right {
   width: 100%;
-
   margin-top: 2rem; /* Pour aligner avec le contenu de gauche */
 }
 
 .hero-cards {
   display: grid;
-
   grid-template-columns: 1fr; /* Par défaut une colonne sur mobile */
-
   gap: 1.5rem; /* Plus d'espace */
 }
 
 /* STYLE DES DEUX BLOCS */
-
 .hero-card {
   background: var(--white);
-
   padding: 2rem; /* Plus de padding */
-
   border-radius: var(--radius-lg);
-
   box-shadow: var(--shadow-soft);
-
   min-height: 280px; /* Légèrement plus grand */
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
-
   border: 1px solid var(--gray); /* Bordure douce */
 }
 
 /* ================================
-
     Bloc A : Suivi Colis (Version Premium)
-
 ================================ */
-
 .follow-card {
   background: linear-gradient(
     135deg,
     var(--white),
     var(--gray-light)
   ); /* Léger dégradé */
-
   padding: 2.2rem; /* Plus de padding */
-
   border-radius: var(--radius-lg);
-
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
-
   border: 1px solid var(--gray);
-
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .follow-card:hover {
   transform: translateY(-6px); /* Effet plus prononcé */
-
   box-shadow: 0 25px 65px rgba(0, 0, 0, 0.15);
 }
 
 /* Titre du bloc */
-
 .follow-card h3 {
   font-weight: 800; /* Moins épais */
-
   font-size: 1.4rem; /* Plus grand */
-
   color: var(--text);
-
   margin-bottom: 0.8rem;
-
   letter-spacing: -0.01em;
-
   display: flex;
-
   align-items: center;
-
   gap: 0.6rem;
 }
 
 /* Description */
-
 .follow-card p {
   font-size: 1rem;
-
   margin-bottom: 1.5rem; /* Plus d'espace */
-
   color: var(--muted);
 }
 
 /* Champ texte */
-
 .follow-card form {
   display: flex;
-
   flex-direction: column;
-
   gap: 1rem; /* Espace entre input et button */
 }
 
 .follow-card input {
   width: 100%;
-
   padding: 1.1rem; /* Plus de padding */
-
   border-radius: 16px; /* Plus arrondis */
-
   border: 1px solid var(--gray);
-
   background: #f0f4f8; /* Fond plus doux */
-
   font-size: 1rem;
-
   color: var(--text);
-
   transition: border 0.25s ease, box-shadow 0.25s ease;
 }
 
 .follow-card input:focus {
   border-color: var(--primary-dark);
-
   background: var(--white);
-
   box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.3); /* Ombre focus plus claire */
-
   outline: none;
 }
 
 /* Bouton */
-
 .follow-card button {
   width: 100%;
-
   padding: 1rem; /* Plus de padding */
-
   border: none;
-
   border-radius: 16px;
-
   background: var(--primary);
-
   color: var(--navy-dark);
-
   font-weight: 700;
-
   font-size: 1.05rem; /* Plus grand */
-
   letter-spacing: 0.5px;
-
   cursor: pointer;
-
   box-shadow: 0 14px 30px rgba(94, 234, 212, 0.4);
-
   transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
 }
 
 .follow-card button:hover {
   background: var(--primary-dark);
-
   transform: translateY(-3px);
-
   box-shadow: 0 20px 40px rgba(94, 234, 212, 0.55);
 }
 
 /* Nouveau style pour le bloc de carte */
-
 .map-card {
   background: var(--white); /* Le fond sera la carte, mais garde un fallback */
-
   padding: 0; /* Pas de padding pour que la carte prenne tout l'espace */
-
   display: flex; /* Pour s'assurer que l'iframe remplit l'espace */
-
   justify-content: center;
-
   align-items: center;
-
   overflow: hidden; /* Important pour que la carte ne dépasse pas les bords arrondis */
-
   border: 1px solid var(--gray); /* Garder la bordure du thème */
 }
 
@@ -582,247 +406,272 @@ a:hover {
   border-radius: var(
     --radius-lg
   ); /* Appliquer le border-radius de la carte à l'iframe */
-
   width: 100%;
-
   height: 100%;
-
   display: block; /* Supprime l'espace en bas de l'iframe */
 }
-
 /* ===============================================
-
-    SECTIONS
-
+    SECTIONS (VERSION OPTIMISÉE ET CENTRÉE)
 ================================================ */
-
 .section {
-  margin-top: 6rem; /* Plus d'espace entre les sections */
-
+  margin-top: 6rem;
   position: relative;
-
-  z-index: 1; /* Assure que les sections sont au-dessus du body background si jamais */
+  z-index: 1;
 }
 
-.section h2 {
-  font-size: 2.2rem;
+/* Classe pour le conteneur du titre et sous-titre introductif (Ex: Qui sommes nous) */
+.intro-block {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto; /* Centre le bloc et augmente l'espace après */
+  padding: 3.5rem;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--gray);
+  position: relative;
+  z-index: 2;
+}
 
-  margin-bottom: 2rem; /* Plus d'espace */
-
-  font-weight: 800;
-
-  text-align: center; /* Centrer les titres de section */
-
+/* Assure que les titres à l'intérieur de ce bloc sont en couleur texte (noir) */
+.intro-block .section-title,
+.intro-block .section-subtitle {
   color: var(--text);
 }
+.intro-block .section-subtitle {
+  margin-bottom: 0;
+}
 
+.section-title {
+  font-size: 2.8rem; /* Plus grand pour plus d'impact */
+  font-weight: 800; /* Plus épais */
+  color: var(--text);
+  margin-bottom: 1.2rem; /* Plus d'espace sous le titre */
+  text-align: center; /* <<< CENTRAGE ASSURÉ */
+  position: relative; /* Pour positionner l'underline */
+  padding-bottom: 0.8rem; /* Espace pour l'underline */
+  letter-spacing: -0.03em;
+  display: block; /* Important pour que text-align: center fonctionne toujours */
+}
+
+/* Ligne de séparation sous le titre */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px; /* Largeur de la ligne */
+  height: 4px; /* Épaisseur de la ligne */
+  background: var(--primary); /* Couleur ORYX */
+  margin: 0.8rem auto 0 auto; /* Centrer et espacer la ligne */
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.section-subtitle {
+  font-size: 1.15rem; /* Légèrement plus grand */
+  color: var(--muted);
+  margin-bottom: 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7; /* Améliore la lisibilité */
+  text-align: center; /* <<< CENTRAGE ASSURÉ */
+}
+
+/* Cartes de contenu génériques */
 .section-card {
   background: var(--white);
-
-  padding: 2.5rem; /* Plus de padding */
-
+  padding: 2.8rem;
   border-radius: var(--radius-lg);
-
   box-shadow: var(--shadow-soft);
-
   border: 1px solid var(--gray);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
+    border-color 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+  border-color: var(--primary-light);
 }
 
 .section-card p {
   font-size: 1.05rem;
-
   line-height: 1.8;
+  color: var(--text);
 }
 
 .section-card .secondary-text {
-  margin-top: 1.5rem;
-
+  margin-top: 1.8rem;
   font-style: italic;
-
   color: var(--muted);
-
   font-size: 0.95rem;
+  border-top: 1px dashed var(--gray);
+  padding-top: 1.5rem;
 }
 
 /* Services cards */
-
-/* La classe .grid-4 est maintenant fusionnée avec .collapsible-container pour plus de cohérence
-
-   dans le cas où tous les éléments deviennent des accordéons.
-
-   Si certains éléments doivent rester des cartes simples, cette classe sera à réappliquer
-
-   sur un div conteneur séparé ou ajuster la structure.
-
-   Pour l'instant, on se base sur la structure HTML des accordéons.
-
-*/
-
-/* .grid-4 {
-
-    display: grid;
-
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-    gap: 1.8rem;
-
-} */
-
 .service-card {
-  /* Renommé pour plus de spécificité */
-
   background: var(--white);
-
-  padding: 2rem;
-
+  padding: 2.2rem;
   border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow-soft);
-
+  box-shadow: var(--shadow-sm);
   text-align: center;
-
   font-weight: 600;
-
   transition: var(--transition);
-
   border: 1px solid var(--gray);
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
-  justify-content: center;
-
+  justify-content: flex-start;
   gap: 0.8rem;
-
-  min-height: 220px;
+  min-height: 240px;
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
-
-  border-color: var(--primary-light);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.18);
+  border-color: var(--primary);
 }
 
 .service-card h3 {
-  font-size: 1.25rem;
-
+  font-size: 1.35rem;
   color: var(--text);
-
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .service-card p {
-  font-size: 0.95rem;
-
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
 }
 
 .icon-service {
-  font-size: 3rem; /* Icônes plus grandes */
-
+  font-size: 3.2rem;
   color: var(--primary);
-
-  margin-bottom: 1rem;
-
-  animation: pulse 2s infinite ease-in-out; /* Petite animation */
+  margin-bottom: 1.2rem;
+  transition: transform 0.4s ease-out, color 0.4s ease-out;
 }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(1.05);
-    opacity: 0.9;
-  }
-
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+.service-card:hover .icon-service {
+  transform: scale(1.1) rotate(5deg);
+  color: var(--primary-dark);
 }
-
 /* ===============================================
-
-    AJOUTS POUR LES ACCORDÉONS (Collapsible)
-
+    TITRES DE SECTIONS SPÉCIFIQUES (AJUSTEMENTS)
+    Pour Nos Services Last Mile B2B, Notre Flotte & Équipe, Notre Engagement RSE, Contact & partenariats
 ================================================ */
 
-/* Conteneur général des accordéons, surtout utile pour les grilles */
+/* Ciblage générique pour les H2 qui agissent comme titres de section */
+/* Si ces titres sont des h2 sans classe spécifique, ceci les stylisera comme .section-title */
+.section h2:not(.collapsible-header h3):not(.service-card h3),
+.who-we-are-title { /* Si .who-we-are-title est toujours utilisé pour l'un d'eux */
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.8rem;
+    letter-spacing: -0.03em;
+    display: block;
+}
 
+/* Ligne de séparation pour ces titres H2 */
+.section h2:not(.collapsible-header h3):not(.service-card h3)::after,
+.who-we-are-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 0.8rem auto 0 auto;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+/* Assurez-vous également que les sous-titres génériques (s'il y en a après ces H2) sont centrés */
+.section p:has(+ h2):not(.collapsible-content p) {
+    text-align: center;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    color: var(--muted);
+    font-size: 1.15rem;
+    margin-bottom: 2rem; /* Espacement après un sous-titre générique */
+}
+
+/* Pour le titre "Qui sommes nous" (si vous l'avez maintenu séparément du .intro-block) */
+/* C'est la même règle que .section-title maintenant */
+.who-we-are-title { /* Utilisé pour "Qui sommes nous" si pas dans intro-block */
+    /* Ces styles sont déjà dans .section h2, mais on les répète pour cibler si besoin */
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.8rem;
+    letter-spacing: -0.03em;
+    display: block;
+}
+
+.who-we-are-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 0.8rem auto 0 auto;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+/* ===============================================
+    AJOUTS POUR LES ACCORDÉONS (Collapsible)
+================================================ */
+/* Conteneur général des accordéons, surtout utile pour les grilles */
 .collapsible-container {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptatif */
-
   gap: 1.8rem; /* Espace comme vos autres grilles */
 }
 
 /* Style de base pour chaque élément d'accordéon (carte) */
-
 .collapsible-item.card {
   background: var(--white);
-
   padding: 1.5rem 2rem; /* Légèrement moins de padding pour les en-têtes */
-
   border-radius: var(--radius-lg);
-
   box-shadow: var(--shadow-soft);
-
   border: 1px solid var(--gray);
-
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
     border-color 0.3s ease;
-
   overflow: hidden; /* Important pour masquer le contenu initiallement et pour les border-radius */
-
   display: flex; /* Pour aligner le header et l'icône */
-
   flex-direction: column;
 }
 
 .collapsible-item.card:hover {
   transform: translateY(-5px);
-
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
-
   border-color: var(--primary-light);
 }
 
 /* En-tête de l'accordéon (le bouton cliquable) */
-
 .collapsible-header {
   background: none; /* Pas de fond de bouton */
-
   border: none;
-
   width: 100%;
-
   text-align: left;
-
   padding: 0; /* Pas de padding car il est géré par .collapsible-item */
-
   cursor: pointer;
-
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   font-size: 1.25rem; /* Taille du titre */
-
   font-weight: 700;
-
   color: var(--text);
-
   transition: color var(--transition);
 }
 
@@ -832,177 +681,258 @@ a:hover {
 
 .collapsible-header h3 {
   margin: 0; /* Supprime le margin par défaut du h3 */
-
   font-size: 1.3rem; /* Ajuster la taille du h3 dans l'en-tête */
-
   color: inherit; /* Hérite la couleur du parent .collapsible-header */
-
   display: flex;
-
   align-items: center;
-
   gap: 1rem; /* Espace entre le texte du titre et l'icône de service */
 }
 
 /* Icône de bascule (flèche) */
-
 .collapsible-header .toggle-icon {
   font-size: 1.2rem; /* Taille de l'icône flèche */
-
   color: var(--primary);
-
   transition: transform var(--transition);
 }
 
 /* Rotation de l'icône quand l'accordéon est actif */
-
 .collapsible-header.active .toggle-icon {
   transform: rotate(180deg);
 }
 
 /* Contenu de l'accordéon */
-
 .collapsible-content {
   max-height: 0; /* Caché par défaut */
-
   overflow: hidden;
-
   transition: max-height var(--transition); /* Transition pour l'animation de déploiement */
-
   padding-top: 0; /* Pas de padding quand caché */
-
   opacity: 0; /* Caché par défaut */
-
   transition: max-height var(--transition), opacity var(--transition);
 }
 
 /* Style du contenu une fois visible */
-
 .collapsible-header.active + .collapsible-content {
   padding-top: 1rem; /* Padding une fois déroulé */
-
   opacity: 1; /* Visible */
 }
 
 .collapsible-content p {
   margin-bottom: 0.8rem; /* Espacement entre les paragraphes dans le contenu */
-
   font-size: 0.95rem; /* Taille de texte cohérente */
-
   color: var(--muted);
 }
 
 .collapsible-content ul {
   list-style-type: none; /* Enlève les puces par défaut */
-
   padding-left: 0;
-
   margin-bottom: 0.8rem;
 }
 
 .collapsible-content ul li {
   position: relative;
-
   padding-left: 1.8rem; /* Espace pour une puce personnalisée */
-
   margin-bottom: 0.5rem;
-
   font-size: 0.95rem;
-
   color: var(--muted);
 }
 
 .collapsible-content ul li::before {
   content: "\f058"; /* Icône de coche Font Awesome */
-
   font-family: "Font Awesome 5 Free";
-
   font-weight: 900;
-
   color: var(--primary);
-
   position: absolute;
-
   left: 0;
-
   top: 0;
 }
 
 /* Ajustement pour les boutons à l'intérieur des accordéons (ex: Rejoignez notre équipe) */
-
 .collapsible-content .small-btn {
   padding: 0.8rem 1.5rem;
-
   font-size: 0.9rem;
-
   margin-top: 1rem;
 }
 
 /* ===============================================
-
-    CONTACT
-
+    NOUVELLES RÈGLES POUR "COMMENT ÇA FONCTIONNE"
 ================================================ */
 
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* 4 colonnes, s'adapte sur mobile */
+  gap: 30px;
+  margin-top: 2rem;
+}
+
+.how-it-works-item {
+  background-color: var(--white); /* Fond clair pour les cartes */
+  border: 1px solid var(--gray); /* Bordure douce */
+  border-radius: var(--radius-lg); /* Coins arrondis */
+  padding: 30px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-soft); /* Légère ombre */
+  display: flex;
+  flex-direction: column;
+}
+
+.how-it-works-item:hover {
+  transform: translateY(-5px); /* Effet au survol */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.how-it-works-item .step-number {
+  font-size: 3.8rem; /* Grande taille pour les numéros */
+  font-weight: 800;
+  color: var(--primary); /* Couleur principale ORYX */
+  margin-bottom: 0.8rem; /* Espace sous le numéro */
+  line-height: 1; /* Empêche le numéro de prendre trop de hauteur */
+}
+
+.how-it-works-item h3 {
+  font-size: 1.7rem; /* Plus grand pour le titre de l'étape */
+  color: var(--text);
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+}
+
+.how-it-works-item p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.6;
+  flex-grow: 1; /* Permet aux paragraphes de prendre l'espace restant pour une hauteur uniforme */
+}
+
+/* ===============================================
+    SECTIONS - Ajout pour intro-block
+================================================ */
+/* Classe pour le conteneur du titre et sous-titre introductif */
+.intro-block {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto; /* Centre le bloc */
+  padding: 3.5rem; /* Ajoute du padding interne */
+  background: var(--white); /* Fond blanc */
+  border-radius: var(--radius-lg); /* Coins arrondis */
+  box-shadow: var(--shadow-soft); /* Ombre douce */
+  border: 1px solid var(--gray); /* Bordure légère */
+  position: relative; /* Pour le positionnement du bloc stats */
+  z-index: 2; /* S'assure qu'il est au-dessus du stats-section qui sera lié */
+}
+
+/* Texte des titres et sous-titres à l'intérieur de .intro-block */
+.intro-block .section-title,
+.intro-block .section-subtitle {
+  color: var(--text); /* Texte noir pour le titre */
+}
+
+.intro-block .section-subtitle {
+  margin-bottom: 0; /* Pas de marge en bas ici, gérée par le lien avec stats-section */
+}
+
+/* ===============================================
+    STATISTIQUES / CHIFFRES CLÉS (MISE À JOUR)
+================================================ */
+.stats-section {
+  padding: 4rem 0; /* Augmente légèrement le padding pour une meilleure séparation */
+  background: var(--white); /* Fond blanc pour les stats aussi */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  margin-top: -60px; /* Remonte la section stats pour la "rattacher" au bloc d'intro */
+  position: relative;
+  z-index: 1; /* Pour qu'il soit sous le bloc d'intro mais au-dessus d'autres éléments */
+  padding-top: calc(
+    4rem + 60px
+  ); /* Compense le margin-top négatif avec un padding-top */
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  text-align: center;
+  /* Ajoute un padding horizontal pour que le contenu ne soit pas collé sur les bords */
+  padding: 0 20px;
+}
+
+.stat-item {
+  padding: 30px 20px;
+  background: var(
+    --gray-light
+  ); /* Fond gris très clair pour les cartes individuelles */
+  border: 1px solid var(--gray); /* Bordure douce */
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 40px rgba(var(--primary-rgb), 0.2);
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--primary); /* Conserve la couleur d'accent pour les chiffres */
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-text {
+  font-size: 1rem;
+  color: var(--text); /* Texte noir pour les descriptions des stats */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+/* ===============================================
+    CONTACT
+================================================ */
 .contact-grid {
   display: grid;
-
   grid-template-columns: 1.5fr 1fr; /* Contact form plus large */
-
   gap: 3rem; /* Plus d'espace */
 }
 
 .contact-form {
   background: var(--white);
-
   padding: 2.5rem;
-
   border-radius: var(--radius-lg);
-
   box-shadow: var(--shadow-soft);
-
   border: 1px solid var(--gray);
-
   display: flex;
-
   flex-direction: column;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-
   padding: 1.1rem 1.2rem; /* Plus de padding */
-
   border-radius: var(--radius-md);
-
   border: 1px solid var(--gray);
-
   margin-bottom: 1.2rem; /* Plus d'espace */
-
   font-size: 1rem;
-
   color: var(--text);
-
   background: #f0f4f8;
-
   transition: border 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: var(--primary-dark);
-
   background: var(--white);
-
   box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.3);
-
   outline: none;
 }
 
 .contact-form textarea {
   min-height: 150px; /* Hauteur minimale plus grande */
-
   resize: vertical;
 }
 
@@ -1012,270 +942,179 @@ a:hover {
 
 .contact-info {
   background: var(--navy-soft);
-
   color: var(--white);
-
   padding: 2.8rem; /* Plus de padding */
-
   border-radius: var(--radius-lg);
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: center; /* Centrer verticalement */
-
   gap: 1.5rem; /* Augmente la respiration */
-
   /* Image de fond pour le bloc contact-info */
-
   background-image: linear-gradient(
       rgba(40, 55, 71, 0.85),
       rgba(40, 55, 71, 0.95)
     ),
     url("../image/Fonds.png");
-
   background-size: cover;
-
   background-position: center bottom;
-
   background-repeat: no-repeat;
-
   box-shadow: var(--shadow); /* Nouvelle ombre */
 }
 
 .contact-info h3 {
   font-size: 1.6rem; /* Plus grand */
-
-  margin-bottom: 1.2rem; /* Plus d'espace */
-
+  margin-bottom: 1.2rem;
   color: var(--primary-light); /* Couleur d'accent */
-
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .contact-info p {
   font-size: 1.05rem; /* Plus lisible */
-
   line-height: 1.8;
-
   display: flex;
-
   align-items: center;
-
   gap: 0.8rem; /* Espace icône et texte */
-
   color: var(--gray); /* Texte plus clair */
 }
 
 .contact-info p i {
   /* Style pour les icônes Font Awesome */
-
   font-size: 1.3rem;
-
   color: var(--primary);
-
   width: 25px; /* Largeur fixe pour alignement */
-
   text-align: center;
 }
 
 /* ===============================================
-
-    FOOTER 
-
+    FOOTER
 ================================================ */
-
 .footer {
   background: var(--navy-dark);
-
   margin-top: 6rem; /* Plus d'espace avant le footer */
-
   padding: 4rem 0; /* Plus de padding */
-
   color: var(--gray);
-
   border-radius: var(--radius-lg) var(--radius-lg) 0 0; /* Seulement les coins supérieurs */
-
   box-shadow: var(--shadow);
-
   /* Image de fond pour le footer */
-
   background-image: linear-gradient(
       rgba(10, 25, 47, 0.9),
       rgba(10, 25, 47, 0.95)
     ),
     url("../image/Fonds.png");
-
   background-size: cover;
-
   background-position: center bottom;
-
   background-repeat: no-repeat;
-
   position: relative;
-
   overflow: hidden;
 }
 
 .footer::before {
   /* Pseudo-élément pour un léger effet de vague ou séparation */
-
   content: "";
-
   position: absolute;
-
   top: 0;
-
   left: 0;
-
   width: 100%;
-
   height: 10px; /* Hauteur de la "vague" */
-
   background: linear-gradient(
     to right,
     var(--primary-dark),
     var(--primary-light)
   );
-
   clip-path: ellipse(100% 100% at 50% 100%); /* Forme elliptique */
-
   opacity: 0.2;
 }
 
 .footer-grid {
   display: grid;
-
   grid-template-columns: repeat(
     auto-fit,
     minmax(200px, 1fr)
   ); /* Plus flexible */
-
   gap: 2.5rem; /* Plus d'espace */
 }
 
 .footer-grid h4 {
   color: var(--primary-light); /* Titres de footer en couleur d'accent */
-
   margin-bottom: 1.2rem;
-
   font-size: 1.2rem;
 }
 
 .footer-grid p {
   font-size: 0.95rem;
-
   line-height: 1.6;
-
   color: var(--gray);
 }
 
 .footer-grid a {
   color: var(--gray);
-
   text-decoration: none;
-
   font-size: 0.95rem;
-
   line-height: 2; /* Espacement entre les liens */
-
   display: block; /* Chaque lien sur sa propre ligne */
-
   transition: var(--transition);
 }
 
 .footer-grid a:hover {
   color: var(--primary);
-
   transform: translateX(5px);
 }
 
 /* Langues */
-
 .lang-selector-wrapper {
   position: relative;
-
   display: inline-flex;
-
   align-items: center;
-
   background: var(--navy-soft);
-
   border-radius: var(--radius-md);
-
   padding: 0.5rem 0.8rem;
-
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .lang-selector-wrapper i {
   color: var(--primary);
-
   margin-right: 0.5rem;
-
   font-size: 1.1rem;
 }
 
 .lang-select {
   padding: 0.4rem 0.2rem;
-
   width: 100px; /* Fixer la largeur */
-
   border-radius: var(--radius-md);
-
   border: none;
-
   background: transparent;
-
   color: var(--white);
-
   font-size: 0.95rem;
-
   appearance: none; /* Cache la flèche par défaut du select */
-
   -webkit-appearance: none;
-
   -moz-appearance: none;
-
   cursor: pointer;
-
   outline: none;
 }
 
 .lang-select option {
   background: var(--navy-soft);
-
   color: var(--white);
 }
 
 /* Réseaux */
-
 .socials {
   display: flex; /* Aligner les icônes horizontalement */
-
   gap: 1.2rem; /* Espace entre les icônes */
-
   margin-top: 0.5rem;
 }
 
 .socials a {
   color: var(--gray);
-
   font-size: 1.05rem;
-
   display: inline-flex;
-
   align-items: center;
-
   gap: 0.5rem;
-
   transition: var(--transition);
 }
 
 .socials a:hover {
   color: var(--primary);
-
   transform: translateY(-2px);
 }
 
@@ -1285,108 +1124,418 @@ a:hover {
 
 /* FOOTER BOTTOM - COPYRIGHT */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 2rem;
-    margin-top: 3rem;
-    text-align: center; /* <<< C'est la propriété clé pour centrer le texte */
-    font-size: 0.9em; /* Ou 0.9rem, selon votre système de mesure */
-    color: var(--muted);
-    font-weight: 600; /* Texte en semi-gras */
-
-    /* Ces deux lignes sont généralement déjà implicites pour un div,
-       mais les inclure ne fait pas de mal pour la clarté et la robustesse */
-    width: 100%;
-    display: block;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--muted);
+  font-weight: 600;
+  width: 100%;
+  display: block;
 }
 
 /* Cible le paragraphe directement à l'intérieur de .footer-bottom */
 .footer-bottom p {
-    margin: 0;   /* Supprime la marge supérieure et inférieure par défaut d'un paragraphe */
-    padding: 0;  /* Supprime le padding par défaut d'un paragraphe */
-    line-height: inherit; /* S'assure que la hauteur de ligne est héritée du parent */
-    color: inherit; /* S'assure que la couleur est héritée du parent */
-    font-weight: inherit; /* S'assure que le gras est hérité du parent */
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  color: inherit;
+  font-weight: inherit;
 }
 
 .footer-bottom a {
   color: var(--primary-light);
-
   font-weight: 500;
 }
 
 .footer-bottom a:hover {
   color: var(--primary);
-
   text-decoration: underline;
+}
+/* ===============================================
+    CHATBOT STYLES
+================================================ */
+
+#chatbot-container {
+    position: fixed;
+    bottom: 30px; /* Distance du bas */
+    right: 30px; /* Distance de la droite */
+    z-index: 9999; /* Toujours au-dessus des autres éléments */
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased; /* Meilleur rendu des polices */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Bouton / Icône du Chatbot */
+.chatbot-toggle {
+    background: var(--primary); /* Couleur principale de votre thème */
+    border: none;
+    border-radius: 50%; /* Bouton rond */
+    width: 60px; /* Taille de l'icône */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.4); /* Ombre basée sur la couleur principale */
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+    outline: none; /* Supprime le contour au focus */
+}
+
+.chatbot-toggle:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(var(--primary-rgb), 0.6);
+}
+
+.chatbot-logo-icon {
+    width: 40px; /* Taille du logo à l'intérieur du bouton rond du chatbot */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: contain;
+    /* Optionnel: pour qu'il ressemble encore plus au logo du header */
+    /* border: 1px solid rgba(255,255,255,0.3); */
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e74c3c; /* Rouge vif pour la notification */
+    color: var(--white);
+    border-radius: 50%;
+    padding: 3px 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 24px; /* Pour un cercle parfait même avec 1 chiffre */
+    height: 24px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Fenêtre du Chatbot */
+.chatbot-window {
+    position: absolute;
+    bottom: calc(100% + 15px); /* Positionne la fenêtre au-dessus du bouton */
+    right: 0;
+    width: 350px; /* Largeur de la fenêtre */
+    height: 450px; /* Hauteur de la fenêtre */
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow); /* Ombre globale de votre thème */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Pour les bords arrondis */
+
+    /* Animation d'apparition/disparition */
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s ease-out;
+    visibility: hidden; /* Caché par défaut */
+    pointer-events: none; /* Empêche les interactions quand invisible */
+}
+
+/* État "actif" / visible du chatbot */
+#chatbot-container.chatbot-active .chatbot-window {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    pointer-events: auto; /* Permet les interactions quand visible */
+}
+
+/* Header du Chatbot - Style Élégant */
+.chatbot-header {
+    background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy-soft) 100%); /* Dégradé élégant */
+    color: var(--white);
+    padding: 0.8rem 1.2rem; /* Légèrement réduit pour un look plus compact */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Bordure subtile */
+    border-top-left-radius: var(--radius-lg); /* Pour matcher la fenêtre */
+    border-top-right-radius: var(--radius-lg); /* Pour matcher la fenêtre */
+    font-size: 0.95em; /* Légèrement plus petit */
+}
+
+.chatbot-title {
+    font-size: 1.3rem; /* Plus grand et plus impactant */
+    font-weight: 700;
+    color: var(--primary-light); /* Couleur d'accentuation (votre #5eead4) */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espace entre l'emoji et le texte */
+    user-select: none; /* Empêche la sélection du texte du titre */
+}
+
+.chatbot-actions {
+    display: flex;
+    gap: 0.3rem; /* Espace réduit entre les boutons d'action */
+    align-items: center;
+}
+
+.chatbot-actions .lang-btn {
+    background: var(--primary-light); /* Fond avec votre couleur thème */
+    border: none;
+    cursor: pointer;
+    padding: 0.4em 0.8em; /* Padding ajusté */
+    border-radius: 8px;
+    transition: background var(--transition), transform var(--transition), color var(--transition);
+    font-size: 0.95rem; /* Taille du texte */
+    font-weight: 600; /* Pour une meilleure lisibilité */
+    color: var(--navy-dark); /* Texte sombre sur fond clair */
+    line-height: 1; /* Assure un bon alignement */
+    text-transform: uppercase; /* Pour un look pro */
+    outline: none; /* Supprime le contour au focus */
+}
+.chatbot-actions .lang-btn:hover {
+    background: var(--primary); /* Une teinte plus foncée au survol */
+    transform: translateY(-2px);
+    color: var(--white); /* Texte blanc au survol */
+}
+
+.close-chatbot-btn {
+    background: rgba(255, 255, 255, 0.08); /* Fond subtil pour le bouton fermer */
+    border: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.5em 0.7em; /* Padding ajusté */
+    border-radius: 8px;
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+    outline: none; /* Supprime le contour au focus */
+}
+
+.close-chatbot-btn:hover {
+    background: #e74c3c; /* Rouge au survol pour un effet "fermeture" */
+    color: var(--white);
+    transform: rotate(90deg); /* Effet sympa de rotation */
+}
+
+/* Zone de messages */
+.chatbot-messages {
+    flex-grow: 1; /* Prend l'espace disponible */
+    padding: 1.2rem;
+    overflow-y: auto; /* Défilement pour les longs historiques */
+    background: #fdfefe; /* Fond très clair pour les messages */
+    scroll-behavior: smooth; /* Défilement doux */
+}
+
+/* Barre de défilement personnalisée (Webkit) */
+.chatbot-messages::-webkit-scrollbar {
+    width: 6px;
+}
+.chatbot-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+.chatbot-messages::-webkit-scrollbar-thumb {
+    background: var(--gray-medium);
+    border-radius: 10px;
+}
+.chatbot-messages::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-light);
+}
+
+.message {
+    padding: 0.8rem 1rem;
+    border-radius: 18px; /* Bords arrondis pour les bulles */
+    margin-bottom: 0.8rem;
+    max-width: 80%; /* Limite la largeur des messages */
+    line-height: 1.5;
+    word-wrap: break-word; /* Casse les longs mots */
+    font-size: 1rem;
+}
+
+.bot-message {
+    background: var(--gray-light); /* Fond clair pour les messages du bot */
+    color: var(--text);
+    margin-right: auto; /* Aligne à gauche */
+    border-top-left-radius: 5px; /* Angle vif en haut à gauche pour le bot */
+}
+
+.user-message {
+    background: var(--primary-light); /* Fond couleur thème pour les messages de l'utilisateur */
+    color: var(--navy-dark); /* Texte sombre sur fond clair */
+    margin-left: auto; /* Aligne à droite */
+    border-top-right-radius: 5px; /* Angle vif en haut à droite pour l'utilisateur */
+}
+
+/* Indication de frappe du bot */
+.bot-typing-message {
+    background: var(--gray-light);
+    color: var(--muted);
+    font-style: italic;
+    margin-right: auto;
+    border-top-left-radius: 5px;
+    padding: 0.8rem 1rem; /* Même padding que les autres messages */
+    border-radius: 18px;
+    animation: pulse 1.5s infinite ease-in-out;
+    max-width: fit-content; /* Pour que les ... ne prennent pas toute la largeur */
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+
+/* Zone de saisie */
+.chatbot-input-area {
+    display: flex;
+    padding: 1rem 1.2rem;
+    border-top: 1px solid var(--gray);
+    background: var(--white);
+}
+
+#chatbot-input {
+    flex-grow: 1; /* Prend la majeure partie de l'espace */
+    border: 1px solid var(--gray);
+    border-radius: 20px;
+    padding: 0.7rem 1.2rem;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+#chatbot-input:focus {
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.2); /* Ombre de focus subtile */
+}
+
+#chatbot-send-btn {
+    background: var(--primary); /* Couleur principale pour le bouton d'envoi */
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    color: var(--navy-dark); /* Couleur du texte/icône sur le bouton */
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background var(--transition), transform var(--transition);
+    outline: none; /* Supprime le contour au focus */
+}
+
+#chatbot-send-btn:hover {
+    background: var(--primary-dark); /* Teinte plus foncée au survol */
+    transform: scale(1.05);
+}
+
+
+/* Responsive pour le Chatbot */
+@media screen and (max-width: 768px) {
+    #chatbot-container {
+        bottom: 20px;
+        right: 20px;
+    }
+    .chatbot-toggle {
+        width: 55px;
+        height: 55px;
+    }
+    .chatbot-logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+    .notification-badge {
+        min-width: 22px;
+        height: 22px;
+        font-size: 0.75rem;
+    }
+    .chatbot-window {
+        width: 90vw; /* Prend 90% de la largeur de la vue */
+        max-width: 320px; /* Limite la taille même sur de petits écrans */
+        height: 400px; /* Ajuste la hauteur */
+        right: 0; /* Aligne à droite */
+        bottom: calc(100% + 10px);
+    }
+    .chatbot-header {
+        padding: 0.8rem 1rem;
+    }
+    .chatbot-title {
+        font-size: 1.2rem; /* Ajusté pour mobile */
+    }
+    .chatbot-actions .lang-btn {
+        padding: 0.3em 0.6em;
+        font-size: 0.9rem;
+    }
+    .close-chatbot-btn {
+        padding: 0.4em 0.6em;
+        font-size: 1rem;
+    }
+    .chatbot-messages {
+        padding: 1rem;
+    }
+    .message {
+        font-size: 0.9rem;
+    }
+    .chatbot-input-area {
+        padding: 0.8rem 1rem;
+    }
+    #chatbot-input {
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
+    }
+    #chatbot-send-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
 }
 
 /* ===============================================
-
     RESPONSIVE DESIGN
-
 ================================================ */
 
 /* TABLETTES (768px - 1024px) */
-
 @media screen and (max-width: 1024px) {
   .container {
     width: 92%;
   }
 
   /* HEADER */
-
   .logo-text {
     font-size: 1.2rem;
   }
-
   .nav-links {
     gap: 1.5rem;
   }
-
   .nav-links a {
     font-size: 0.95rem;
-
     padding: 0.4rem 0.7rem;
   }
 
   /* HERO */
-
   .hero {
     grid-template-columns: 1fr; /* Une seule colonne sur tablette */
-
     gap: 4rem;
-
     text-align: center;
   }
-
   .hero-title {
     font-size: 2.8rem;
-
     width: 90%; /* Limiter la largeur du titre */
-
     margin-left: auto;
-
     margin-right: auto;
   }
-
   .hero-desc {
     font-size: 1rem;
-
     width: 85%;
-
     margin-left: auto;
-
     margin-right: auto;
   }
-
   .hero-actions {
     justify-content: center; /* Centrer les boutons */
   }
-
   .hero-right {
     margin-top: 0; /* Pas de marge supplémentaire */
   }
-
   .hero-cards {
     grid-template-columns: repeat(
       auto-fit,
@@ -1395,369 +1544,401 @@ a:hover {
   }
 
   /* SECTIONS */
-
   .section {
     margin-top: 5rem;
   }
-
-  .section h2 {
-    font-size: 2rem;
-
-    margin-bottom: 1.8rem;
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
   }
 
   /* Services */
-
   .service-card {
     padding: 1.8rem;
   }
-
   .service-card h3 {
     font-size: 1.15rem;
   }
-
   .icon-service {
     font-size: 2.5rem;
   }
 
   /* ACCORDIONS */
-
   .collapsible-container {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
-
   .collapsible-item.card {
     padding: 1.4rem 1.8rem;
   }
-
   .collapsible-header h3 {
     font-size: 1.2rem;
   }
 
-  /* CONTACT */
-
-  .contact-grid {
-    grid-template-columns: 1fr; /* Une seule colonne */
-
-    gap: 2.5rem;
+  /* COMMENT ÇA FONCTIONNE */
+  .how-it-works-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* 2 colonnes sur tablette */
+    gap: 25px;
+  }
+  .how-it-works-item {
+    padding: 25px;
+  }
+  .how-it-works-item .step-number {
+    font-size: 3.2rem;
+  }
+  .how-it-works-item h3 {
+    font-size: 1.5rem;
+  }
+  .how-it-works-item p {
+    font-size: 0.95rem;
   }
 
+  /* STATISTIQUES (AJUSTEMENTS TABLETTE) */
+  .intro-block {
+    padding: 3rem; /* Ajuste le padding de l'intro-block */
+  }
+  .stats-section {
+    padding: 3.5rem 0; /* Réajuste légèrement le padding */
+    margin-top: -50px; /* Remonte un peu moins sur tablette */
+    padding-top: calc(3.5rem + 50px); /* Compense le margin-top */
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+    gap: 25px;
+    padding: 0 15px; /* Ajuste le padding horizontal */
+  }
+  .stat-number {
+    font-size: 3rem;
+  }
+  .stat-text {
+    font-size: 1rem;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    grid-template-columns: 1fr; /* Une seule colonne */
+    gap: 2.5rem;
+  }
   .contact-info {
     padding: 2.5rem;
   }
 
   /* FOOTER */
-
   .footer {
     padding: 3rem 0;
   }
-
   .footer-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-
     gap: 2rem;
   }
 }
 
 /* TÉLÉPHONES (moins de 768px) */
-
 @media screen and (max-width: 768px) {
   /* NAVBAR */
-
   .nav-links {
     display: none; /* Cache les liens par défaut */
-
     flex-direction: column;
-
     background: var(--navy-dark);
-
     position: absolute;
-
     top: 80px; /* Juste en dessous de la navbar */
-
     left: 0;
-
     width: 100%;
-
     padding: 1rem 0;
-
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-
     z-index: 1000;
-
     transform: translateY(-100%); /* Initialement caché vers le haut */
-
     transition: transform 0.4s ease-out;
   }
-
   .nav-links.active {
     display: flex; /* Affiche quand actif */
-
     transform: translateY(0);
   }
-
   .nav-links a {
     text-align: center;
-
     padding: 0.8rem 0;
-
     font-size: 1.1rem;
-
     border-radius: 0; /* Pas de coins arrondis pour les liens de menu mobile */
   }
-
   .nav-links a:hover {
     background: var(--navy-soft);
   }
-
   .nav-links a::after {
     display: none; /* Supprime l'effet de soulignement sur mobile */
   }
-
   .menu-toggle {
     display: block; /* Affiche le bouton burger */
   }
 
   /* HERO */
-
   .hero-title {
     font-size: 2.2rem;
-
     width: 100%;
   }
-
   .hero-desc {
     font-size: 0.95rem;
-
     width: 100%;
   }
-
   .hero-actions {
     flex-direction: column; /* Boutons l'un en dessous de l'autre */
-
     gap: 1rem;
   }
-
   .btn-primary,
   .btn-outline {
     width: 80%; /* Boutons plus larges */
-
     margin-left: auto;
-
     margin-right: auto;
   }
 
   /* Follow Card */
-
   .follow-card {
     padding: 1.8rem;
   }
-
   .follow-card h3 {
     font-size: 1.25rem;
   }
-
   .follow-card p {
     font-size: 0.9rem;
   }
-
   .follow-card input,
   .follow-card button {
     padding: 0.9rem;
-
     font-size: 0.95rem;
   }
 
   /* SECTIONS */
-
   .section {
     margin-top: 4rem;
   }
-
-  .section h2 {
+  .section-title {
     font-size: 1.8rem;
-
     margin-bottom: 1.5rem;
   }
 
   /* Services & Accordions */
-
   .collapsible-container {
     grid-template-columns: 1fr; /* Une seule colonne */
   }
-
   .collapsible-item.card {
     padding: 1.2rem 1.5rem; /* Ajuster le padding sur mobile */
   }
-
   .collapsible-header h3 {
     font-size: 1.1rem;
   }
-
   .collapsible-content p,
   .collapsible-content ul li {
     font-size: 0.9rem;
   }
 
-  /* Contact */
+  /* COMMENT ÇA FONCTIONNE */
+  .how-it-works-grid {
+    grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    gap: 20px;
+  }
+  .how-it-works-item {
+    padding: 20px;
+    text-align: center; /* Centrer le texte pour mobile */
+  }
+  .how-it-works-item .step-number {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  .how-it-works-item h3 {
+    font-size: 1.3rem;
+  }
+  .how-it-works-item p {
+    font-size: 0.9rem;
+  }
 
+  /* STATISTIQUES (AJUSTEMENTS TÉLÉPHONE) */
+  .intro-block {
+    padding: 2.5rem; /* Ajuste le padding de l'intro-block */
+  }
+  .stats-section {
+    padding: 3rem 0;
+    margin-top: -40px; /* Remonte un peu moins sur téléphone */
+    padding-top: calc(3rem + 40px);
+  }
+  .stats-grid {
+    grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    gap: 20px;
+    padding: 0 10px; /* Ajuste le padding horizontal */
+  }
+  .stat-item {
+    padding: 25px 15px; /* Ajuste le padding des items */
+  }
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  .stat-text {
+    font-size: 0.95rem;
+  }
+
+  /* Contact */
   .contact-form,
   .contact-info {
     padding: 2rem;
   }
-
   .contact-info h3 {
     font-size: 1.4rem;
   }
-
   .contact-info p {
     font-size: 0.95rem;
-
     flex-direction: column; /* Icône au-dessus du texte si nécessaire */
-
     align-items: flex-start;
-
     text-align: left;
   }
-
   .contact-info p i {
     margin-bottom: 0.3rem; /* Espace sous l'icône */
   }
 
   /* FOOTER */
-
   .footer-grid {
     grid-template-columns: 1fr; /* Une seule colonne */
-
     text-align: center;
   }
-
   .footer-grid h4 {
     margin-bottom: 0.8rem;
   }
-
   .footer-grid p,
   .footer-grid a {
     font-size: 0.88rem;
   }
-
   .footer-grid a {
     line-height: 1.5;
   }
-
   .socials {
     justify-content: center; /* Centrer les icônes sociales */
-
     margin-top: 1rem;
   }
-
   .lang-selector-wrapper {
     margin: 1.5rem auto 0; /* Centrer le sélecteur de langue */
   }
-
   .footer-bottom {
     padding-top: 1.5rem;
-
     margin-top: 2rem;
-
     font-size: 0.85rem;
   }
 }
 
 /* TRÈS PETITS TÉLÉPHONES (moins de 480px) */
-
 @media screen and (max-width: 480px) {
   /* HEADER */
-
   .logo-img {
     width: 50px;
-
     height: 50px;
   }
-
   .logo-text {
     font-size: 1rem;
   }
 
   /* HERO */
-
   .hero-title {
     font-size: 1.9rem;
   }
-
   .hero-desc {
     font-size: 0.9rem;
   }
-
   .btn-primary,
   .btn-outline {
     width: 95%; /* Boutons encore plus larges */
-
     padding: 0.9rem 1.5rem;
-
     font-size: 0.95rem;
   }
 
   /* Sections */
-
   .section h2 {
     font-size: 1.6rem;
   }
-
   .section-card {
     padding: 1.8rem;
   }
 
-  /* Accordions / Services */
+  /* COMMENT ÇA FONCTIONNE */
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .section-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  .how-it-works-item {
+    padding: 18px;
+  }
+  .how-it-works-item .step-number {
+    font-size: 2.5rem;
+  }
+  .how-it-works-item h3 {
+    font-size: 1.2rem;
+  }
+  .how-it-works-item p {
+    font-size: 0.85rem;
+  }
 
+  /* STATISTIQUES (AJUSTEMENTS TRÈS PETIT TÉLÉPHONE) */
+  .intro-block {
+    padding: 2rem; /* Ajuste le padding de l'intro-block */
+  }
+  .stats-section {
+    padding: 2.5rem 0;
+    margin-top: -30px; /* Moins de remontée sur très petit écran */
+    padding-top: calc(2.5rem + 30px);
+  }
+  .stats-grid {
+    padding: 0 5px; /* Ajuste le padding horizontal */
+  }
+  .stat-item {
+    padding: 20px 10px;
+  }
+  .stat-number {
+    font-size: 2rem;
+  }
+  .stat-text {
+    font-size: 0.9rem;
+  }
+
+  /* Accordions / Services */
   .collapsible-item.card {
     padding: 1rem 1.2rem;
   }
-
   .collapsible-header h3 {
     font-size: 1rem;
   }
-
   .collapsible-content p,
   .collapsible-content ul li {
     font-size: 0.85rem;
   }
-
   .collapsible-content .small-btn {
     padding: 0.7rem 1.2rem;
-
     font-size: 0.85rem;
   }
 
   /* Contact */
-
   .contact-form input,
   .contact-form textarea {
     padding: 0.9rem 1rem;
-
     font-size: 0.9rem;
   }
-
   .contact-info h3 {
     font-size: 1.2rem;
   }
-
   .contact-info p {
     font-size: 0.85rem;
   }
-
   .contact-info p i {
     font-size: 1.1rem;
   }
 
   /* Footer */
-
   .footer-grid {
     gap: 1.5rem;
   }
-
   .footer-grid h4 {
     font-size: 1.1rem;
   }

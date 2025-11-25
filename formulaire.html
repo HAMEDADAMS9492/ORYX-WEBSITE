@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postuler chez ORYX LOGISTIQUE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css"> <style>
+        /* Variables et styles de base pour le formulaire */
+        :root {
+            --primary: #5eead4; /* Couleur principale (vert-turquoise) */
+            --primary-dark: #2dd4bf;
+            --navy-dark: #0a192f; /* Couleur de texte sombre */
+            --text-color: #333;
+            --muted-text: #64748b;
+            --bg-light: #f8fafc; /* Fond clair */
+            --border-color: #e2e8f0;
+            --input-bg: #f0f4f8;
+            --input-border: #cbd5e1;
+            --focus-glow: rgba(94, 234, 212, 0.5);
+            --error-color: #ef4444;
+            --success-color: #22c55e;
+            --radius-md: 0.5rem;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .form-header h1 {
+            font-size: 2.8em;
+            color: var(--navy-dark);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .form-header p {
+            font-size: 1.1em;
+            color: var(--muted-text);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background-color: #fcfdfe;
+        }
+
+        .form-section legend {
+            font-size: 1.8em;
+            color: var(--navy-dark);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+            font-weight: 700;
+            display: block; /* Pour s'assurer que la bordure gauche s'applique bien */
+            width: fit-content; /* Pour que la bordure ne prenne pas toute la largeur */
+            padding-right: 15px; /* Espace après le texte */
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            color: var(--navy-dark);
+            font-size: 1em;
+        }
+
+        .form-group .input-wrapper {
+            position: relative;
+        }
+
+        .form-group .input-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted-text);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="date"],
+        .form-group input[type="number"],
+        .form-group select,
+        .form-group textarea {
+            width: calc(100% - 30px); /* Ajuster pour l'icône */
+            padding: 12px 15px;
+            padding-left: 45px; /* Espace pour l'icône */
+            border: 1px solid var(--input-border);
+            border-radius: var(--radius-md);
+            background-color: var(--input-bg);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+            padding-left: 15px; /* Pas d'icône pour textarea */
+        }
+
+        .form-group input[type="file"] {
+            padding-left: 15px; /* Pas d'icône pour input file */
+            border: 1px dashed var(--input-border);
+            background-color: var(--input-bg);
+            cursor: pointer;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px var(--focus-glow);
+            background-color: #ffffff;
+        }
+
+        .form-group input[type="file"]::file-selector-button {
+            background-color: var(--primary);
+            color: var(--navy-dark);
+            border: none;
+            padding: 10px 15px;
+            border-radius: var(--radius-md);
+            margin-right: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input[type="file"]::file-selector-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .form-group .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .form-group .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            accent-color: var(--primary);
+        }
+
+        .form-group .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: normal;
+            font-size: 0.9em;
+            color: var(--muted-text);
+        }
+
+        .form-group .checkbox-group a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .form-actions button {
+            background-color: var(--primary);
+            color: var(--navy-dark);
+            border: none;
+            padding: 15px 30px;
+            border-radius: var(--radius-md);
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(94, 234, 212, 0.3);
+        }
+
+        .form-actions button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .form-container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            .form-header h1 {
+                font-size: 2.2em;
+            }
+            .form-section legend {
+                font-size: 1.5em;
+                padding-left: 10px;
+            }
+            .form-group input[type="text"],
+            .form-group input[type="email"],
+            .form-group input[type="tel"],
+            .form-group input[type="date"],
+            .form-group input[type="number"],
+            .form-group select,
+            .form-group textarea {
+                padding-left: 15px; /* Réduire si pas d'icône sur mobile */
+            }
+             .form-group .input-wrapper i {
+                left: 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <header class="form-header">
+            <h1>Formulaire de candidature </h1>
+            <p>Rejoignez l'équipe ORYX LOGISTIQUE et participez à l'excellence de la livraison du dernier kilomètre.</p>
+        </header>
+
+        <form action="[URL_DE_TRAITEMENT_DU_FORMULAIRE]" method="POST" enctype="multipart/form-data">
+            
+            <fieldset class="form-section">
+                <legend>1. Informations Personnelles</legend>
+                <div class="form-group">
+                    <label for="nom">Nom <span style="color:var(--error-color);">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="nom" name="nom" placeholder="Votre nom de famille" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prénom <span style="color:var(--error-color);">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse e-mail <span style="color:var(--error-color);">*</span></label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="votre.email@example.com" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="telephone" name="telephone" placeholder="Ex: 06 12 34 56 78">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse Postale</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <input type="text" id="adresse" name="adresse" placeholder="Numéro, rue, code postal, ville">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>2. Expérience et Compétences</legend>
+                <div class="form-group">
+                    <label for="poste_souhaite">Poste souhaité</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-briefcase"></i>
+                        <select id="poste_souhaite" name="poste_souhaite">
+                            <option value="">Sélectionnez un poste</option>
+                            <option value="livreur">Livreur / Chauffeur-Livreur</option>
+                            <option value="agent_logistique">Agent Logistique / Manutentionnaire</option>
+                            <option value="chef_equipe">Chef d'Équipe Logistique</option>
+                            <option value="autre">Autre (précisez dans la motivation)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Votre expérience pertinente (en quelques lignes)</label>
+                    <textarea id="experience" name="experience" placeholder="Décrivez brièvement vos expériences précédentes en logistique ou transport."></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="permis">Permis de conduire</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-id-card"></i>
+                        <select id="permis" name="permis">
+                            <option value="">Sélectionnez votre type de permis</option>
+                            <option value="b">Permis B (véhicules légers)</option>
+                            <option value="c">Permis C (poids lourds)</option>
+                            <option value="ce">Permis CE (poids lourds avec remorque)</option>
+                            <option value="d">Permis D (transport en commun)</option>
+                            <option value="aucun">Aucun (pour les postes hors conduite)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="vehicule">Disposez-vous d'un véhicule utilitaire ?</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-truck-pickup"></i>
+                        <select id="vehicule" name="vehicule">
+                            <option value="non">Non</option>
+                            <option value="oui">Oui</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>3. Votre Motivation et Documents</legend>
+                <div class="form-group">
+                    <label for="motivation">Lettre de motivation (texte libre)</label>
+                    <textarea id="motivation" name="motivation" placeholder="Exprimez votre intérêt pour ORYX LOGISTIQUE et le poste souhaité."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cv">Votre CV <span style="color:var(--error-color);">*</span> (PDF, Word - max 5 Mo)</label>
+                    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+                </div>
+                <div class="form-group">
+                    <label for="lm">Lettre de motivation (fichier, optionnel - max 5 Mo)</label>
+                    <input type="file" id="lm" name="lm" accept=".pdf,.doc,.docx">
+                </div>
+            </fieldset>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="rgpd_consent" name="rgpd_consent" required>
+                <label for="rgpd_consent">J'accepte la <a href="confidentialite.html" target="_blank">Politique de Confidentialité</a> et autorise ORYX LOGISTIQUE à traiter mes données pour ma candidature. <span style="color:var(--error-color);">*</span></label>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Envoyer ma candidature <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
