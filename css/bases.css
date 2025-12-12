@@ -1,0 +1,137 @@
+/* ===============================================
+   RÉINITIALISATION (RESET) ET STYLES DE BASE
+   Ce bloc assure la cohérence du rendu sur tous les navigateurs
+   et définit la structure globale du document (body, conteneur).
+================================================ */
+
+/* --- 🧹 RESET UNIVERSEL --- */
+* {
+    /* Supprime les marges et paddings par défaut des navigateurs */
+    margin: 0;
+    padding: 0;
+    /* Assure que le padding et la bordure sont inclus dans la taille totale de l'élément */
+    box-sizing: border-box;
+    /* Applique la police "Poppins" définie dans le HTML à tous les éléments */
+    font-family: "Poppins", sans-serif;
+}
+
+/* --- 🖱️ COMPORTEMENT DE DÉFILEMENT --- */
+html {
+    /* Active le défilement doux (smooth scrolling) pour les ancres (#liens) */
+    scroll-behavior: smooth;
+}
+
+/* --- 🖼️ STYLES DU CORPS (BODY) --- */
+body {
+    /* Applique la couleur d'arrière-plan définie dans les variables */
+    background: var(--gray-light);
+    /* Applique la couleur de texte principale */
+    color: var(--text);
+    /* Définit l'interligne pour une meilleure lisibilité */
+    line-height: 1.7;
+    /* Améliore le rendu des polices sur les systèmes Mac/Windows */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 📐 CONTENEUR PRINCIPAL (Layout) --- */
+.container {
+    /* Définit la largeur de base du contenu */
+    width: 90%;
+    /* Limite la largeur maximale pour les grands écrans */
+    max-width: 1300px;
+    /* Centre le conteneur horizontalement sur la page */
+    margin: auto;
+}
+
+/* --- ✍️ TYPOGRAPHIE ET HIERARCHIE --- */
+
+/* Styles génériques pour tous les titres (H1 à H4) */
+h1,
+h2,
+h3,
+h4 {
+    /* Couleur principale du texte */
+    color: var(--text);
+    /* Épaisseur de la police */
+    font-weight: 700;
+    /* Espacement léger entre les lettres (négatif pour resserrer un peu) */
+    letter-spacing: -0.02em;
+}
+
+/* Tailles spécifiques des titres */
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+/* Style de base des paragraphes */
+p {
+    /* Couleur du texte secondaire (muted) */
+    color: var(--muted);
+    /* Taille de police standard */
+    font-size: 1rem;
+}
+
+/* --- 🔗 HYPERLIENS --- */
+a {
+    /* Supprime le soulignement par défaut */
+    text-decoration: none;
+    /* Applique la couleur primaire du thème */
+    color: var(--primary);
+    /* Ajoute une transition douce pour les changements d'état */
+    transition: var(--transition);
+}
+
+a:hover {
+    /* Utilise la variante foncée de la couleur primaire au survol */
+    color: var(--primary-dark);
+}
+
+/* --- STYLES DES SECTIONS ET TITRES GLOBALS --- */
+
+.section-title {
+    /* Rendre le titre plus gras et grand */
+    font-size: 2.5rem; 
+    font-weight: 800; 
+    color: var(--title-color); 
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    
+    /* Ligne décorative sous le titre (exemple) */
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px; 
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 10px 0 30px 0; 
+    /* Si vous avez des titres centrés, utilisez : margin: 10px auto 30px auto; */
+}
+
+.section-subtitle {
+    /* Améliorer la lisibilité */
+    font-size: 1.15rem;
+    color: var(--text-color-secondary); 
+    line-height: 1.6;
+    margin-bottom: 40px; 
+    
+    /* Limiter la largeur et centrer le texte pour une meilleure lisibilité */
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}

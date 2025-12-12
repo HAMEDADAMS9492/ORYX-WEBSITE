@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postuler chez ORYX LOGISTIQUE</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css"> <style>
+    <title>Postuler chez ORYX TRANSPORT LOGISTICS</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
         /* Variables et styles de base pour le formulaire */
         :root {
             --primary: #5eead4; /* Couleur principale (vert-turquoise) */
@@ -76,9 +78,9 @@
             border-left: 4px solid var(--primary);
             padding-left: 15px;
             font-weight: 700;
-            display: block; /* Pour s'assurer que la bordure gauche s'applique bien */
-            width: fit-content; /* Pour que la bordure ne prenne pas toute la largeur */
-            padding-right: 15px; /* Espace après le texte */
+            display: block; 
+            width: fit-content; 
+            padding-right: 15px; 
         }
 
         .form-group {
@@ -112,9 +114,9 @@
         .form-group input[type="number"],
         .form-group select,
         .form-group textarea {
-            width: calc(100% - 30px); /* Ajuster pour l'icône */
+            width: calc(100% - 30px); 
             padding: 12px 15px;
-            padding-left: 45px; /* Espace pour l'icône */
+            padding-left: 45px; 
             border: 1px solid var(--input-border);
             border-radius: var(--radius-md);
             background-color: var(--input-bg);
@@ -127,11 +129,22 @@
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
-            padding-left: 15px; /* Pas d'icône pour textarea */
+            padding-left: 15px; 
+        }
+        
+        /* Correction pour les inputs de type select sans icône (ex: permis, vehicule) */
+        .form-group select {
+            padding-left: 45px; /* Assure le padding pour l'icône fa-briefcase */
+        }
+        
+        /* Ajustement si un select n'a pas d'icône: */
+        .form-group .input-wrapper:has(select):not(:has(i)) select {
+            padding-left: 15px;
         }
 
+
         .form-group input[type="file"] {
-            padding-left: 15px; /* Pas d'icône pour input file */
+            padding-left: 15px; 
             border: 1px dashed var(--input-border);
             background-color: var(--input-bg);
             cursor: pointer;
@@ -224,18 +237,17 @@
                 font-size: 1.5em;
                 padding-left: 10px;
             }
+            /* Sur mobile, on peut enlever l'icône si cela simplifie trop le CSS */
             .form-group input[type="text"],
             .form-group input[type="email"],
             .form-group input[type="tel"],
             .form-group input[type="date"],
             .form-group input[type="number"],
-            .form-group select,
-            .form-group textarea {
-                padding-left: 15px; /* Réduire si pas d'icône sur mobile */
+            .form-group select {
+                padding-left: 15px; 
             }
-             .form-group .input-wrapper i {
-                left: 10px;
-                font-size: 0.9em;
+            .form-group .input-wrapper i {
+                 display: none; /* Cache les icônes sur mobile pour simplifier l'input */
             }
         }
     </style>
@@ -243,8 +255,8 @@
 <body>
     <div class="form-container">
         <header class="form-header">
-            <h1>Formulaire de candidature </h1>
-            <p>Rejoignez l'équipe ORYX LOGISTIQUE et participez à l'excellence de la livraison du dernier kilomètre.</p>
+            <h1>Formulaire de candidature</h1>
+            <p>Rejoignez l'équipe ORYX TRANSPORT LOGISTICS et participez à l'excellence de la livraison du dernier kilomètre.</p>
         </header>
 
         <form action="[URL_DE_TRAITEMENT_DU_FORMULAIRE]" method="POST" enctype="multipart/form-data">
@@ -307,7 +319,7 @@
                     <label for="experience">Votre expérience pertinente (en quelques lignes)</label>
                     <textarea id="experience" name="experience" placeholder="Décrivez brièvement vos expériences précédentes en logistique ou transport."></textarea>
                 </div>
-                 <div class="form-group">
+                   <div class="form-group">
                     <label for="permis">Permis de conduire</label>
                     <div class="input-wrapper">
                         <i class="fas fa-id-card"></i>
@@ -337,7 +349,7 @@
                 <legend>3. Votre Motivation et Documents</legend>
                 <div class="form-group">
                     <label for="motivation">Lettre de motivation (texte libre)</label>
-                    <textarea id="motivation" name="motivation" placeholder="Exprimez votre intérêt pour ORYX LOGISTIQUE et le poste souhaité."></textarea>
+                    <textarea id="motivation" name="motivation" placeholder="Exprimez votre intérêt pour ORYX TRANSPORT LOGISTICS et le poste souhaité."></textarea>
                 </div>
                 <div class="form-group">
                     <label for="cv">Votre CV <span style="color:var(--error-color);">*</span> (PDF, Word - max 5 Mo)</label>
@@ -351,7 +363,7 @@
 
             <div class="form-group checkbox-group">
                 <input type="checkbox" id="rgpd_consent" name="rgpd_consent" required>
-                <label for="rgpd_consent">J'accepte la <a href="confidentialite.html" target="_blank">Politique de Confidentialité</a> et autorise ORYX LOGISTIQUE à traiter mes données pour ma candidature. <span style="color:var(--error-color);">*</span></label>
+                <label for="rgpd_consent">J'accepte la <a href="mentions-legales.html" target="_blank">Politique de Confidentialité</a> et autorise ORYX TRANSPORT LOGISTICS à traiter mes données pour ma candidature. <span style="color:var(--error-color);">*</span></label>
             </div>
 
             <div class="form-actions">
@@ -361,4 +373,3 @@
     </div>
 </body>
 </html>
-

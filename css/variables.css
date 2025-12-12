@@ -1,0 +1,43 @@
+/* ===============================================
+   DÉFINITION DES VARIABLES GLOBALES (Design Tokens)
+   Ce bloc définit les couleurs, tailles, ombres et transitions
+   utilisés dans tout le site, assurant une cohérence visuelle.
+================================================ */
+:root {
+    /* --- 🎨 PALETTE DE COULEURS DE BASE --- */
+    
+    /* COULEURS SECONDAIRES / FONCÉES (Arrière-plans, Header, Footer) */
+    --navy-dark: #0a192f;      /* Bleu marine très foncé (Base des fonds sombres) */
+    --navy: #1c2b42;           /* Bleu marine standard (Utilisé pour le contraste) */
+    --navy-soft: #283747;      /* Bleu marine doux (Fonds moins agressifs ou titres) */
+
+    /* COULEURS PRIMAIRES / ACCENT (Boutons, Icônes, Éléments interactifs) */
+    --primary: #5eead4;        /* Vert/Cyan vif (Couleur d'accentuation principale du thème) */
+    --primary-dark: #2dd4bf;   /* Variante plus foncée de l'accent (ex: au survol) */
+    --primary-light: #99f6e4;  /* Variante plus claire de l'accent (ex: fonds légers) */
+
+    /* COULEURS NEUTRES / TYPOGRAPHIE */
+    --white: #ffffff;          /* Blanc pur */
+    --gray-light: #f8fafc;     /* Gris très clair (Arrière-plans légers des sections) */
+    --gray: #e2e8f0;           /* Gris clair (Bordures, lignes de séparation) */
+    --text: #1e293b;           /* Gris très foncé (Couleur principale du texte pour le fond blanc) */
+    --muted: #64748b;          /* Gris moyen/bleuté (Texte secondaire ou descriptions) */
+    --text-light: #e0e6f0;     /* Texte clair (Utilisé sur les fonds --navy-dark) */
+    
+    /* UTILITAIRES DE COULEUR */
+    --primary-rgb: 94, 234, 212; /* Valeur RGB de --primary (Utilisée uniquement pour générer des ombres translucides) */
+
+    /* --- 📏 TAILLES & STYLISME --- */
+
+    /* RAYONS DE BORDURE (Border Radius) */
+    --radius-lg: 30px;         /* Grand rayon (Utilisé pour les cartes, blocs principaux) */
+    --radius-md: 18px;         /* Rayon moyen (Utilisé pour les boutons, champs de formulaire) */
+
+    /* TRANSITIONS */
+    --transition: 0.3s ease-out; /* Durée et type de transition (pour des animations douces) */
+
+    /* OMBRES (Box Shadow) */
+    --shadow: 0 25px 60px rgba(15, 23, 42, 0.18);   /* Ombre principale (pour les blocs mis en avant) */
+    --shadow-soft: 0 15px 35px rgba(15, 23, 42, 0.12); /* Ombre douce (pour les cartes ou blocs standards) */
+    --shadow-sm: 0 8px 18px rgba(15, 23, 42, 0.08); /* Petite ombre (pour les éléments discrets) */
+}

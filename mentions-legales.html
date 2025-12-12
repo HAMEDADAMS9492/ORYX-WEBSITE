@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales - ORYX LOGISTIQUE</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
+    <title>Mentions Légales - ORYX TRANSPORT LOGISTICS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-        /* Styles spécifiques pour les pages légales */
+        /* Styles spécifiques pour les pages légales (Basés sur votre proposition) */
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.8;
@@ -72,9 +74,10 @@
             font-size: 1em;
             color: #333;
         }
-
+        
+        /* Styles spécifiques pour les listes de Mentions Légales (avec la coche) */
         .legal-section ul {
-            list-style: none; /* Supprime les puces par défaut */
+            list-style: none;
             padding: 0;
             margin-bottom: 1em;
         }
@@ -86,12 +89,52 @@
             font-size: 1em;
             color: #333;
         }
-
-        .legal-section ul li::before {
-            content: "\f058"; /* Icône de coche Font Awesome */
+        
+        /* Style pour les listes de l'objet du site (pas de coche) */
+        .legal-section ul.plain-list li::before {
+            content: "\f054"; /* Icône de chevron (à adapter si vous préférez une puce simple) */
             font-family: "Font Awesome 5 Free";
             font-weight: 900;
-            color: #5eead4; /* Couleur de votre charte */
+            color: #64748b; /* Couleur plus neutre */
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 0.8em;
+        }
+        
+        .legal-section ul.plain-list {
+            list-style: none; 
+            padding-left: 25px; 
+            margin-bottom: 1em;
+        }
+        
+        .legal-section ul.plain-list li {
+            position: relative;
+            padding-left: 0; /* Réinitialiser le padding de base */
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: #333;
+        }
+        
+        /* Liste RGPD (avec la coche) */
+        .rgpd-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .rgpd-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .rgpd-list li::before {
+            content: "\f058"; 
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #5eead4; 
             position: absolute;
             left: 0;
             top: 0;
@@ -104,6 +147,11 @@
 
         .legal-section a:hover {
             color: #2dd4bf;
+        }
+        
+        .legal-section strong {
+            font-weight: 700;
+            color: #1e293b;
         }
 
         .legal-footer {
@@ -137,53 +185,89 @@
     <div class="legal-container">
         <header class="legal-header">
             <h1>Mentions Légales</h1>
-            <p>Informations obligatoires concernant le site internet d'ORYX LOGISTIQUE.</p>
+            <p>Conformes à la loi LCEN n°2004-575, au Code du Commerce et au RGPD.</p>
         </header>
 
         <section class="legal-section">
             <h2>1. Identification de l'Éditeur du Site</h2>
-            <p><strong>Nom de l'entreprise :</strong> ORYX LOGISTIQUE</p>
-            <p><strong>Forme juridique :</strong> [SARL, SAS, EURL, etc. - à compléter par vous]</p>
-            <p><strong>Adresse du siège social :</strong> [Votre Adresse Complète du Siège Social - à compléter par vous]</p>
-            <p><strong>Capital social :</strong> [Votre Capital Social en Euros - à compléter par vous]</p>
-            <p><strong>Numéro d'immatriculation (RCS/SIREN/SIRET) :</strong> [Votre Numéro d'Immatriculation au Registre du Commerce et des Sociétés ou SIREN/SIRET - à compléter par vous]</p>
-            <p><strong>Numéro de TVA intracommunautaire :</strong> [Votre Numéro de TVA, si applicable, ex: FRXX XXXXXXXXX - à compléter par vous]</p>
-            <p><strong>Adresse e-mail :</strong> [Votre Adresse E-mail de Contact - à compléter par vous]</p>
-            <p><strong>Numéro de téléphone :</strong> [Votre Numéro de Téléphone, si vous souhaitez l'afficher - à compléter par vous]</p>
-            <p><strong>Représentant légal et Directeur de la publication :</strong> [Nom du représentant légal, ex: M. Dupont, Gérant/Président - à compléter par vous]</p>
-            <p>Le site internet <a href="[Votre URL du site web]" target="_blank">www.oryxlogistique.com</a> (ou votre domaine réel) est la propriété de ORYX LOGISTIQUE.</p>
+            <p>Le site internet est la propriété de :</p>
+            <ul>
+                <li><strong>Dénomination sociale :</strong> ORYX TRANSPORT LOGISTICS</li>
+                <li><strong>Forme juridique :</strong> SASU</li>
+                <li><strong>Capital social :</strong> 15 000 €</li>
+                <li><strong>Siège social :</strong> 165 ROUTE DE VIENNE LYON 69008</li>
+                <li><strong>SIRET :</strong> 993597426 0010</li>
+                <li><strong>RCS :</strong> LYON</li>
+                <li><strong>Responsable de la publication :</strong> ALI MOCTAR Ousmane</li>
+                <li><strong>Adresse e-mail :</strong> <a href="mailto:contact@oryx-transport.fr">contact@oryx-transport.fr</a></li>
+                <li><strong>Numéro de téléphone :</strong> 0762688807</li>
+            </ul>
+            <p>Le site internet est la propriété exclusive de ORYX TRANSPORT LOGISTICS.</p>
         </section>
 
         <section class="legal-section">
             <h2>2. Hébergement du Site</h2>
-            <p><strong>Hébergeur :</strong> [Nom de l'Hébergeur, ex: OVH, Gandi, Amazon Web Services (AWS) - à compléter par vous]</p>
-            <p><strong>Adresse du siège social de l'hébergeur :</strong> [Adresse de l'Hébergeur - à compléter par vous]</p>
-            <p><strong>Numéro de téléphone de l'hébergeur :</strong> [Téléphone de l'Hébergeur - à compléter par vous]</p>
-            <p><strong>Site web de l'hébergeur :</strong> <a href="https://sitechecker.pro/fr/hosting-checker/" target="_blank">https://sitechecker.pro/fr/hosting-checker/</a></p>
+            <p>Le site est hébergé par :</p>
+            <ul>
+                <li><strong>Nom de l’hébergeur :</strong> IONOS</li>
+                <li><strong>Coordonnées de l'hébergeur :</strong> Le siège social de IONOS se situe à Montabaur, Allemagne. Vous pouvez trouver leurs informations de contact complètes sur leur site web.</li>
+            </ul>
+        </section>
+        
+        <section class="legal-section">
+            <h2>3. Objet du Site et Services</h2>
+            <p>Le site a pour objectif de présenter les services de l'entreprise et permettre la prise de contact. ORYX TRANSPORT LOGISTICS est spécialisée dans :</p>
+            <ul class="plain-list">
+                <li>La logistique du dernier kilomètre (Last Mile B2B)</li>
+                <li>Les tournées quotidiennes et programmées</li>
+                <li>Le tri, scannage et préparation des colis</li>
+                <li>L’acheminement et la livraison en entreprise</li>
+                <li>Le suivi en temps réel et l’optimisation des flux</li>
+                <li>Les solutions éco-responsables (flotte hybride/électrique)</li>
+            </ul>
         </section>
 
         <section class="legal-section">
-            <h2>3. Propriété Intellectuelle</h2>
-            <p>L'ensemble de ce site, y compris les textes, graphismes, logos, icônes, images, photographies, vidéos, sons, logiciels et tous autres éléments le composant, est la propriété exclusive d'ORYX LOGISTIQUE, à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.</p>
-            <p>Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable d'ORYX LOGISTIQUE.</p>
-            <p>Toute exploitation non autorisée du site ou de l'un quelconque des éléments qu'il contient sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de Propriété Intellectuelle.</p>
+            <h2>4. Propriété Intellectuelle</h2>
+            <p>L'ensemble de ce site (textes, logos, visuels, structures, etc.) est protégé par le Code de la Propriété Intellectuelle et appartient exclusivement à ORYX TRANSPORT LOGISTICS.</p>
+            <p>Toute reproduction, modification ou diffusion, même partielle, sans autorisation écrite préalable d'ORYX TRANSPORT LOGISTICS est strictement interdite et sera considérée comme constitutive d'une contrefaçon.</p>
+        </section>
+        
+        <section class="legal-section">
+            <h2>5. Données Personnelles et Droit des Utilisateurs (RGPD)</h2>
+            <p>ORYX TRANSPORT LOGISTICS collecte uniquement les informations nécessaires à la prise de contact et au traitement des demandes professionnelles (nom, email, téléphone, entreprise).</p>
+            
+            <h3>Vos droits</h3>
+            <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+            <ul class="rgpd-list">
+                <li>Droit d’accès aux données vous concernant.</li>
+                <li>Droit de rectification (mise à jour des données).</li>
+                <li>Droit d’opposition au traitement de vos données.</li>
+                <li>Droit à l’effacement des données (droit à l’oubli).</li>
+            </ul>
+            <p>Pour exercer ces droits, vous pouvez nous contacter à l’adresse : <strong><a href="mailto:contact@oryx-transport.fr">contact@oryx-transport.fr</a></strong></p>
+            <p>Les données sont conservées 3 ans maximum après le dernier échange.</p>
+        </section>
+        
+        <section class="legal-section">
+            <h2>6. Cookies</h2>
+            <p>Le site peut utiliser des cookies pour : améliorer l’expérience utilisateur, mesurer l’audience, et optimiser les performances. Vous avez la possibilité de paramétrer ou désactiver les cookies directement depuis les options de votre navigateur.</p>
         </section>
 
         <section class="legal-section">
-            <h2>4. Limitations de Responsabilité</h2>
-            <p>ORYX LOGISTIQUE ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site <a href="[Votre URL du site web]" target="_blank">www.oryxlogistique.com</a>, et résultant soit de l'utilisation d'un matériel ne répondant pas aux spécifications techniques (ex: incompatibilité), soit de l'apparition d'un bug ou d'une incompatibilité.</p>
-            <p>ORYX LOGISTIQUE ne pourra également être tenu responsable des dommages indirects (tels par exemple qu'une perte de marché ou perte d'une chance) consécutifs à l'utilisation du site <a href="[Votre URL du site web]" target="_blank">www.oryxlogistique.com</a>.</p>
-            <p>Des espaces interactifs (possibilité de poser des questions via le formulaire de contact) sont à la disposition des utilisateurs. ORYX LOGISTIQUE se réserve le droit de supprimer, sans mise en demeure préalable, tout contenu déposé dans cet espace qui contreviendrait à la législation applicable en France, en particulier aux dispositions relatives à la protection des données. Le cas échéant, ORYX LOGISTIQUE se réserve également la possibilité de mettre en cause la responsabilité civile et/ou pénale de l’utilisateur, notamment en cas de message à caractère raciste, injurieux, diffamant, ou pornographique, quel que soit le support utilisé (texte, photographie…).</p>
+            <h2>7. Limitation de Responsabilité</h2>
+            <p>ORYX TRANSPORT LOGISTICS ne peut être tenue responsable d’éventuels dommages directs et indirects (comme une perte de marché ou un dysfonctionnement lié à l’hébergeur) consécutifs à l'utilisation du site.</p>
+            <p>Des espaces interactifs (formulaire de contact) sont à disposition. L’entreprise se réserve le droit de supprimer tout contenu qui contreviendrait à la législation applicable (caractère raciste, injurieux, diffamant, etc.).</p>
         </section>
-
+        
         <section class="legal-section">
-            <h2>5. Droit Applicable et Attribution de Juridiction</h2>
-            <p>Tout litige en relation avec l’utilisation du site <a href="[Votre URL du site web]" target="_blank">www.oryxlogistique.com</a> est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents de [Ville de votre siège social - à compléter par vous].</p>
+            <h2>8. Droit Applicable et Attribution de Juridiction</h2>
+            <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les juridictions compétentes seront celles du siège social d’ORYX TRANSPORT LOGISTICS, à savoir : 165 ROUTE DE VIENNE LYON 69008.</p>
         </section>
 
         <footer class="legal-footer">
-            <p>Dernière mise à jour : 20 Novembre 2025</p>
-            <p>&copy; 2025 ORYX LOGISTIQUE. Tous droits réservés.</p>
+            <p>Dernière mise à jour : Décembre 2025</p>
+            <p>&copy; 2025 ORYX TRANSPORT LOGISTICS. Tous droits réservés.</p>
         </footer>
     </div>
 </body>

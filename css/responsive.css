@@ -1,0 +1,462 @@
+/* ===============================================
+   RESPONSIVE DESIGN
+   Gère l'adaptation de la mise en page (layout) et des
+   tailles (typographie, espacements) pour les différents
+   appareils : Tablettes (max 1024px) et Téléphones (max 768px).
+================================================ */
+
+/* --- 1. TABLETTES (max-width: 1024px) --- */
+@media screen and (max-width: 1024px) {
+    /* Conteneur principal: augmente la largeur pour utiliser plus d'espace */
+    .container {
+        width: 92%;
+    }
+
+    /* HEADER */
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    .nav-links {
+        gap: 1.5rem;
+    }
+    .nav-links a {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.7rem;
+    }
+
+    /* HERO (Section d'accueil) */
+    .hero {
+        grid-template-columns: 1fr; /* Passage à une seule colonne (empilement) */
+        gap: 4rem;
+        text-align: center;
+    }
+    /* Centrage et ajustement des tailles de texte */
+    .hero-title {
+        font-size: 2.8rem;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-desc {
+        font-size: 1rem;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-actions {
+        justify-content: center; /* Centrer les boutons d'appel à l'action */
+    }
+    .hero-right {
+        margin-top: 0;
+    }
+    .hero-cards {
+        /* Les cartes du Hero passent à 2 colonnes minimum */
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(300px, 1fr)
+        );
+    }
+
+    /* SECTIONS GÉNÉRALES */
+    .section {
+        margin-top: 5rem;
+    }
+    .section-title {
+        font-size: 2.2rem;
+    }
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Services */
+    .service-card {
+        padding: 1.8rem;
+    }
+    .service-card h3 {
+        font-size: 1.15rem;
+    }
+    .icon-service {
+        font-size: 2.5rem;
+    }
+
+    /* ACCORDIONS / FAQ */
+    .collapsible-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .collapsible-item.card {
+        padding: 1.4rem 1.8rem;
+    }
+    .collapsible-header h3 {
+        font-size: 1.2rem;
+    }
+
+    /* COMMENT ÇA FONCTIONNE (Steps) */
+    .how-it-works-grid {
+        /* 2 colonnes sur tablette */
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(300px, 1fr)
+        );
+        gap: 25px;
+    }
+    .how-it-works-item {
+        padding: 25px;
+    }
+    .how-it-works-item .step-number {
+        font-size: 3.2rem;
+    }
+    .how-it-works-item h3 {
+        font-size: 1.5rem;
+    }
+    .how-it-works-item p {
+        font-size: 0.95rem;
+    }
+
+    /* STATISTIQUES (AJUSTEMENTS TABLETTE) */
+    .intro-block {
+        padding: 3rem;
+    }
+    .stats-section {
+        padding: 3.5rem 0;
+        margin-top: -50px; /* Remonte le bloc sur l'intro-block */
+        padding-top: calc(3.5rem + 50px);
+    }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour les stats */
+        gap: 25px;
+        padding: 0 15px;
+    }
+    .stat-number {
+        font-size: 3rem;
+    }
+    .stat-text {
+        font-size: 1rem;
+    }
+
+    /* CONTACT (Formulaire et Info) */
+    .contact-grid {
+        grid-template-columns: 1fr; /* Passage à une seule colonne (empilement) */
+        gap: 2.5rem;
+    }
+    .contact-info {
+        padding: 2.5rem;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 3rem 0;
+    }
+    .footer-grid {
+        /* Les colonnes du footer s'adaptent, minimum 180px */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2rem;
+    }
+}
+
+/* --- 2. TÉLÉPHONES (max-width: 768px) --- */
+@media screen and (max-width: 768px) {
+    /* NAVBAR (Menu Burger) */
+    .nav-links {
+        display: none; /* Cache les liens par défaut */
+        flex-direction: column;
+        background: var(--navy-dark);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        transform: translateY(-100%); /* Masquage initial vers le haut */
+        transition: transform 0.4s ease-out;
+    }
+    .nav-links.active {
+        display: flex; /* Affiche le menu mobile */
+        transform: translateY(0);
+    }
+    .nav-links a {
+        text-align: center;
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+        border-radius: 0;
+    }
+    .nav-links a:hover {
+        background: var(--navy-soft);
+    }
+    .nav-links a::after {
+        display: none; /* Supprime le soulignement sur mobile pour un look plus clean */
+    }
+    .menu-toggle {
+        display: block; /* Affiche l'icône du menu burger */
+    }
+
+    /* HERO */
+    .hero-title {
+        font-size: 2.2rem;
+        width: 100%;
+    }
+    .hero-desc {
+        font-size: 0.95rem;
+        width: 100%;
+    }
+    .hero-actions {
+        flex-direction: column; /* Boutons en colonne (un en dessous de l'autre) */
+        gap: 1rem;
+    }
+    .btn-primary,
+    .btn-outline {
+        width: 80%; /* Augmente la taille des boutons pour un meilleur "touch target" */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Follow Card (Si elle est dans le Hero) */
+    .follow-card {
+        padding: 1.8rem;
+    }
+    .follow-card h3 {
+        font-size: 1.25rem;
+    }
+    .follow-card p {
+        font-size: 0.9rem;
+    }
+    .follow-card input,
+    .follow-card button {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    /* SECTIONS */
+    .section {
+        margin-top: 4rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Services & Accordions */
+    .collapsible-container {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+    .collapsible-item.card {
+        padding: 1.2rem 1.5rem;
+    }
+    .collapsible-header h3 {
+        font-size: 1.1rem;
+    }
+    .collapsible-content p,
+    .collapsible-content ul li {
+        font-size: 0.9rem;
+    }
+
+    /* COMMENT ÇA FONCTIONNE */
+    .how-it-works-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 20px;
+    }
+    .how-it-works-item {
+        padding: 20px;
+        text-align: center;
+    }
+    .how-it-works-item .step-number {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .how-it-works-item h3 {
+        font-size: 1.3rem;
+    }
+    .how-it-works-item p {
+        font-size: 0.9rem;
+    }
+
+    /* STATISTIQUES */
+    .intro-block {
+        padding: 2.5rem;
+    }
+    .stats-section {
+        padding: 3rem 0;
+        margin-top: -40px;
+        padding-top: calc(3rem + 40px);
+    }
+    .stats-grid {
+        grid-template-columns: 1fr; /* Une seule colonne pour un maximum de clarté */
+        gap: 20px;
+        padding: 0 10px;
+    }
+    .stat-item {
+        padding: 25px 15px;
+    }
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    .stat-text {
+        font-size: 0.95rem;
+    }
+
+    /* Contact */
+    .contact-form,
+    .contact-info {
+        padding: 2rem;
+    }
+    .contact-info h3 {
+        font-size: 1.4rem;
+    }
+    /* Les infos de contact passent en colonne pour mobile */
+    .contact-info p {
+        font-size: 0.95rem;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .contact-info p i {
+        margin-bottom: 0.3rem;
+    }
+
+    /* FOOTER */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        text-align: center;
+    }
+    .footer-grid h4 {
+        margin-bottom: 0.8rem;
+    }
+    .footer-grid p,
+    .footer-grid a {
+        font-size: 0.88rem;
+    }
+    .footer-grid a {
+        line-height: 1.5;
+    }
+    .socials {
+        justify-content: center; /* Centrer les icônes sociales */
+        margin-top: 1rem;
+    }
+    .lang-selector-wrapper {
+        margin: 1.5rem auto 0; /* Centrer le sélecteur de langue */
+    }
+    .footer-bottom {
+        padding-top: 1.5rem;
+        margin-top: 2rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* --- 3. TRÈS PETITS TÉLÉPHONES (max-width: 480px) --- */
+@media screen and (max-width: 480px) {
+    /* HEADER */
+    .logo-img {
+        width: 50px;
+        height: 50px;
+    }
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    /* HERO */
+    .hero-title {
+        font-size: 1.9rem;
+    }
+    .hero-desc {
+        font-size: 0.9rem;
+    }
+    .btn-primary,
+    .btn-outline {
+        width: 95%; /* Boutons presque pleine largeur */
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    /* Sections */
+    .section h2 {
+        font-size: 1.6rem;
+    }
+    .section-card {
+        padding: 1.8rem;
+    }
+
+    /* COMMENT ÇA FONCTIONNE */
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .section-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+    .how-it-works-item {
+        padding: 18px;
+    }
+    .how-it-works-item .step-number {
+        font-size: 2.5rem;
+    }
+    .how-it-works-item h3 {
+        font-size: 1.2rem;
+    }
+    .how-it-works-item p {
+        font-size: 0.85rem;
+    }
+
+    /* STATISTIQUES */
+    .intro-block {
+        padding: 2rem;
+    }
+    .stats-section {
+        padding: 2.5rem 0;
+        margin-top: -30px;
+        padding-top: calc(2.5rem + 30px);
+    }
+    .stats-grid {
+        padding: 0 5px;
+    }
+    .stat-item {
+        padding: 20px 10px;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .stat-text {
+        font-size: 0.9rem;
+    }
+
+    /* Accordions / Services */
+    .collapsible-item.card {
+        padding: 1rem 1.2rem;
+    }
+    .collapsible-header h3 {
+        font-size: 1rem;
+    }
+    .collapsible-content p,
+    .collapsible-content ul li {
+        font-size: 0.85rem;
+    }
+    .collapsible-content .small-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    /* Contact */
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.9rem 1rem;
+        font-size: 0.9rem;
+    }
+    .contact-info h3 {
+        font-size: 1.2rem;
+    }
+    .contact-info p {
+        font-size: 0.85rem;
+    }
+    .contact-info p i {
+        font-size: 1.1rem;
+    }
+
+    /* Footer */
+    .footer-grid {
+        gap: 1.5rem;
+    }
+    .footer-grid h4 {
+        font-size: 1.1rem;
+    }
+}
