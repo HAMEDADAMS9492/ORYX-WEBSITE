@@ -1,8 +1,12 @@
 /* ===============================================
-   CHATBOT STYLES
+   07. CHATBOT STYLES
+   Gère le bouton flottant, la fenêtre, les messages,
+   le formulaire d'envoi et les options prédéfinies.
 ================================================ */
 
-/* --- 1. CONTENEUR PRINCIPAL --- */
+/* ------------------------------------------------
+   1. Conteneur principal
+------------------------------------------------ */
 #chatbot-container {
     position: fixed;
     bottom: 30px;
@@ -13,7 +17,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- BOUTON CHATBOT --- */
+/* ------------------------------------------------
+   2. Bouton flottant du chatbot
+------------------------------------------------ */
 .chatbot-toggle {
     background: transparent;
     border: 4px solid rgba(94, 234, 212, 0.6);
@@ -34,7 +40,7 @@
     object-fit: contain;
 }
 
-/* --- BADGE --- */
+/* Badge de notification */
 .notification-badge {
     position: absolute;
     top: -5px;
@@ -51,7 +57,9 @@
     align-items: center;
 }
 
-/* --- 3. FENÊTRE --- */
+/* ------------------------------------------------
+   3. Fenêtre du chatbot
+------------------------------------------------ */
 .chatbot-window {
     position: absolute;
     bottom: calc(100% + 15px);
@@ -78,7 +86,9 @@
     pointer-events: auto;
 }
 
-/* --- HEADER --- */
+/* ------------------------------------------------
+   4. Header de la fenêtre
+------------------------------------------------ */
 .chatbot-header {
     background: linear-gradient(90deg, var(--navy-dark), var(--navy-soft));
     color: var(--white);
@@ -99,6 +109,7 @@
     gap: 0.3rem;
 }
 
+/* Boutons de langue */
 .lang-btn {
     background: var(--primary-light);
     border: none;
@@ -108,6 +119,7 @@
     cursor: pointer;
 }
 
+/* Bouton fermer */
 .close-chatbot-btn {
     background: rgba(255,255,255,0.1);
     border: none;
@@ -117,7 +129,9 @@
     border-radius: 8px;
 }
 
-/* --- MESSAGES --- */
+/* ------------------------------------------------
+   5. Messages
+------------------------------------------------ */
 .chatbot-messages {
     flex-grow: 1;
     padding: 1.2rem;
@@ -143,13 +157,15 @@
     margin-left: auto;
 }
 
-/* --- BOT TYPING --- */
+/* Message "typing" du bot */
 .bot-typing-message {
     font-style: italic;
     opacity: 0.7;
 }
 
-/* --- INPUT --- */
+/* ------------------------------------------------
+   6. Zone d’input
+------------------------------------------------ */
 .chatbot-input-area {
     display: flex;
     padding: 1rem;
@@ -173,10 +189,9 @@
     cursor: pointer;
 }
 
-/* ===============================================
-   ✅ OPTIONS PREDEFINIES (AJOUT)
-================================================ */
-
+/* ------------------------------------------------
+   7. Options prédéfinies (boutons rapides)
+------------------------------------------------ */
 .option-buttons {
     display: flex;
     flex-direction: column;
@@ -206,7 +221,9 @@
     transform: scale(0.97);
 }
 
-/* --- RESPONSIVE --- */
+/* ------------------------------------------------
+   8. Responsive
+------------------------------------------------ */
 @media screen and (max-width: 768px) {
     .chatbot-toggle {
         width: 55px;
@@ -223,26 +240,24 @@
         height: 400px;
     }
 }
-/* ===============================================
-   RESTAURATION DES BOUTONS LANGUE & FERMETURE
-================================================ */
 
-/* Boutons FR / EN */
+/* ------------------------------------------------
+   9. Restauration et animation des boutons langue & fermer
+------------------------------------------------ */
 .chatbot-actions .lang-btn {
     background: var(--primary-light);
     border: none;
     cursor: pointer;
     padding: 0.4em 0.8em;
     border-radius: 8px;
-    transition: 
-        background var(--transition),
-        transform var(--transition),
-        color var(--transition);
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--navy-dark);
     text-transform: uppercase;
     outline: none;
+    transition: background var(--transition),
+                transform var(--transition),
+                color var(--transition);
 }
 
 .chatbot-actions .lang-btn:hover {
@@ -251,7 +266,6 @@
     color: var(--white);
 }
 
-/* Bouton fermer X */
 .close-chatbot-btn {
     background: rgba(255, 255, 255, 0.08);
     border: none;
@@ -260,11 +274,10 @@
     cursor: pointer;
     padding: 0.5em 0.7em;
     border-radius: 8px;
-    transition: 
-        background var(--transition),
-        color var(--transition),
-        transform var(--transition);
     outline: none;
+    transition: background var(--transition),
+                color var(--transition),
+                transform var(--transition);
 }
 
 .close-chatbot-btn:hover {

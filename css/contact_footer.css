@@ -1,50 +1,50 @@
 /* ===============================================
-    05. SECTION CONTACT (Formulaire et Informations)
-    Gère la mise en page et le style du formulaire de contact
-    et du bloc d'informations pour la fin de page.
+   05. SECTION CONTACT
+   Formulaire et Informations
+   Gère la mise en page et le style du formulaire de contact
+   et du bloc d'informations à la fin de page
 ================================================ */
 
-/* --- 1. MISE EN PAGE DE LA GRILLE DE CONTACT --- */
+/* ------------------------------------------------
+   1. Grille générale de la section Contact
+------------------------------------------------ */
 .contact-grid {
     display: grid;
-    /* Mise en page : Formulaire (1.5x) | Info (1x) */
-    grid-template-columns: 1.5fr 1fr; 
-    gap: 3rem; 
+    grid-template-columns: 1.5fr 1fr; /* Formulaire (1.5x) | Info (1x) */
+    gap: 3rem;
 }
 
-/* --- 2. STYLE DU FORMULAIRE DE CONTACT (PARTIE GAUCHE) --- */
+/* ------------------------------------------------
+   2. Formulaire de Contact (partie gauche)
+------------------------------------------------ */
 .contact-form {
-    /* Style de la carte conteneur */
     background: var(--white);
     padding: 2.5rem;
     border-radius: var(--radius-lg);
-    /* Utilisation de la nouvelle ombre */
-    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1); 
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
     border: 1px solid var(--gray);
     display: flex;
     flex-direction: column;
 }
 
-/* Styles des champs INPUT et TEXTAREA */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 1.1rem 1.2rem;
     border-radius: var(--radius-md);
     border: 1px solid var(--gray);
-    margin-bottom: 1.2rem; /* Espacement régulier entre les champs */
+    margin-bottom: 1.2rem;
     font-size: 1rem;
     color: var(--text);
-    background: #f0f4f8; /* Fond légèrement gris pour le champ */
+    background: #f0f4f8;
     transition: border 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* État de FOCUS (quand le champ est sélectionné) */
 .contact-form input:focus,
 .contact-form textarea:focus {
     border-color: var(--primary-dark);
     background: var(--white);
-    box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.3); /* Ombre d'accentuation */
+    box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.3);
     outline: none;
 }
 
@@ -53,19 +53,17 @@
     resize: vertical;
 }
 
-/* AJOUT : Style spécifique du bouton de soumission pour l'aligner sur .btn-primary */
 .contact-form .btn-submit {
-    /* Utilisation des styles de .btn-primary */
     background: var(--primary);
     padding: 1rem 1.8rem;
     color: var(--navy-dark);
     border-radius: var(--radius-md);
     font-weight: 700;
-    transition: var(--transition);
     border: none;
     cursor: pointer;
     box-shadow: 0 10px 25px rgba(94, 234, 212, 0.4);
-    display: block; /* S'assure qu'il prend toute la largeur du formulaire */
+    display: block;
+    transition: var(--transition);
 }
 
 .contact-form .btn-submit:hover {
@@ -74,22 +72,21 @@
     box-shadow: 0 15px 35px rgba(94, 234, 212, 0.5);
 }
 
-/* --- 3. STYLE DU BLOC D'INFORMATIONS (PARTIE DROITE) --- */
+/* ------------------------------------------------
+   3. Bloc d'Informations (partie droite)
+------------------------------------------------ */
 .contact-info {
-    /* Fond thématique et coins */
     background: var(--navy-soft);
     color: var(--white);
     padding: 2.8rem;
     border-radius: var(--radius-lg);
-    
-    /* Centrage et espacement des éléments */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centre les éléments verticalement */
+    justify-content: center;
     gap: 1.5rem;
     box-shadow: var(--shadow);
 
-    /* Image de fond avec dégradé (Overlay) */
+    /* Image de fond avec overlay */
     background-image: linear-gradient(
             rgba(40, 55, 71, 0.85),
             rgba(40, 55, 71, 0.95)
@@ -103,7 +100,7 @@
 .contact-info h3 {
     font-size: 1.6rem;
     margin-bottom: 1.2rem;
-    color: var(--primary-light); /* Titre en couleur d'accent */
+    color: var(--primary-light);
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -117,42 +114,37 @@
 }
 
 .contact-info p i {
-    /* Style et alignement des icônes de contact */
     font-size: 1.3rem;
     color: var(--primary);
-    width: 25px; /* Largeur fixe pour alignement */
+    width: 25px;
     text-align: center;
 }
 
-/* -----------------------------------------------
-    Responsive Design pour la section Contact
+/* ------------------------------------------------
+   4. Responsive Design
 ------------------------------------------------ */
 @media screen and (max-width: 992px) {
     .contact-grid {
-        /* Passage en mode colonne sur les tablettes et mobiles */
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Colonne unique pour tablette/mobile */
     }
     .contact-info {
-        /* Réduit un peu le padding pour les mobiles */
         padding: 2rem;
     }
 }
 
-
 /* ===============================================
-    06. FOOTER (Pied de Page)
-    Gère la structure et le style du pied de page du site.
+   06. FOOTER
+   Structure et style du pied de page
 ================================================ */
+
+/* Pied de page général */
 .footer {
     background: var(--navy-dark);
     margin-top: 6rem;
     padding: 4rem 0;
     color: var(--gray);
-    /* Coins arrondis en haut seulement */
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0; 
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     box-shadow: var(--shadow);
-    
-    /* Image de fond avec dégradé */
     background-image: linear-gradient(
             rgba(10, 25, 47, 0.9),
             rgba(10, 25, 47, 0.95)
@@ -165,7 +157,7 @@
     overflow: hidden;
 }
 
-/* Pseudo-élément pour la séparation décorative (légère vague) */
+/* Séparation décorative */
 .footer::before {
     content: "";
     position: absolute;
@@ -173,29 +165,20 @@
     left: 0;
     width: 100%;
     height: 10px;
-    background: linear-gradient(
-        /* AJUSTEMENT : Utilisation de couleurs plus vives pour la ligne */
-        to right,
-        var(--primary), 
-        var(--primary-light)
-    );
-    clip-path: ellipse(100% 100% at 50% 100%); /* Forme elliptique */
-    opacity: 0.4; /* Opacité légèrement augmentée */
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+    clip-path: ellipse(100% 100% at 50% 100%);
+    opacity: 0.4;
 }
 
-/* --- 4. GRILLE DES COLONNES DU FOOTER --- */
+/* Grille des colonnes */
 .footer-grid {
     display: grid;
-    /* Grille adaptative pour les liens et informations */
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(200px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2.5rem;
 }
 
 .footer-grid h4 {
-    color: var(--primary-light); /* Titres de colonnes en couleur d'accent */
+    color: var(--primary-light);
     margin-bottom: 1.2rem;
     font-size: 1.2rem;
 }
@@ -210,7 +193,7 @@
     color: var(--gray);
     text-decoration: none;
     font-size: 0.95rem;
-    line-height: 2; /* Espacement entre les liens */
+    line-height: 2;
     display: block;
     transition: var(--transition);
 }
@@ -220,7 +203,7 @@
     transform: translateX(5px);
 }
 
-/* --- 5. SÉLECTEUR DE LANGUE --- */
+/* Sélecteur de langue */
 .lang-selector-wrapper {
     position: relative;
     display: inline-flex;
@@ -245,9 +228,7 @@
     background: transparent;
     color: var(--white);
     font-size: 0.95rem;
-    appearance: none; /* Cache la flèche par défaut */
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    appearance: none;
     cursor: pointer;
     outline: none;
 }
@@ -257,7 +238,7 @@
     color: var(--white);
 }
 
-/* --- 6. LIENS SOCIAUX --- */
+/* Liens sociaux */
 .socials {
     display: flex;
     gap: 1.2rem;
@@ -282,7 +263,7 @@
     font-size: 1.3rem;
 }
 
-/* --- 7. BAS DU FOOTER (COPYRIGHT) --- */
+/* Bas du footer - copyright */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;

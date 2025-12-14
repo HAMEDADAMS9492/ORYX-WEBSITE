@@ -31,7 +31,6 @@
 
       menuToggle.addEventListener("click", toggleMenu);
 
-      // Fermer le menu après avoir cliqué sur un lien (sur mobile)
       navLinks.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
           if (navLinks.classList.contains("active")) {
@@ -42,33 +41,61 @@
     }
 
     /* ----------------------------------------------------------
-          2. Accordéons (Collapsibles) - AMÉLIORÉ
+          2. Accordéons adaptatifs selon écran
         ---------------------------------------------------------- */
     const collapsibleHeaders = document.querySelectorAll(".collapsible-header");
 
-    collapsibleHeaders.forEach((header) => {
-      const toggleAccordion = (targetHeader, isOpening) => {
-        const content = targetHeader.nextElementSibling;
-        targetHeader.classList.toggle("active", isOpening);
-        targetHeader.setAttribute("aria-expanded", isOpening);
-        content.style.maxHeight = isOpening ? content.scrollHeight + "px" : "0";
-      };
+    const updateAccordionsByScreen = () => {
+      const isDesktop = window.innerWidth >= 1024;
 
+      collapsibleHeaders.forEach(header => {
+        const content = header.nextElementSibling;
+
+        if (isDesktop) {
+          // Ouvrir tous les blocs
+          header.classList.add("active");
+          header.setAttribute("aria-expanded", "true");
+          content.style.maxHeight = content.scrollHeight + "px";
+          // Désactiver le clic
+          header.style.pointerEvents = "none";
+        } else {
+          // Restaurer le comportement mobile
+          header.classList.remove("active");
+          header.setAttribute("aria-expanded", "false");
+          content.style.maxHeight = "0";
+          header.style.pointerEvents = "auto";
+        }
+      });
+    };
+
+    // Initialisation
+    updateAccordionsByScreen();
+
+    // Mise à jour si redimensionnement
+    window.addEventListener("resize", updateAccordionsByScreen);
+
+    // Toggle accordéon sur mobile
+    collapsibleHeaders.forEach((header) => {
       header.addEventListener("click", () => {
+        if (window.innerWidth >= 1024) return; // Pas de toggle sur desktop
+
         const isActive = header.classList.contains("active");
 
         // Fermer tous les autres accordéons
         collapsibleHeaders.forEach((otherHeader) => {
-          if (
-            otherHeader !== header &&
-            otherHeader.classList.contains("active")
-          ) {
-            toggleAccordion(otherHeader, false);
+          if (otherHeader !== header && otherHeader.classList.contains("active")) {
+            const otherContent = otherHeader.nextElementSibling;
+            otherHeader.classList.remove("active");
+            otherHeader.setAttribute("aria-expanded", "false");
+            otherContent.style.maxHeight = "0";
           }
         });
 
         // Ouvrir ou fermer l'accordéon actuel
-        toggleAccordion(header, !isActive);
+        const content = header.nextElementSibling;
+        header.classList.toggle("active", !isActive);
+        header.setAttribute("aria-expanded", !isActive);
+        content.style.maxHeight = !isActive ? content.scrollHeight + "px" : "0";
       });
     });
 
@@ -76,7 +103,7 @@
           3. Statistiques animées (Compteurs)
         ---------------------------------------------------------- */
     const statsSection = document.querySelector(".stats-section");
-    const speed = 200; // Durée de l'animation en "pas"
+    const speed = 200;
 
     const animateStat = (stat) => {
       const target = +stat.dataset.target;
@@ -112,209 +139,151 @@
 
     if (statsSection) observer.observe(statsSection);
 
-   /* -----------------------------
-   CHATBOT PROFESSIONNEL ORYX - BOOSTÉ
------------------------------ */
-const chatbotContainer = document.getElementById("chatbot-container");
-const chatbotToggle = document.getElementById("chatbot-toggle");
-const closeChatbotBtn = document.querySelector(".close-chatbot-btn");
-const chatbotInput = document.getElementById("chatbot-input");
-const chatbotSendBtn = document.getElementById("chatbot-send-btn");
-const chatbotMessages = document.querySelector(".chatbot-messages");
-const notificationBadge = chatbotToggle?.querySelector(".notification-badge");
+    /* -----------------------------
+       CHATBOT PROFESSIONNEL ORYX
+    ----------------------------- */
+    const chatbotContainer = document.getElementById("chatbot-container");
+    const chatbotToggle = document.getElementById("chatbot-toggle");
+    const closeChatbotBtn = document.querySelector(".close-chatbot-btn");
+    const chatbotInput = document.getElementById("chatbot-input");
+    const chatbotSendBtn = document.getElementById("chatbot-send-btn");
+    const chatbotMessages = document.querySelector(".chatbot-messages");
+    const notificationBadge = chatbotToggle?.querySelector(".notification-badge");
 
-// ⚡ Mise à jour des options
-const predefinedOptions = [
-  { text: "Demander un Devis", action: "devis" },
-  { text: "Travaillez avec nous", action: "recrutement" },
-  { text: "Informations de Contact", action: "contact" },
-];
-
-function addInitialOptions() {
-  if (chatbotMessages.querySelector(".option-buttons")) return;
-  const div = document.createElement("div");
-  div.className = "option-buttons";
-  predefinedOptions.forEach((opt) => {
-    const btn = document.createElement("button");
-    btn.textContent = opt.text;
-    btn.className = "option-button";
-    btn.dataset.action = opt.action;
-    btn.setAttribute("type", "button");
-    div.appendChild(btn);
-  });
-  chatbotMessages.appendChild(div);
-}
-
-function appendMessage(text, type) {
-  const div = document.createElement("div");
-  div.className = `message ${type}-message`;
-  div.innerHTML = text;
-  chatbotMessages.appendChild(div);
-  chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-}
-
-// ✅ FAQ simple côté frontend
-const faq = [
-  {
-    keywords: ["livraison", "délai", "temps", "rapidité", "combien de temps", "quand"],
-    answer:
-      "Nos livraisons standard sont effectuées sous 24 à 72 heures ouvrées. Des options express le jour même ou J+1 sont également disponibles selon la zone."
-  },
-  {
-    keywords: ["prix", "tarif", "coût", "facturation", "combien", "devis"],
-    answer:
-      "Les tarifs varient selon la distance, le volume et l’urgence. Pour un prix exact, veuillez remplir notre formulaire de demande de devis."
-  },
-  {
-    keywords: ["assurance", "sécurité", "protection", "perte", "casse"],
-    answer:
-      "Toutes nos expéditions sont assurées et suivies en temps réel. Vos marchandises sont protégées contre la perte et les dommages."
-  },
-  {
-    keywords: ["suivi", "tracking", "localisation", "où est", "statut"],
-    answer:
-      "Un suivi en temps réel est disponible pour chaque livraison. Vous recevez les mises à jour à chaque étape du transport."
-  },
-  {
-    keywords: ["zone", "zones", "couverture", "où", "villes", "pays"],
-    answer:
-      "ORYX couvre la majorité des zones urbaines et périurbaines dans le cadre des livraisons last mile. Contactez-nous pour une zone spécifique."
-  },
-  {
-    keywords: ["retour", "retours", "colis retourné", "échec"],
-    answer:
-      "Nous proposons une gestion optimisée des retours avec notification immédiate et reprogrammation rapide si nécessaire."
-  },
-  {
-    keywords: ["entrepôt", "stockage", "logistique", "warehouse"],
-    answer:
-      "Nous offrons des solutions de stockage temporaire et de gestion d’entrepôt adaptées aux besoins e-commerce et B2B."
-  },
-  {
-    keywords: ["entreprise", "professionnel", "b2b", "société"],
-    answer:
-      "Nos services sont pensés pour les entreprises, e-commerçants et partenaires logistiques souhaitant externaliser leur last mile."
-  },
-  {
-    keywords: ["service client", "support", "aide", "assistance"],
-    answer:
-      "Notre service client est disponible pour vous accompagner et répondre à vos demandes sous 24 heures maximum."
-  },
-  {
-    keywords: ["travailler", "emploi", "recrutement", "postuler", "job"],
-    answer:
-      "Nous recrutons régulièrement des profils logistiques et livreurs. Consultez notre page “Travaillez avec nous” pour postuler."
-  },
-  {
-    keywords: ["contact", "téléphone", "email", "joindre"],
-    answer:
-      "Vous pouvez nous joindre au +33 6 21 56 91 94 ou par email à oryx-logistique@gmail.fr. Nous sommes ravis de vous aider."
-  }
-];
-
-
-function getBotReply(msg) {
-  msg = msg.toLowerCase();
-
-  // Vérifier FAQ
-  for (let item of faq) {
-    if (item.keywords.some(k => msg.includes(k))) return item.answer;
-  }
-
-  // DEMANDE DE DEVIS
-  if (msg.includes("devis") || msg.includes("prix") || msg.includes("tarif") || msg.includes("coût") || msg.includes("offre")) {
-    const replies = [
-      "📨 Pour un devis précis, merci de remplir notre <a href='#contact'>formulaire de demande de devis B2B</a>.",
-      "Vous pouvez obtenir un devis rapidement via notre <a href='#contact'>formulaire de demande de devis</a>.",
-      "Notre équipe vous répondra sous 24h après votre <a href='#contact'>demande de devis</a>."
+    const predefinedOptions = [
+      { text: "Demander un Devis", action: "devis" },
+      { text: "Travaillez avec nous", action: "recrutement" },
+      { text: "Informations de Contact", action: "contact" },
     ];
-    return replies[Math.floor(Math.random()*replies.length)];
-  }
 
-  // TRAVAILLEZ AVEC NOUS / RECRUTEMENT
-  if (msg.includes("travaillez") || msg.includes("postuler") || msg.includes("candidature") || msg.includes("emploi") || msg.includes("stage")) {
-    const replies = [
-      "🤝 Rejoignez notre équipe dynamique ! Postulez via notre <a href='formulaire.html'>formulaire de candidature</a>.",
-      "Nous recrutons ! Remplissez le <a href='formulaire.html'>formulaire de candidature</a> pour nous rejoindre.",
-      "Faites partie de notre aventure logistique. Formulaire ici : <a href='formulaire.html'>candidature</a>."
-    ];
-    return replies[Math.floor(Math.random()*replies.length)];
-  }
-
-  // CONTACT / TELEPHONE / EMAIL
-if (msg.includes("contact") || msg.includes("téléphone") || msg.includes("email") || msg.includes("mail")) {
-  const replies = [
-    "☎️ Vous pouvez nous contacter directement au <a href='tel:+33621569194'>+33 6 21 56 91 94</a> ou par email à <a href='mailto:oryx-logistique@gmail.fr'>oryx-logistique@gmail.fr</a>.",
-    "Pour toute question, appelez-nous au +33 6 21 56 91 94 ou envoyez un email : <a href='mailto:oryx-logistique@gmail.fr'>oryx-logistique@gmail.fr</a>.",
-    "Besoin d'aide rapide ? Contactez-nous par téléphone <a href='tel:+33621569194'>+33 6 21 56 91 94</a> ou par mail <a href='mailto:oryx-logistique@gmail.fr'>oryx-logistique@gmail.fr</a>."
-  ];
-  return replies[Math.floor(Math.random()*replies.length)];
-}
-
-  // AUTRES / INCOMPRIS
-  return "Je n'ai pas compris votre demande. Pour toute question urgente, veuillez utiliser notre <a href='#contact'>formulaire de contact</a> ou nous appeler directement.";
-}
-
-function sendMessage() {
-  const text = chatbotInput.value.trim();
-  if (!text) return;
-
-  appendMessage(text, "user");
-  chatbotInput.value = "";
-  document.querySelector(".option-buttons")?.remove();
-
-  // Typing dynamique
-  setTimeout(() => {
-    appendMessage('<i class="fas fa-ellipsis-h"></i>', "bot-typing");
-    setTimeout(() => {
-      document.querySelector(".bot-typing-message")?.remove();
-      appendMessage(getBotReply(text), "bot");
-      addInitialOptions();
-    }, 500 + text.length * 20); // plus la question est longue, plus le délai
-  }, 300);
-}
-
-// Events
-if (chatbotToggle) {
-  chatbotToggle.addEventListener("click", () => {
-    chatbotContainer.classList.toggle("chatbot-active");
-    if (notificationBadge) notificationBadge.style.display = "none";
-    if (chatbotContainer.classList.contains("chatbot-active") && chatbotMessages.children.length === 0) {
-      appendMessage("Bonjour 👋 Je suis votre assistant ORYX. Comment puis-je vous aider ?", "bot");
-      addInitialOptions();
+    function addInitialOptions() {
+      if (chatbotMessages.querySelector(".option-buttons")) return;
+      const div = document.createElement("div");
+      div.className = "option-buttons";
+      predefinedOptions.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt.text;
+        btn.className = "option-button";
+        btn.dataset.action = opt.action;
+        btn.setAttribute("type", "button");
+        div.appendChild(btn);
+      });
+      chatbotMessages.appendChild(div);
     }
-  });
-}
 
-if (closeChatbotBtn) closeChatbotBtn.addEventListener("click", () => {
-  chatbotContainer.classList.remove("chatbot-active");
-});
+    function appendMessage(text, type) {
+      const div = document.createElement("div");
+      div.className = `message ${type}-message`;
+      div.innerHTML = text;
+      chatbotMessages.appendChild(div);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
 
-if (chatbotSendBtn) {
-  chatbotSendBtn.addEventListener("click", sendMessage);
-  chatbotSendBtn.setAttribute("type", "button");
-}
+    const faq = [
+      { keywords: ["livraison", "délai"], answer: "Nos livraisons standard sont effectuées sous 24 à 72 heures ouvrées. Des options express sont disponibles." },
+      { keywords: ["prix", "tarif", "coût"], answer: "Les tarifs varient selon distance, volume et urgence. Remplissez le formulaire pour un prix exact." },
+      { keywords: ["assurance", "sécurité"], answer: "Toutes nos expéditions sont assurées et suivies en temps réel." },
+      { keywords: ["suivi", "tracking"], answer: "Suivi en temps réel disponible pour chaque livraison." },
+      { keywords: ["zone", "couverture"], answer: "ORYX couvre la majorité des zones urbaines et périurbaines." },
+      { keywords: ["retour"], answer: "Gestion optimisée des retours avec reprogrammation rapide si nécessaire." },
+      { keywords: ["entrepôt", "stockage", "logistique"], answer: "Solutions de stockage temporaire et gestion d’entrepôt adaptées aux besoins e-commerce et B2B." },
+      { keywords: ["entreprise", "professionnel"], answer: "Services pensés pour entreprises et partenaires logistiques." },
+      { keywords: ["service client", "support", "aide"], answer: "Notre service client répond sous 24 heures maximum." },
+      { keywords: ["travailler", "emploi", "recrutement"], answer: "Nous recrutons régulièrement. Formulaire disponible sur la page dédiée." },
+      { keywords: ["contact", "téléphone", "email"], answer: "Contactez-nous au +33 6 21 56 91 94 ou par email : oryx-logistique@gmail.fr." }
+    ];
 
-if (chatbotInput) {
-  chatbotInput.addEventListener("keypress", (e) => e.key === "Enter" && sendMessage());
-}
+    function getBotReply(msg) {
+      msg = msg.toLowerCase();
+      for (let item of faq) if (item.keywords.some(k => msg.includes(k))) return item.answer;
 
-if (chatbotMessages) {
-  chatbotMessages.addEventListener("click", (e) => {
-    const target = e.target;
-    if (!target.classList.contains("option-button")) return;
-    document.querySelector(".option-buttons")?.remove();
-    chatbotInput.value = target.textContent;
-    sendMessage();
-  });
-}
+      if (msg.includes("devis") || msg.includes("prix") || msg.includes("tarif") || msg.includes("coût") || msg.includes("offre")) {
+        const replies = [
+          "📨 Pour un devis précis, remplissez notre <a href='#contact'>formulaire</a>.",
+          "Obtenez un devis via notre <a href='#contact'>formulaire</a>.",
+          "Notre équipe vous répondra sous 24h après votre <a href='#contact'>demande de devis</a>."
+        ];
+        return replies[Math.floor(Math.random()*replies.length)];
+      }
 
-// Notification badge
-setTimeout(() => {
-  if (chatbotContainer && !chatbotContainer.classList.contains("chatbot-active") && notificationBadge) {
-    notificationBadge.style.display = "flex";
-  }
-}, 5000);
+      if (msg.includes("travaillez") || msg.includes("postuler") || msg.includes("emploi")) {
+        const replies = [
+          "🤝 Rejoignez notre équipe ! Formulaire de candidature : <a href='formulaire.html'>ici</a>.",
+          "Nous recrutons ! Remplissez le <a href='formulaire.html'>formulaire</a>.",
+          "Faites partie de notre aventure logistique. Formulaire : <a href='formulaire.html'>candidature</a>."
+        ];
+        return replies[Math.floor(Math.random()*replies.length)];
+      }
+
+      if (msg.includes("contact") || msg.includes("téléphone") || msg.includes("email")) {
+        const replies = [
+          "☎️ Contactez-nous : <a href='tel:+33621569194'>+33 6 21 56 91 94</a> ou <a href='mailto:oryx-logistique@gmail.fr'>oryx-logistique@gmail.fr</a>.",
+          "Pour toute question, appelez ou envoyez un email.",
+          "Besoin d'aide rapide ? Contactez-nous par téléphone ou mail."
+        ];
+        return replies[Math.floor(Math.random()*replies.length)];
+      }
+
+      return "Je n'ai pas compris votre demande. Veuillez utiliser notre <a href='#contact'>formulaire de contact</a>.";
+    }
+
+    function sendMessage() {
+      const text = chatbotInput.value.trim();
+      if (!text) return;
+
+      appendMessage(text, "user");
+      chatbotInput.value = "";
+      document.querySelector(".option-buttons")?.remove();
+
+      setTimeout(() => {
+        appendMessage('<i class="fas fa-ellipsis-h"></i>', "bot-typing");
+        setTimeout(() => {
+          document.querySelector(".bot-typing-message")?.remove();
+          appendMessage(getBotReply(text), "bot");
+          addInitialOptions();
+        }, 500 + text.length * 20);
+      }, 300);
+    }
+
+    if (chatbotToggle) {
+      chatbotToggle.addEventListener("click", () => {
+        chatbotContainer.classList.toggle("chatbot-active");
+        if (notificationBadge) notificationBadge.style.display = "none";
+        if (chatbotContainer.classList.contains("chatbot-active") && chatbotMessages.children.length === 0) {
+          appendMessage("Bonjour 👋 Je suis votre assistant ORYX. Comment puis-je vous aider ?", "bot");
+          addInitialOptions();
+        }
+      });
+    }
+
+    if (closeChatbotBtn) closeChatbotBtn.addEventListener("click", () => {
+      chatbotContainer.classList.remove("chatbot-active");
+    });
+
+    if (chatbotSendBtn) {
+      chatbotSendBtn.addEventListener("click", sendMessage);
+      chatbotSendBtn.setAttribute("type", "button");
+    }
+
+    if (chatbotInput) {
+      chatbotInput.addEventListener("keypress", (e) => e.key === "Enter" && sendMessage());
+    }
+
+    if (chatbotMessages) {
+      chatbotMessages.addEventListener("click", (e) => {
+        const target = e.target;
+        if (!target.classList.contains("option-button")) return;
+        document.querySelector(".option-buttons")?.remove();
+        chatbotInput.value = target.textContent;
+        sendMessage();
+      });
+    }
+
+    setTimeout(() => {
+      if (chatbotContainer && !chatbotContainer.classList.contains("chatbot-active") && notificationBadge) {
+        notificationBadge.style.display = "flex";
+      }
+    }, 5000);
 
     /* ----------------------------------------------------------
           5. Galerie dynamique (Carrousel Automatique)
@@ -352,5 +321,71 @@ setTimeout(() => {
         initializeGallery();
       });
     }
+    /* Fichier : script.js (ou votre fichier JavaScript) */
+
+/* ----------------------------------------------------------
+      6. Slider images hero-right (fade automatique)
+---------------------------------------------------------- */
+const heroSliderImages = [
+  'image/stockage1.jpeg', // Index 0
+  'image/stockage2.jpg', // Index 1
+  'image/stockage3.jpg'  // Index 2
+];
+
+// Sélectionnez l'élément <img> à l'intérieur du conteneur
+const heroSlider = document.querySelector(".hero-card.follow-card img");
+
+if (heroSlider) {
+  let currentHero = 0;
+  
+  // 1. Ajoutez la transition CSS via JS (sinon l'effet est instantané)
+  heroSlider.style.transition = "opacity 0.8s ease-in-out";
+  
+  setInterval(() => {
+    // 2. Début du Fondu sortant (Fade out)
+    heroSlider.style.opacity = 0;
+
+    setTimeout(() => {
+      // 3. Changement de l'image (invisible car opacité = 0)
+      currentHero = (currentHero + 1) % heroSliderImages.length;
+      heroSlider.src = heroSliderImages[currentHero];
+      
+      // 4. Fondu entrant (Fade in)
+      heroSlider.style.opacity = 1;
+      
+    }, 800); // 800ms = durée du fade pour que l'image soit bien invisible lors du changement de source
+    
+  }, 3000); // Répétez toutes les 3 secondes
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".main-header");
+  if (header) {
+    setTimeout(() => {
+      header.scrollIntoView({ behavior: "auto", block: "start" });
+    }, 50); // 50ms suffit
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".dynamic-flow-image");
+  let currentIndex = 0;
+  const totalImages = images.length;
+
+  function showNextImage() {
+    images.forEach((img, index) => {
+      img.classList.remove("active");
+    });
+    currentIndex = (currentIndex + 1) % totalImages;
+    images[currentIndex].classList.add("active");
+  }
+
+  // Affichage initial
+  images[0].classList.add("active");
+
+  // Défilement toutes les 1 secondes (tu peux ajuster)
+  setInterval(showNextImage, 1000);
+});
+
+
   });
 })();
