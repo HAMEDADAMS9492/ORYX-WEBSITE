@@ -1,24 +1,20 @@
 /* ===============================================
     RESPONSIVE DESIGN
+    Adaptation du layout, de la typographie et des espacements
+    pour Tablettes (≤1024px), Téléphones (≤768px)
+    et Très petits écrans (≤480px)
 ================================================ */
-
-/* --- AJOUT : STYLE PAR DÉFAUT (GRAND ÉCRAN) --- */
-.footer-bottom {
-    display: flex;
-    justify-content: center; /* Centre le copyright sur grand écran */
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
 
 /* =================================================
     1. TABLETTES (max-width: 1024px)
 ================================================= */
 @media screen and (max-width: 1024px) {
+  /* CONTENEUR */
   .container {
     width: 92%;
   }
 
+  /* HEADER */
   .logo-text {
     font-size: 1.2rem;
   }
@@ -32,11 +28,12 @@
     padding: 0.4rem 0.7rem;
   }
 
+  /* HERO */
   .hero {
     grid-template-columns: 1fr;
     gap: 4rem;
     text-align: center;
-    padding-top: 100px; 
+    padding-top: 100px; /* Ajout : évite que le hero soit sous le header fixe */
   }
 
   .hero-title {
@@ -63,6 +60,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
+  /* SECTIONS */
   .section {
     margin-top: 5rem;
   }
@@ -76,6 +74,7 @@
     margin-bottom: 2.5rem;
   }
 
+  /* SERVICES */
   .service-card {
     padding: 1.8rem;
   }
@@ -88,6 +87,7 @@
     font-size: 2.5rem;
   }
 
+  /* ACCORDIONS */
   .collapsible-container {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
@@ -100,6 +100,7 @@
     font-size: 1.2rem;
   }
 
+  /* COMMENT ÇA FONCTIONNE */
   .how-it-works-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
@@ -121,6 +122,7 @@
     font-size: 0.95rem;
   }
 
+  /* STATISTIQUES */
   .intro-block {
     padding: 3rem;
   }
@@ -145,6 +147,7 @@
     font-size: 1rem;
   }
 
+  /* CONTACT */
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -154,6 +157,7 @@
     padding: 2.5rem;
   }
 
+  /* FOOTER */
   .footer {
     padding: 3rem 0;
   }
@@ -168,11 +172,12 @@
     2. TÉLÉPHONES (max-width: 768px)
 ================================================= */
 @media screen and (max-width: 768px) {
+  /* NAVIGATION MOBILE */
   .nav-links {
     display: none;
     flex-direction: column;
     background: var(--navy-dark);
-    position: fixed; 
+    position: fixed; /* Modifié : 'fixed' au lieu de 'absolute' pour mieux suivre le scroll */
     top: 80px;
     left: 0;
     width: 100%;
@@ -180,7 +185,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    transform: translateY(-10px); 
+    transform: translateY(-10px); /* Ajusté pour une animation plus douce */
     transition: all 0.4s ease-out;
   }
 
@@ -207,6 +212,7 @@
     display: block;
   }
 
+  /* HERO */
   .hero-title {
     font-size: 2.2rem;
   }
@@ -222,11 +228,12 @@
 
   .btn-primary,
   .btn-outline {
-    width: 100%; 
+    width: 100%; /* Modifié : 100% pour être plus cliquable sur petit écran */
     max-width: 300px;
     margin: 0 auto;
   }
 
+  /* SECTIONS */
   .section {
     margin-top: 4rem;
   }
@@ -235,39 +242,36 @@
     font-size: 1.8rem;
   }
 
+  /* ACCORDIONS */
   .collapsible-container {
     grid-template-columns: 1fr;
   }
 
+  /* COMMENT ÇA FONCTIONNE */
   .how-it-works-grid {
     grid-template-columns: 1fr;
   }
 
+  /* STATS */
   .stats-grid {
     grid-template-columns: 1fr;
   }
 
+  /* CONTACT & NOTIFICATIONS */
   .contact-info {
-    padding: 1.5rem; 
+    padding: 1.5rem; /* Réduit pour gagner de la place */
   }
 
   #notification-container {
     right: 10px;
-    left: 10px; 
+    left: 10px; /* Centre les notifs sur mobile */
     top: 15px;
   }
 
-  /* --- MODIFICATION : CENTRAGE FOOTER MOBILE --- */
+  /* FOOTER */
   .footer-grid {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-
-  .social-links {
-    justify-content: center; /* Centre les icônes sociales sur mobile */
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
   }
 }
 
@@ -294,6 +298,6 @@
   }
 
   .section-title {
-    font-size: 1.6rem; 
+    font-size: 1.6rem; /* Ajout : évite que les longs titres ne sortent de l'écran */
   }
 }
