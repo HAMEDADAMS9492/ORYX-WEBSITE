@@ -1,375 +1,404 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postuler chez ORYX TRANSPORT LOGISTICS</title> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Postuler chez ORYX TRANSPORT LOGISTICS</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        /* Variables et styles de base pour le formulaire */
-        :root {
-            --primary: #5eead4; /* Couleur principale (vert-turquoise) */
-            --primary-dark: #2dd4bf;
-            --navy-dark: #0a192f; /* Couleur de texte sombre */
-            --text-color: #333;
-            --muted-text: #64748b;
-            --bg-light: #f8fafc; /* Fond clair */
-            --border-color: #e2e8f0;
-            --input-bg: #f0f4f8;
-            --input-border: #cbd5e1;
-            --focus-glow: rgba(94, 234, 212, 0.5);
-            --error-color: #ef4444;
-            --success-color: #22c55e;
-            --radius-md: 0.5rem;
-        }
+      /* Variables et styles de base pour le formulaire */
+      :root {
+        --primary: #5eead4;
+        --primary-dark: #2dd4bf;
+        --navy-dark: #0a192f;
+        --text-color: #1e293b;
+        --muted-text: #64748b;
+        --bg-light: #f8fafc;
+        --border-color: #e2e8f0;
+        --input-bg: #f8fafc;
+        --input-border: #cbd5e1;
+        --focus-glow: rgba(94, 234, 212, 0.3);
+        --error-color: #ef4444;
+        --success-color: #059669;
+        --radius-md: 0.75rem;
+      }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
-            color: var(--text-color);
-            background-color: var(--bg-light);
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.8;
+        color: var(--text-color);
+        background-color: var(--bg-light);
+        margin: 0;
+        padding: 0;
+      }
 
-        .form-container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border-color);
-        }
+      .form-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border-color);
+      }
 
-        .form-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--primary);
-        }
+      .form-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 3px solid var(--primary);
+      }
 
-        .form-header h1 {
-            font-size: 2.8em;
-            color: var(--navy-dark);
-            margin-bottom: 10px;
-            font-weight: 800;
-        }
+      .form-header h1 {
+        font-size: 2.5em;
+        color: var(--navy-dark);
+        margin-bottom: 10px;
+        font-weight: 800;
+      }
 
-        .form-header p {
-            font-size: 1.1em;
-            color: var(--muted-text);
-        }
+      /* --- NOTIFICATIONS --- */
+      #notification-container {
+        position: fixed;
+        top: 25px;
+        right: 25px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
 
-        .form-section {
-            margin-bottom: 30px;
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            background-color: #fcfdfe;
-        }
+      .notification {
+        min-width: 320px;
+        padding: 16px 24px;
+        background: var(--primary);
+        color: var(--navy-dark);
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-weight: 600;
+        animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
 
-        .form-section legend {
-            font-size: 1.8em;
-            color: var(--navy-dark);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary);
-            padding-left: 15px;
-            font-weight: 700;
-            display: block; 
-            width: fit-content; 
-            padding-right: 15px; 
-        }
+      @keyframes slideIn {
+        from { transform: translateX(120%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
+      /* --- CHAMPS DU FORMULAIRE --- */
+      .form-section {
+        margin-bottom: 35px;
+        padding: 25px;
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        background-color: #ffffff;
+      }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.6rem;
-            font-weight: 600;
-            color: var(--navy-dark);
-            font-size: 1em;
-        }
+      .form-section legend {
+        font-size: 1.4em;
+        color: var(--navy-dark);
+        margin-bottom: 20px;
+        border-left: 5px solid var(--primary);
+        padding: 5px 15px;
+        font-weight: 700;
+      }
 
-        .form-group .input-wrapper {
-            position: relative;
-        }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
 
-        .form-group .input-wrapper i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--muted-text);
-        }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.6rem;
+        font-weight: 600;
+        color: var(--navy-dark);
+      }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="tel"],
-        .form-group input[type="date"],
-        .form-group input[type="number"],
-        .form-group select,
-        .form-group textarea {
-            width: calc(100% - 30px); 
-            padding: 12px 15px;
-            padding-left: 45px; 
-            border: 1px solid var(--input-border);
-            border-radius: var(--radius-md);
-            background-color: var(--input-bg);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1em;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-        }
+      .input-wrapper { position: relative; }
 
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-            padding-left: 15px; 
-        }
-        
-        /* Correction pour les inputs de type select sans icône (ex: permis, vehicule) */
-        .form-group select {
-            padding-left: 45px; /* Assure le padding pour l'icône fa-briefcase */
-        }
-        
-        /* Ajustement si un select n'a pas d'icône: */
-        .form-group .input-wrapper:has(select):not(:has(i)) select {
-            padding-left: 15px;
-        }
+      .input-wrapper i {
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted-text);
+        z-index: 2;
+      }
 
+      .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px 15px 14px 50px;
+        border: 2px solid var(--input-border);
+        border-radius: var(--radius-md);
+        background-color: var(--input-bg);
+        font-family: inherit;
+        transition: all 0.3s ease;
+      }
 
-        .form-group input[type="file"] {
-            padding-left: 15px; 
-            border: 1px dashed var(--input-border);
-            background-color: var(--input-bg);
-            cursor: pointer;
-        }
+      .form-group input:focus, .form-group select:focus {
+        border-color: var(--primary-dark);
+        box-shadow: 0 0 0 4px var(--focus-glow);
+        outline: none;
+      }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px var(--focus-glow);
-            background-color: #ffffff;
-        }
+      .form-group textarea {
+        min-height: 250px;
+        padding-left: 15px;
+        padding-top: 15px;
+        resize: vertical;
+        line-height: 1.6;
+      }
 
-        .form-group input[type="file"]::file-selector-button {
-            background-color: var(--primary);
-            color: var(--navy-dark);
-            border: none;
-            padding: 10px 15px;
-            border-radius: var(--radius-md);
-            margin-right: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+      /* --- STYLE TÉLÉPHONE MODERNE --- */
+      .phone-wrapper {
+        display: flex;
+        align-items: center;
+        background-color: var(--input-bg);
+        border: 2px solid var(--input-border);
+        border-radius: var(--radius-md);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-        .form-group input[type="file"]::file-selector-button:hover {
-            background-color: var(--primary-dark);
-        }
+      .country-prefix {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0 12px;
+        background: #f1f5f9;
+        border-right: 2px solid var(--input-border);
+        color: var(--muted-text);
+        font-weight: 600;
+        height: 54px; /* Hauteur ajustée pour l'alignement */
+        white-space: nowrap;
+      }
 
-        .form-group .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
+      #telephone {
+        border: none !important;
+        background: transparent !important;
+        padding: 14px 15px !important; /* Annule le padding de 50px ici */
+        margin: 0 !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        height: auto !important;
+      }
 
-        .form-group .checkbox-group input[type="checkbox"] {
-            width: auto;
-            margin: 0;
-            accent-color: var(--primary);
-        }
+      .phone-wrapper:focus-within {
+        border-color: var(--primary-dark);
+        box-shadow: 0 0 0 4px var(--focus-glow);
+        background-color: #ffffff;
+      }
 
-        .form-group .checkbox-group label {
-            margin-bottom: 0;
-            font-weight: normal;
-            font-size: 0.9em;
-            color: var(--muted-text);
-        }
+      /* --- CHECKBOX ET BOUTON --- */
+      .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin: 20px 0;
+      }
 
-        .form-group .checkbox-group a {
-            color: var(--primary);
-            text-decoration: underline;
-        }
+      .checkbox-group input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-top: 4px;
+        cursor: pointer;
+        accent-color: var(--primary-dark);
+      }
 
-        .form-actions {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid var(--border-color);
-        }
+      .form-actions button {
+        width: 100%;
+        background-color: var(--primary);
+        color: var(--navy-dark);
+        border: none;
+        padding: 18px;
+        border-radius: var(--radius-md);
+        font-size: 1.2em;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+      }
 
-        .form-actions button {
-            background-color: var(--primary);
-            color: var(--navy-dark);
-            border: none;
-            padding: 15px 30px;
-            border-radius: var(--radius-md);
-            font-size: 1.1em;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 5px 15px rgba(94, 234, 212, 0.3);
-        }
+      .form-actions button:hover {
+        background-color: var(--navy-dark);
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(10, 25, 47, 0.2);
+      }
 
-        .form-actions button:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .form-container {
-                margin: 20px auto;
-                padding: 20px;
-            }
-            .form-header h1 {
-                font-size: 2.2em;
-            }
-            .form-section legend {
-                font-size: 1.5em;
-                padding-left: 10px;
-            }
-            /* Sur mobile, on peut enlever l'icône si cela simplifie trop le CSS */
-            .form-group input[type="text"],
-            .form-group input[type="email"],
-            .form-group input[type="tel"],
-            .form-group input[type="date"],
-            .form-group input[type="number"],
-            .form-group select {
-                padding-left: 15px; 
-            }
-            .form-group .input-wrapper i {
-                 display: none; /* Cache les icônes sur mobile pour simplifier l'input */
-            }
-        }
+      .legal-footer {
+        text-align: center;
+        padding: 30px;
+        color: var(--muted-text);
+        font-size: 0.85em;
+      }
     </style>
-</head>
-<body>
+  </head>
+
+  <body>
     <div class="form-container">
-        <header class="form-header">
-            <h1>Formulaire de candidature</h1>
-            <p>Rejoignez l'équipe ORYX TRANSPORT LOGISTICS et participez à l'excellence de la livraison du dernier kilomètre.</p>
-        </header>
+      <header class="form-header">
+        <h1>Formulaire de candidature</h1>
+        <p>
+          Rejoignez l'équipe ORYX TRANSPORT LOGISTICS et participez à
+          l'excellence de la livraison du dernier kilomètre.
+        </p>
+        <div class="notification">
+          <i class="fas fa-info-circle"></i> Après avoir soumis votre
+          candidature, vous recevrez un email contenant les instructions pour
+          nous transmettre votre CV.
+        </div>
+      </header>
 
-        <form action="[URL_DE_TRAITEMENT_DU_FORMULAIRE]" method="POST" enctype="multipart/form-data">
-            
-            <fieldset class="form-section">
-                <legend>1. Informations Personnelles</legend>
-                <div class="form-group">
-                    <label for="nom">Nom <span style="color:var(--error-color);">*</span></label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="nom" name="nom" placeholder="Votre nom de famille" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="prenom">Prénom <span style="color:var(--error-color);">*</span></label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Adresse e-mail <span style="color:var(--error-color);">*</span></label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" name="email" placeholder="votre.email@example.com" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="telephone">Numéro de téléphone</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-phone"></i>
-                        <input type="tel" id="telephone" name="telephone" placeholder="Ex: 06 12 34 56 78">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="adresse">Adresse Postale</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" id="adresse" name="adresse" placeholder="Numéro, rue, code postal, ville">
-                    </div>
-                </div>
-            </fieldset>
+      <form id="recruitment-form">
+        <fieldset class="form-section">
+          <legend>1. Informations Personnelles</legend>
 
-            <fieldset class="form-section">
-                <legend>2. Expérience et Compétences</legend>
-                <div class="form-group">
-                    <label for="poste_souhaite">Poste souhaité</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-briefcase"></i>
-                        <select id="poste_souhaite" name="poste_souhaite">
-                            <option value="">Sélectionnez un poste</option>
-                            <option value="livreur">Livreur / Chauffeur-Livreur</option>
-                            <option value="agent_logistique">Agent Logistique / Manutentionnaire</option>
-                            <option value="chef_equipe">Chef d'Équipe Logistique</option>
-                            <option value="autre">Autre (précisez dans la motivation)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="experience">Votre expérience pertinente (en quelques lignes)</label>
-                    <textarea id="experience" name="experience" placeholder="Décrivez brièvement vos expériences précédentes en logistique ou transport."></textarea>
-                </div>
-                   <div class="form-group">
-                    <label for="permis">Permis de conduire</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-id-card"></i>
-                        <select id="permis" name="permis">
-                            <option value="">Sélectionnez votre type de permis</option>
-                            <option value="b">Permis B (véhicules légers)</option>
-                            <option value="c">Permis C (poids lourds)</option>
-                            <option value="ce">Permis CE (poids lourds avec remorque)</option>
-                            <option value="d">Permis D (transport en commun)</option>
-                            <option value="aucun">Aucun (pour les postes hors conduite)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="vehicule">Disposez-vous d'un véhicule utilitaire ?</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-truck-pickup"></i>
-                        <select id="vehicule" name="vehicule">
-                            <option value="non">Non</option>
-                            <option value="oui">Oui</option>
-                        </select>
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset class="form-section">
-                <legend>3. Votre Motivation et Documents</legend>
-                <div class="form-group">
-                    <label for="motivation">Lettre de motivation (texte libre)</label>
-                    <textarea id="motivation" name="motivation" placeholder="Exprimez votre intérêt pour ORYX TRANSPORT LOGISTICS et le poste souhaité."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="cv">Votre CV <span style="color:var(--error-color);">*</span> (PDF, Word - max 5 Mo)</label>
-                    <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
-                </div>
-                <div class="form-group">
-                    <label for="lm">Lettre de motivation (fichier, optionnel - max 5 Mo)</label>
-                    <input type="file" id="lm" name="lm" accept=".pdf,.doc,.docx">
-                </div>
-            </fieldset>
-
-            <div class="form-group checkbox-group">
-                <input type="checkbox" id="rgpd_consent" name="rgpd_consent" required>
-                <label for="rgpd_consent">J'accepte la <a href="mentions-legales.html" target="_blank">Politique de Confidentialité</a> et autorise ORYX TRANSPORT LOGISTICS à traiter mes données pour ma candidature. <span style="color:var(--error-color);">*</span></label>
+          <div class="form-group">
+            <label for="nom">
+              Nom <span style="color: var(--error-color)">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input type="text" id="nom" name="nom" placeholder="Votre nom de famille" required />
             </div>
+          </div>
 
-            <div class="form-actions">
-                <button type="submit">Envoyer ma candidature <i class="fas fa-paper-plane"></i></button>
+          <div class="form-group">
+            <label for="prenom">
+              Prénom <span style="color: var(--error-color)">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fas fa-user"></i>
+              <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
             </div>
-        </form>
-    </div>
-</body>
+          </div>
+
+          <div class="form-group">
+            <label for="email">
+              Adresse e-mail <span style="color: var(--error-color)">*</span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" name="email" placeholder="votre.email@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="telephone">Numéro de téléphone</label>
+            <div class="phone-wrapper">
+              <span class="country-prefix">
+                <img src="https://flagcdn.com/w20/fr.png" alt="France" /> +33
+              </span>
+              <input type="tel" id="telephone" name="telephone" placeholder="6 12 34 56 78" pattern="[0-9]{9}" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="adresse">Adresse Postale</label>
+            <div class="input-wrapper">
+              <i class="fas fa-map-marker-alt"></i>
+              <input type="text" id="adresse" name="adresse" placeholder="Numéro, rue, code postal, ville" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>2. Expérience et Compétences</legend>
+
+          <div class="form-group">
+            <label for="poste_souhaite">Poste souhaité</label>
+            <div class="input-wrapper">
+              <i class="fas fa-briefcase"></i>
+              <select id="poste_souhaite" name="poste_souhaite">
+                <option value="">Sélectionnez un poste</option>
+                <option value="Livreur">Livreur / Chauffeur-Livreur</option>
+                <option value="Agent logistique">Agent Logistique / Manutentionnaire</option>
+                <option value="Chef d'Équipe Logistique">Chef d'Équipe Logistique</option>
+                <option value="Autre">Autre (précisez dans la motivation)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">Votre expérience pertinente (en quelques lignes)</label>
+            <textarea id="experience" name="experience" placeholder="Décrivez vos expériences précédentes."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="permis">Permis de conduire</label>
+            <div class="input-wrapper">
+              <i class="fas fa-id-card"></i>
+              <select id="permis" name="permis">
+                <option value="">Sélectionnez votre type de permis</option>
+                <option value="b">Permis B</option>
+                <option value="c">Permis C</option>
+                <option value="ce">Permis CE</option>
+                <option value="aucun">Aucun</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="vehicule">Disposez-vous d'un véhicule utilitaire ?</label>
+            <div class="input-wrapper">
+              <i class="fas fa-truck-pickup"></i>
+              <select id="vehicule" name="vehicule">
+                <option value="non">Non</option>
+                <option value="oui">Oui</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend>3. Votre Motivation</legend>
+          <div class="form-group">
+            <label for="motivation">Lettre de motivation</label>
+            <textarea id="motivation" name="motivation" placeholder="Exprimez votre intérêt."></textarea>
+          </div>
+        </fieldset>
+
+       <div class="form-group checkbox-group">
+  <input type="checkbox" id="rgpd_consent" name="rgpd_consent" required />
+  <label for="rgpd_consent">
+    J'accepte la <a href="confidentialite.html" target="_blank">Politique de Confidentialité</a> et autorise ORYX TRANSPORT LOGISTICS à traiter mes données pour ma candidature. <span style="color: var(--error-color)">*</span>
+  </label>
+</div>
+
+        <div class="form-actions">
+          <button type="submit">
+            Envoyer ma candidature <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </form>
+
+      <footer class="legal-footer">
+        <p>Dernière mise à jour : Décembre 2025</p>
+        <p>&copy; 2025 ORYX TRANSPORT LOGISTICS. Tous droits réservés.</p>
+      </footer>
+    </div> <div id="notification-container"></div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

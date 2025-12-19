@@ -14,8 +14,6 @@ Ce fichier contient :
 
 ================================================== */
 
-
-
 /* =================================================
 
    1. TITRES DE SECTION (H2)
@@ -28,12 +26,9 @@ Ce fichier contient :
 
 ================================================== */
 
-
-
 /* H2 principal de section */
 
 .section h2:not(.collapsible-header h3):not(.service-card h3),
-
 .who-we-are-title {
   font-size: 2.8rem;
 
@@ -98,89 +93,83 @@ Ce fichier contient :
 }
 
 /* =================================================
-
-   2. ACCORDÉONS (FAQ / Collapsible)
-
+   2. ACCORDÉONS (FAQ / COLLAPSIBLE)
 ================================================== */
 
-/* Conteneur principal */
+/* =================================================
+   2.1 CONTENEUR PRINCIPAL
+================================================== */
 
 .collapsible-container {
   display: grid;
-
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
   gap: 1.8rem;
 }
 
-/* Carte accordéon */
+/* =================================================
+   2.2 CARTE ACCORDÉON
+================================================== */
 
 .collapsible-item.card {
-  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
+  background: var(--white);
   padding: 1.5rem 2rem;
 
   border-radius: var(--radius-lg);
-
-  box-shadow: var(--shadow-soft);
-
   border: 1px solid var(--gray);
+  box-shadow: var(--shadow-soft);
 
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out,
     border-color 0.3s ease;
-
-  overflow: hidden;
-
-  display: flex;
-
-  flex-direction: column;
 }
 
 .collapsible-item.card:hover {
   transform: translateY(-5px);
-
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
-
   border-color: var(--primary-light);
 }
 
-/* Header cliquable */
+/* =================================================
+   2.3 HEADER CLIQUABLE
+================================================== */
 
 .collapsible-header {
   background: none;
-
   border: none;
-
+  padding: 0;
   width: 100%;
 
-  padding: 0;
-
   cursor: pointer;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
   text-align: left;
 
-  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  font-size: 1.4rem;
   font-weight: 700;
-
   color: var(--text);
 
   transition: color var(--transition);
 }
 
-/* Icône toggle */
+/* Titre (H3) dans le header */
+.collapsible-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+
+/* =================================================
+   2.4 ICÔNE TOGGLE
+================================================== */
 
 .collapsible-header .toggle-icon {
   font-size: 1.2rem;
-
   color: var(--primary);
-
   transition: transform var(--transition);
 }
 
@@ -188,15 +177,14 @@ Ce fichier contient :
   transform: rotate(180deg);
 }
 
-/* Contenu caché / visible */
+/* =================================================
+   2.5 CONTENU COLLAPSIBLE
+================================================== */
 
 .collapsible-content {
   max-height: 0;
-
-  overflow: hidden;
-
   opacity: 0;
-
+  overflow: hidden;
   padding-top: 0;
 
   transition: max-height var(--transition), opacity var(--transition);
@@ -204,32 +192,42 @@ Ce fichier contient :
 
 .collapsible-header.active + .collapsible-content {
   padding-top: 1rem;
-
   opacity: 1;
 }
 
-/* Puces personnalisées */
+/* =================================================
+   2.6 LISTES & PUCES PERSONNALISÉES
+================================================== */
 
 .collapsible-content ul li {
   position: relative;
-
   padding-left: 1.6rem;
 }
 
 .collapsible-content ul li::before {
   content: "\f058";
-
   font-family: "Font Awesome 5 Free";
-
   font-weight: 900;
 
-  color: var(--primary);
-
   position: absolute;
-
   left: 0;
-
   top: 0;
+
+  color: var(--primary);
+}
+
+/* =================================================
+   2.7 RESPONSIVE
+================================================== */
+
+@media (max-width: 576px) {
+  .collapsible-header {
+    font-size: 1.25rem; /* éviter le débordement sur mobile */
+  }
+
+  .collapsible-header h3 {
+    font-size: 1.25rem;
+  }
 }
 
 /* =================================================
@@ -239,27 +237,27 @@ Ce fichier contient :
 /* Conteneur global : texte + visuel */
 .how-it-works-content-layout {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem; /* Espace légèrement augmenté pour aérer */
   margin-top: 3rem;
   align-items: stretch;
-  flex-wrap: wrap; /* Assure le passage en colonne sur petits écrans */
 }
 
-/* Bloc des étapes */
+/* Bloc des étapes : Passage en 2 colonnes pour aligner les 4 blocs */
 .how-it-works-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile par défaut */
+  grid-template-columns: repeat(2, 1fr); /* Crée 2 colonnes égales */
   gap: 1.5rem;
-  flex: 1; /* Prend la moitié de l’espace dans la flexbox */
+  flex: 2; /* Prend plus d'espace que l'image pour l'équilibre visuel */
 }
 
 /* Bloc visuel avec image dynamique */
 .how-it-works-visual-block {
   position: relative;
-  flex: 1; /* Prend l’autre moitié */
-  border-radius: var(--radius-lg); /* Arrondi toujours */
+  flex: 1; /* L'image prend 1 part pendant que les étapes en prennent 2 */
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  min-height: 300px;
+  min-height: 400px; /* Augmenté pour s'aligner sur la hauteur des 4 blocs */
+  background: var(--gray-light); /* Fond de secours si l'image charge mal */
 }
 
 /* Étapes individuelles */
@@ -267,66 +265,74 @@ Ce fichier contient :
   background: var(--white);
   border: 1px solid var(--gray);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 1.5rem; /* Ajusté pour ne pas être trop massif */
   box-shadow: var(--shadow-soft);
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Centre le contenu verticalement */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.how-it-works-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
 .how-it-works-item .step-number {
-  font-size: 3rem;
+  font-size: 2.5rem; /* Légèrement réduit pour l'équilibre */
   font-weight: 800;
   color: var(--primary);
   margin-bottom: 0.5rem;
+  line-height: 1;
 }
 
-/* Images dynamiques centrées et arrondies */
+.how-it-works-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* Images dynamiques */
 .dynamic-flow-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: auto;       /* largeur auto pour garder proportions */
-  height: 100%;      /* hauteur pleine */
-  object-fit: contain; /* pas de zoom, image visible entièrement */
-  border-radius: var(--radius-lg); /* arrondi sur tous les écrans */
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* "cover" est préférable pour remplir le bloc visuel */
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .dynamic-flow-image.active {
   opacity: 1;
 }
 
-/* Responsive : tablettes */
+/* --- RESPONSIVE --- */
+
+/* Tablettes : On passe l'image au dessus ou en dessous et on garde 2 colonnes */
 @media (max-width: 992px) {
   .how-it-works-content-layout {
     flex-direction: column;
-    gap: 2rem;
   }
 
-  .how-it-works-grid,
+  .how-it-works-grid {
+    order: 1; /* Les étapes en premier */
+  }
+
   .how-it-works-visual-block {
+    order: 2; /* L'image en dessous */
     width: 100%;
-  }
-
-  .dynamic-flow-image {
-    object-fit: cover; /* sur tablette et mobile on garde couverture pour bien remplir */
+    min-height: 300px;
   }
 }
 
-/* Responsive : mobile */
-@media (max-width: 576px) {
+/* Mobiles : Tout sur une seule colonne */
+@media (max-width: 600px) {
   .how-it-works-grid {
     grid-template-columns: 1fr;
   }
-
-  .how-it-works-visual-block {
-    min-height: 200px;
-  }
 }
-
 /* =================================================
 
    4. STATISTIQUES / CHIFFRES CLÉS
@@ -501,4 +507,157 @@ Ce fichier contient :
   margin: 0 auto;
 
   line-height: 1.8;
+}
+
+/* =========================================
+   SECTION 6 - TITRE : MODERN SUBTITLE STYLE
+   ========================================= */
+
+.section-subtitle.modern-bg {
+    /* Dégradé plus prononcé : part d'un blanc pur vers un turquoise plus visible (opacité 0.4) */
+    background: linear-gradient(135deg, #ffffff 0%, rgba(94, 234, 212, 0.4) 100%);
+
+    /* Espacement interne généreux pour l'effet allongé */
+    padding: 20px 70px;
+
+    /* Coins arrondis style "pilule" */
+    border-radius: 60px;
+
+    /* Ombre plus marquée avec rappel de couleur pour le relief */
+    box-shadow: 0 8px 25px rgba(94, 234, 212, 0.25);
+
+    /* Bordure renforcée en turquoise pour bien délimiter le bloc */
+    border: 2px solid rgba(94, 234, 212, 0.6);
+
+    /* Texte : Plus grand, noir foncé (#000000) et légèrement plus épais */
+    color: #000000;
+    font-size: 1.15rem; /* Taille augmentée */
+    font-weight: 500;    /* Un peu plus d'épaisseur pour la visibilité */
+    line-height: 1.5;
+
+    /* Centrage et dimensions */
+    display: block;
+    width: fit-content;
+    max-width: 950px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* Assure le centrage parfait si combiné avec text-center */
+.text-center.modern-bg {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   SECTION 7 - LOGO RSE (VERSION LARGE OPTIMISÉE)
+   ========================================= */
+
+.logo-rse-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* On garde 60px en haut, mais on met 0 en bas pour coller à la suite */
+    margin: 60px auto 0 auto; 
+    width: 100%;
+    /* On s'assure qu'aucun padding ne crée d'espace invisible */
+    padding-bottom: 0;
+}
+
+.logo-rse-img {
+    /* Taille agrandie */
+    width: 280px;
+    height: 280px;
+    
+    /* Rendu propre sans déformation */
+    object-fit: cover; 
+    
+    /* Forme ronde */
+    border-radius: 50%; 
+    
+    /* Pas de contour */
+    border: none; 
+    
+    /* Supprime l'espace vertical fantôme sous l'image */
+    display: block;
+
+    /* Ombre subtile */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    
+    /* Animation fluide */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Effet au survol */
+.logo-rse-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 50px rgba(94, 234, 212, 0.3);
+}
+
+/* =================================================================
+   8. FORMULAIRES RECRUTEMENT & PARTENARIAT: LES NOTIFICATIONS
+================================================================= */
+
+/* --- Conteneur des notifications (Fixe en haut à droite) --- */
+#notification-container {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 9999; /* Pour passer devant le header et le chatbot */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* --- Style de base de la notification --- */
+.notification {
+    min-width: 320px;
+    padding: 18px 25px;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border-left: 6px solid #ccc; /* Bordure par défaut */
+    animation: slideInNotification 0.5s ease-out forwards;
+}
+
+/* --- Variantes Succès et Erreur --- */
+.notification.success {
+    border-left-color: #27ae60; /* Vert Oryx */
+    color: #1e8449;
+}
+
+.notification.success i {
+    color: #27ae60;
+}
+
+.notification.error {
+    border-left-color: #e74c3c; /* Rouge Alerte */
+    color: #c0392b;
+}
+
+.notification.error i {
+    color: #e74c3c;
+}
+
+/* --- Animation d'entrée --- */
+@keyframes slideInNotification {
+    from {
+        transform: translateX(110%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* --- Style du Spinner dans le bouton pendant l'envoi --- */
+.fa-spinner {
+    margin-right: 8px;
 }

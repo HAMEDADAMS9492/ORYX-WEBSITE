@@ -20,7 +20,13 @@
     <link rel="stylesheet" href="css/chatbot.css" />
     <link rel="stylesheet" href="css/responsive.css" />
   </head>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+      // Remplace "TON_PUBLIC_KEY" par ta clé publique EmailJS
+      emailjs.init("Nghmh21DmTKRfKCpw");
+  })();
+</script>
   <body>
     <div
       id="chatbot-container"
@@ -111,7 +117,7 @@
           </h1>
 
           <p class="hero-desc">
-            ORYX Transport Logistique accompagne les grands donneurs d’ordre
+            ORYX Transport logistics accompagne les grands donneurs d’ordre
             dans leurs opérations de livraison du dernier kilomètre.
           </p>
 
@@ -148,7 +154,7 @@
           <div class="intro-block">
             <h2 class="section-title">Qui sommes-nous ?</h2>
             <p class="section-subtitle">
-              Chez ORYX Logistique, nous sommes passionnés par la logistique et
+              Chez ORYX LOGISTICS, nous sommes passionnés par la logistique et
               le transport. Forts de notre expertise, nous nous engageons à
               offrir des solutions fiables, efficaces et innovantes pour tous
               vos besoins. Découvrez les chiffres qui témoignent de notre
@@ -179,7 +185,7 @@
                 >
                   0K
                 </div>
-                <p class="stat-text">de Colis Livrés</p>
+                <p class="stat-text">De colis Livrés par jours </p>
               </div>
 
               <div class="stat-item card">
@@ -190,14 +196,14 @@
               </div>
 
               <div class="stat-item card">
-                <div class="stat-number" data-target="20" data-suffix="%">
+                <div class="stat-number" data-target="30" data-suffix="%">
                   0%
                 </div>
                 <p class="stat-text">de livraison verte</p>
               </div>
 
               <div class="stat-item card">
-                <div class="stat-number" data-target="2" data-suffix="j">
+                <div class="stat-number" data-target="24" data-suffix="H">
                   0j
                 </div>
                 <p class="stat-text">Durée de livraison</p>
@@ -207,36 +213,44 @@
         </div>
       </section>
 
-     <section id="how-it-works" class="section container">
-  <h2 class="section-title text-center">Comment on fonctionne ?</h2>
-  <p class="section-subtitle text-center">
+    <section id="how-it-works" class="section container">
+  <h2 class="section-title text-center">Comment ça fonctionne ?</h2>
+  <p class="section-subtitle text-center modern-bg">
     De la réception à la livraison finale, notre processus optimisé
     garantit une efficacité maximale et une transparence totale.
   </p>
 
   <div class="how-it-works-content-layout">
     <div class="how-it-works-grid">
-      <div class="how-it-works-item card">
+      
+      <div class="how-it-works-item card" data-step="0">
         <div class="step-number">01</div>
-        <h3>PICK UP</h3>
+        <h3>CATÉGORIE DE LIVRAISON</h3>
         <p>
-          Nous déployons nos livreurs directement au sein de votre dépôt afin d’assurer le tri, le scan et un chargement optimisé des colis dans chaque camion pour garantir une tournée fluide et performante.
-        </p>
+          Chez Oryx transport nous vous proposons plusieurs solutions de livraison notamment les livraisons : Express, Same Day J+0, Next Day (J+1), Livraison standard        </p>
       </div>
 
-      <div class="how-it-works-item card">
+      <div class="how-it-works-item card" data-step="1">
         <div class="step-number">02</div>
-        <h3>Suivi et Acheminement</h3>
+        <h3>PICK UP & TRI</h3>
         <p>
-          Dès la sortie du dépôt, nos équipes assurent un pilotage de la tournée, avec un suivi en temps réel permettant d’anticiper, d’accompagner et d’optimiser chaque étape du parcours.
+          Nous déployons nos livreurs au sein de votre dépôt pour assurer le tri, le scan et un chargement optimisé des colis dans chaque camion.
         </p>
       </div>
 
-      <div class="how-it-works-item card">
+      <div class="how-it-works-item card" data-step="2">
         <div class="step-number">03</div>
-        <h3>Livraison Finale</h3>
+        <h3>SUIVI ET ACHEMINEMENT</h3>
         <p>
-          Chaque colis est livré à destination dans le respect strict des délais, avec confirmation de livraison et satisfaction client.
+          Dès la sortie du dépôt, nos équipes pilotent la tournée en temps réel pour anticiper les aléas et optimiser chaque étape du parcours.
+        </p>
+      </div>
+
+      <div class="how-it-works-item card" data-step="3">
+        <div class="step-number">04</div>
+        <h3>LIVRAISON FINALE</h3>
+        <p>
+          Chaque colis est remis en main propre dans le respect des délais, avec une confirmation instantanée et une preuve de livraison.
         </p>
       </div>
     </div>
@@ -252,8 +266,8 @@
 
      <section id="services" class="section container">
   <h2 class="section-title">Nos Services Last Mile B2B</h2>
-  <p class="section-subtitle">
-    Découvrez l'éventail complet de nos solutions logistiques B2B taillées
+  <p class="section-subtitle modern-bg">
+    Découvrez l'éventail complet de nos solutions logistiques taillées
     sur mesure pour optimiser vos opérations et garantir la ponctualité de
     vos marchandises.
   </p>
@@ -293,8 +307,7 @@
         aria-controls="service-retours"
       >
         <i class="fas fa-undo icon-service"></i>
-        <h3>
-          Collecte & retours
+        <h3>Collecte & retours
           <i class="fas fa-chevron-down toggle-icon"></i>
         </h3>
       </button>
@@ -345,7 +358,7 @@
 
 <section id="flotte" class="section container">
   <h2 class="section-title">Notre Flotte & Équipe</h2>
-  <p class="section-subtitle">
+  <p class="section-subtitle modern-bg">
     Flotte moderne et experts du dernier kilomètre pour des livraisons fiables et sécurisées.
   </p>
 
@@ -417,7 +430,7 @@
 
 <section id="rse" class="section container">
   <h2 class="section-title">Notre Engagement RSE</h2>
-  <p class="section-subtitle">
+  <p class="section-subtitle modern-bg">
     Nous intégrons activement des pratiques écologiques et sociales au cœur de nos opérations pour une logistique durable et responsable.
   </p>
 
@@ -485,48 +498,71 @@
       </div>
     </div>
   </div>
+ <div class="logo-rse-container">
+    <img src="image/Eco.jpg" alt="Engagement Ecologique ORYX" class="logo-rse-img">
+</div>
+
+
 </section>
+     <section id="contact" class="section container">
+    <h2 class="section-title">Contact & partenariats</h2>
+    <p class="section-subtitle modern-bg">
+        Prêt à transformer votre logistique ? Contactez notre équipe pour
+        échanger sur vos défis et définir une stratégie de collaboration sur
+        mesure.
+    </p>
+   <form class="contact-form card" id="partner-form">
+  <h3>Demande de partenariat</h3>
+  
+  <div class="form-group">
+    <input type="text" id="contact_name" name="nom" placeholder="Votre nom complet" required />
+  </div>
+
+  <div class="form-group">
+    <input type="text" id="company_name" name="societe" placeholder="Nom de votre Société" required />
+  </div>
+
+  <div class="form-group">
+    <input type="email" id="email" name="email" placeholder="Adresse email professionnelle" required />
+  </div>
+
+ <div class="form-group phone-container">
+  <div class="phone-wrapper">
+    <span class="country-prefix">
+      <img src="https://flagcdn.com/w20/fr.png" alt="Drapeau France"> +33
+    </span>
+    <input type="tel" id="phone" name="telephone" placeholder="6 12 34 56 78" pattern="[0-9]{9}" required />
+  </div>
+</div>
+
+  <div class="form-group">
+    <textarea id="message" name="message" placeholder="Décrivez vos besoins (volume de colis, zone de livraison...)" required></textarea>
+  </div>
+
+  <button class="btn-primary" type="submit">
+    Envoyer la demande <i class="fas fa-paper-plane"></i>
+  </button>
+</form>
 
 
-      <section id="contact" class="section container">
-        <h2 class="section-title">Contact & partenariats</h2>
-        <p class="section-subtitle">
-          Prêt à transformer votre logistique ? Contactez notre équipe pour
-          échanger sur vos défis et définir une stratégie de collaboration sur
-          mesure.
-        </p>
-        <div class="contact-grid">
-          <form class="contact-form card">
-            <h3>Demande de partenariat</h3>
-            <input type="text" placeholder="Nom / Société" required />
-            <input
-              type="email"
-              placeholder="Adresse email professionnelle"
-              required
-            />
-            <input type="tel" placeholder="Téléphone" required />
-            <textarea placeholder="Décrivez vos besoins..." required></textarea>
-            <button class="btn-primary" type="submit">
-              Envoyer la demande <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
 
           <div class="contact-info card">
-            <h3>Coordonnées</h3>
-            <p>
-              <i class="fas fa-envelope"></i> Email :
-              <a href="mailto:oryx-logistique@gmail.fr"
-                >oryx-logistique@gmail.fr</a
-              >
+    <h3>Coordonnées</h3>
+<p>
+    <i class="fas fa-envelope"></i> Email :
+    <a href="mailto:Contact.oryxtl@gmail.com"
+        >Contact.oryxtl@gmail.com</a
+    >
+</p>
             </p>
             <p>
               <i class="fas fa-phone-alt"></i> Téléphone :
               <a href="tel:+33621569194">+33 6 21 56 91 94</a>
             </p>
             <p>
-              <i class="fas fa-map-marker-alt"></i> Siège social : 165 Route de
-              Vienne, 69008 Lyon
-            </p>
+  <i class="fas fa-map-marker-alt"></i> 
+  Siège social : <span class="highlight-turquoise">165 Route de Vienne, 69008 Lyon</span>
+</p>
           </div>
         </div>
       </section>
@@ -593,7 +629,7 @@
         </div>
       </div>
     </footer>
-
+<div id="notification-container"></div>
     <script src="script.js" defer></script>
   </body>
 </html>

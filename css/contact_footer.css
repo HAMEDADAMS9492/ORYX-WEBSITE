@@ -1,143 +1,193 @@
 /* ===============================================
-   05. SECTION CONTACT
-   Formulaire et Informations
-   Gère la mise en page et le style du formulaire de contact
-   et du bloc d'informations à la fin de page
+    05. SECTION CONTACT - DESIGN MODERNE PREMIUM
 ================================================ */
 
-/* ------------------------------------------------
-   1. Grille générale de la section Contact
------------------------------------------------- */
 .contact-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr; /* Formulaire (1.5x) | Info (1x) */
-    gap: 3rem;
+    grid-template-columns: 1.6fr 1fr; 
+    gap: 2.5rem; /* Plus d'espace pour aérer */
+    align-items: stretch;
+    margin-top: 3rem;
 }
 
-/* ------------------------------------------------
-   2. Formulaire de Contact (partie gauche)
------------------------------------------------- */
+/* --- LE FORMULAIRE --- */
 .contact-form {
-    background: var(--white);
-    padding: 2.5rem;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
-    border: 1px solid var(--gray);
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 24px; /* Coins très arrondis modernes */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); /* Ombre très légère et diffuse */
+    border: 1px solid rgba(226, 232, 240, 0.8);
     display: flex;
     flex-direction: column;
 }
 
-.contact-form input,
-.contact-form textarea {
+/* Titre du formulaire */
+.contact-form h3 {
+    text-align: center;
+    color: #0f172a; /* Bleu nuit presque noir */
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+/* Description sous le titre */
+.contact-form .partnership-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Style des groupes de saisie */
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* --- STYLE UNIFIÉ DES INPUTS ET TEXTAREA --- */
+.contact-form input, 
+.contact-form textarea,
+.phone-wrapper {
     width: 100%;
     padding: 1.1rem 1.2rem;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--gray);
-    margin-bottom: 1.2rem;
+    border: 2px solid #e2e8f0; /* Bordure grise douce par défaut */
+    border-radius: 14px;       /* Coins arrondis élégants */
+    background-color: #f8fafc; /* Gris très clair pour le repos visuel */
     font-size: 1rem;
-    color: var(--text);
-    background: #f0f4f8;
-    transition: border 0.25s ease, box-shadow 0.25s ease;
+    color: #000000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-dark);
-    background: var(--white);
-    box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.3);
+/* --- EFFET FOCUS (TURQUOISE) SUR TOUS LES CHAMPS --- */
+.contact-form input:focus, 
+.contact-form textarea:focus,
+.phone-wrapper:focus-within {
     outline: none;
+    background-color: #ffffff;
+    border-color: #5eead4; /* Votre Turquoise */
+    box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.15); /* Halo turquoise */
+    transform: translateY(-2px); /* Soulèvement subtil */
 }
 
+/* --- OPTION TÉLÉPHONE (INTÉGRATION) --- */
+.phone-wrapper {
+    padding: 0 15px; 
+    display: flex;
+    align-items: center;
+}
+
+.country-prefix {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-right: 12px;
+    border-right: 2px solid #e2e8f0;
+    color: #64748b;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+#phone {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* --- OPTION TEXTAREA (MESSAGE) --- */
 .contact-form textarea {
-    min-height: 150px;
+    min-height: 200px;
     resize: vertical;
+    font-family: inherit;
+    line-height: 1.6;
 }
 
+/* --- LE BOUTON D'ENVOI (STYLE PILULE) --- */
 .contact-form .btn-submit {
-    background: var(--primary);
-    padding: 1rem 1.8rem;
-    color: var(--navy-dark);
-    border-radius: var(--radius-md);
-    font-weight: 700;
+    background: #5eead4; /* Votre Turquoise */
+    padding: 1.3rem 3.5rem; 
+    color: #000000;
+    border-radius: 50px; /* Forme pilule cohérente avec le site */
+    font-weight: 800;
+    text-transform: uppercase;
     border: none;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(94, 234, 212, 0.4);
-    display: block;
-    transition: var(--transition);
+    margin: 1.5rem auto 0; 
+    width: fit-content;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(94, 234, 212, 0.3);
 }
 
 .contact-form .btn-submit:hover {
-    background: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(94, 234, 212, 0.5);
+    background: #000000; /* Devient noir au survol pour un look ultra moderne */
+    color: #5eead4;      /* Le texte passe au turquoise */
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* ------------------------------------------------
-   3. Bloc d'Informations (partie droite)
------------------------------------------------- */
+/* --- BLOC DROITE : COORDONNÉES (Inchangé comme demandé) --- */
 .contact-info {
-    background: var(--navy-soft);
-    color: var(--white);
-    padding: 2.8rem;
+    position: relative;
+    padding: 3rem;
     border-radius: var(--radius-lg);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1.5rem;
-    box-shadow: var(--shadow);
-
-    /* Image de fond avec overlay */
-    background-image: linear-gradient(
-            rgba(40, 55, 71, 0.85),
-            rgba(40, 55, 71, 0.95)
-        ),
-        url("../image/Fonds.png");
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat: no-repeat;
+    gap: 2rem;
+    background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.85)), 
+                url("../image/Fonds.png") center/cover no-repeat;
 }
 
 .contact-info h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1.2rem;
-    color: var(--primary-light);
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--white) !important;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
 .contact-info p {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    color: var(--white) !important;
+    font-weight: 700;
+    font-size: 1.1rem;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    color: var(--gray);
+    gap: 1rem;
+}
+/* Le texte "Adresse :" hérite du blanc du bloc .contact-info p */
+.contact-info p {
+    color: var(--white) !important;
+    font-weight: 700;
 }
 
+/* L'adresse spécifique passe en turquoise */
+.highlight-turquoise {
+    color: var(--primary) !important; /* Couleur turquoise #5eead4 */
+    font-weight: 700;
+    margin-left: 5px; /* Petit espace après les deux points */
+}
+
+/* L'icône devant reste en turquoise aussi */
 .contact-info p i {
-    font-size: 1.3rem;
     color: var(--primary);
-    width: 25px;
-    text-align: center;
 }
 
-/* ------------------------------------------------
-   4. Responsive Design
------------------------------------------------- */
-@media screen and (max-width: 992px) {
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
     .contact-grid {
-        grid-template-columns: 1fr; /* Colonne unique pour tablette/mobile */
-    }
-    .contact-info {
-        padding: 2rem;
+        grid-template-columns: 1fr; /* On empile seulement sur tablette/mobile */
     }
 }
-
 /* ===============================================
    06. FOOTER
    Structure et style du pied de page
 ================================================ */
 
-/* Pied de page général */
 .footer {
     background: var(--navy-dark);
     margin-top: 6rem;
@@ -157,7 +207,6 @@
     overflow: hidden;
 }
 
-/* Séparation décorative */
 .footer::before {
     content: "";
     position: absolute;
@@ -170,7 +219,6 @@
     opacity: 0.4;
 }
 
-/* Grille des colonnes */
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -203,7 +251,6 @@
     transform: translateX(5px);
 }
 
-/* Sélecteur de langue */
 .lang-selector-wrapper {
     position: relative;
     display: inline-flex;
@@ -238,7 +285,6 @@
     color: var(--white);
 }
 
-/* Liens sociaux */
 .socials {
     display: flex;
     gap: 1.2rem;
@@ -263,7 +309,6 @@
     font-size: 1.3rem;
 }
 
-/* Bas du footer - copyright */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
@@ -278,10 +323,6 @@
 
 .footer-bottom p {
     margin: 0;
-    padding: 0;
-    line-height: inherit;
-    color: inherit;
-    font-weight: inherit;
 }
 
 .footer-bottom a {

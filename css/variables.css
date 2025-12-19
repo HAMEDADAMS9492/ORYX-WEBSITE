@@ -156,6 +156,21 @@ body .section:not(#contact) h3 {
     transition: transform var(--transition);
 }
 
+/* On cible le header de cette carte spécifique */
+.service-card .collapsible-header {
+  justify-content: flex-start !important; /* Force tout le monde à gauche */
+  gap: 15px; /* Définit l'espace entre l'icône undo et le texte */
+}
+
+/* On s'assure que le titre ne prend pas toute la place */
+.service-card .collapsible-header h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  width: 100%; /* Permet de gérer la flèche à l'intérieur */
+  justify-content: space-between; /* Pousse la petite flèche (chevron) au bout du texte */
+}
+
 /* =============================
    COLLAPSIBLE CONTENT
 ============================= */
