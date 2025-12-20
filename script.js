@@ -234,7 +234,7 @@
       {
         keywords: ["contact", "téléphone", "email"],
         answer:
-          "Contactez-nous au +33 6 21 56 91 94 ou par email : oryx-logistique@gmail.fr.",
+          "Contactez-nous au +33 7 62 68 88 07 ou par email : Contact.oryxtl@gmail.com.",
       },
     ];
 
@@ -277,7 +277,7 @@
         msg.includes("email")
       ) {
         const replies = [
-          "☎️ Contactez-nous : <a href='tel:+33621569194'>+33 6 21 56 91 94</a> ou <a href='mailto:oryx-logistique@gmail.fr'>oryx-logistique@gmail.fr</a>.",
+          "☎️ Contactez-nous : <a href='tel:+33 7 62 68 88 07'>+33 7 62 68 88 07</a> ou <a href='mailto:Contact.oryxtl@gmail.com'>Contact.oryxtl@gmail.com</a>.",
           "Pour toute question, appelez ou envoyez un email.",
           "Besoin d'aide rapide ? Contactez-nous par téléphone ou mail.",
         ];

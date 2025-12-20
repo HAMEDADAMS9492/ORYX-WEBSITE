@@ -1,274 +1,349 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mentions Légales - ORYX TRANSPORT LOGISTICS</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        /* Styles spécifiques pour les pages légales (Basés sur votre proposition) */
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.8;
-            color: #333;
-            background-color: #f8fafc; /* Couleur de fond légère */
-            margin: 0;
-            padding: 0;
-        }
+      /* Styles spécifiques pour les pages légales (Basés sur votre proposition) */
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.8;
+        color: #333;
+        background-color: #f8fafc; /* Couleur de fond légère */
+        margin: 0;
+        padding: 0;
+      }
 
+      .legal-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+      }
+
+      .legal-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #5eead4; /* Ligne de séparation colorée */
+      }
+
+      .legal-header h1 {
+        font-size: 2.8em;
+        color: #0a192f;
+        margin-bottom: 10px;
+        font-weight: 800;
+      }
+
+      .legal-header p {
+        font-size: 1.1em;
+        color: #64748b;
+      }
+
+      .legal-section {
+        margin-bottom: 30px;
+      }
+
+      .legal-section h2 {
+        font-size: 1.8em;
+        color: #0a192f;
+        margin-bottom: 15px;
+        border-left: 4px solid #5eead4; /* Accent coloré */
+        padding-left: 15px;
+        font-weight: 700;
+      }
+
+      .legal-section h3 {
+        font-size: 1.3em;
+        color: #1e293b;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .legal-section p {
+        margin-bottom: 1em;
+        font-size: 1em;
+        color: #333;
+      }
+
+      /* Styles spécifiques pour les listes de Mentions Légales (avec la coche) */
+      .legal-section ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1em;
+      }
+
+      .legal-section ul li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 8px;
+        font-size: 1em;
+        color: #333;
+      }
+
+      /* Style pour les listes de l'objet du site (pas de coche) */
+      .legal-section ul.plain-list li::before {
+        content: "\f054"; /* Icône de chevron (à adapter si vous préférez une puce simple) */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: #64748b; /* Couleur plus neutre */
+        position: absolute;
+        left: 0;
+        top: 5px;
+        font-size: 0.8em;
+      }
+
+      .legal-section ul.plain-list {
+        list-style: none;
+        padding-left: 25px;
+        margin-bottom: 1em;
+      }
+
+      .legal-section ul.plain-list li {
+        position: relative;
+        padding-left: 0; /* Réinitialiser le padding de base */
+        margin-bottom: 8px;
+        font-size: 1em;
+        color: #333;
+      }
+
+      /* Liste RGPD (avec la coche) */
+      .rgpd-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .rgpd-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 8px;
+        font-size: 1em;
+        color: #333;
+      }
+
+      .rgpd-list li::before {
+        content: "\f058";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        color: #5eead4;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .legal-section a {
+        color: #5eead4;
+        text-decoration: underline;
+      }
+
+      .legal-section a:hover {
+        color: #2dd4bf;
+      }
+
+      .legal-section strong {
+        font-weight: 700;
+        color: #1e293b;
+      }
+
+      .legal-footer {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+        font-size: 0.9em;
+        color: #64748b;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
         .legal-container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e2e8f0;
+          margin: 20px auto;
+          padding: 20px;
         }
-
-        .legal-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #5eead4; /* Ligne de séparation colorée */
-        }
-
         .legal-header h1 {
-            font-size: 2.8em;
-            color: #0a192f;
-            margin-bottom: 10px;
-            font-weight: 800;
+          font-size: 2.2em;
         }
-
-        .legal-header p {
-            font-size: 1.1em;
-            color: #64748b;
-        }
-
-        .legal-section {
-            margin-bottom: 30px;
-        }
-
         .legal-section h2 {
-            font-size: 1.8em;
-            color: #0a192f;
-            margin-bottom: 15px;
-            border-left: 4px solid #5eead4; /* Accent coloré */
-            padding-left: 15px;
-            font-weight: 700;
+          font-size: 1.5em;
         }
-
         .legal-section h3 {
-            font-size: 1.3em;
-            color: #1e293b;
-            margin-top: 25px;
-            margin-bottom: 10px;
-            font-weight: 600;
+          font-size: 1.1em;
         }
-
-        .legal-section p {
-            margin-bottom: 1em;
-            font-size: 1em;
-            color: #333;
-        }
-        
-        /* Styles spécifiques pour les listes de Mentions Légales (avec la coche) */
-        .legal-section ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 1em;
-        }
-
-        .legal-section ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-            font-size: 1em;
-            color: #333;
-        }
-        
-        /* Style pour les listes de l'objet du site (pas de coche) */
-        .legal-section ul.plain-list li::before {
-            content: "\f054"; /* Icône de chevron (à adapter si vous préférez une puce simple) */
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            color: #64748b; /* Couleur plus neutre */
-            position: absolute;
-            left: 0;
-            top: 5px;
-            font-size: 0.8em;
-        }
-        
-        .legal-section ul.plain-list {
-            list-style: none; 
-            padding-left: 25px; 
-            margin-bottom: 1em;
-        }
-        
-        .legal-section ul.plain-list li {
-            position: relative;
-            padding-left: 0; /* Réinitialiser le padding de base */
-            margin-bottom: 8px;
-            font-size: 1em;
-            color: #333;
-        }
-        
-        /* Liste RGPD (avec la coche) */
-        .rgpd-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .rgpd-list li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-            font-size: 1em;
-            color: #333;
-        }
-
-        .rgpd-list li::before {
-            content: "\f058"; 
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            color: #5eead4; 
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .legal-section a {
-            color: #5eead4;
-            text-decoration: underline;
-        }
-
-        .legal-section a:hover {
-            color: #2dd4bf;
-        }
-        
-        .legal-section strong {
-            font-weight: 700;
-            color: #1e293b;
-        }
-
-        .legal-footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
-            font-size: 0.9em;
-            color: #64748b;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .legal-container {
-                margin: 20px auto;
-                padding: 20px;
-            }
-            .legal-header h1 {
-                font-size: 2.2em;
-            }
-            .legal-section h2 {
-                font-size: 1.5em;
-            }
-            .legal-section h3 {
-                font-size: 1.1em;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="legal-container">
-        <header class="legal-header">
-            <h1>Mentions Légales</h1>
-            <p>Conformes à la loi LCEN n°2004-575, au Code du Commerce et au RGPD.</p>
-        </header>
+      <header class="legal-header">
+        <h1>Mentions Légales</h1>
+        <p>
+          Conformes à la loi LCEN n°2004-575, au Code du Commerce et au RGPD.
+        </p>
+      </header>
 
-        <section class="legal-section">
-            <h2>1. Identification de l'Éditeur du Site</h2>
-            <p>Le site internet est la propriété de :</p>
-            <ul>
-                <li><strong>Dénomination sociale :</strong> ORYX TRANSPORT LOGISTICS</li>
-                <li><strong>Forme juridique :</strong> SASU</li>
-                <li><strong>Capital social :</strong> 15 000 €</li>
-                <li><strong>Siège social :</strong> 165 ROUTE DE VIENNE LYON 69008</li>
-                <li><strong>SIRET :</strong> 993597426 00010</li>
-                <li><strong>RCS :</strong> LYON</li>
-                <li><strong>Responsable de la publication :</strong> ALI MOCTAR Ousmane</li>
-                <li><strong>Adresse e-mail :</strong> <a href="mailto:Contact.oryxtl@gmail.com">Contact.oryxtl@gmail.com</a></li>
-                <li><strong>Numéro de téléphone :</strong>+33 7 62 68 88 07</li>
-            </ul>
-            <p>Le site internet est la propriété exclusive de ORYX TRANSPORT LOGISTICS.</p>
-        </section>
+      <section class="legal-section">
+        <h2>1. Identification de l'Éditeur du Site</h2>
+        <p>Le site internet est la propriété de :</p>
+        <ul>
+          <li>
+            <strong>Dénomination sociale :</strong> ORYX TRANSPORT LOGISTICS
+          </li>
+          <li><strong>Forme juridique :</strong> SASU</li>
+          <li><strong>Capital social :</strong> 15 000 €</li>
+          <li>
+            <strong>Siège social :</strong> 165 ROUTE DE VIENNE LYON 69008
+          </li>
+          <li><strong>SIRET :</strong> 993597426 00010</li>
+          <li><strong>RCS :</strong> LYON</li>
+          <li>
+            <strong>Responsable de la publication :</strong> ALI MOCTAR Ousmane
+          </li>
+          <li>
+            <strong>Adresse e-mail :</strong>
+            <a href="mailto:Contact.oryxtl@gmail.com"
+              >Contact.oryxtl@gmail.com</a
+            >
+          </li>
+          <li><strong>Numéro de téléphone :</strong>+33 7 62 68 88 07</li>
+        </ul>
+        <p>
+          Le site internet est la propriété exclusive de ORYX TRANSPORT
+          LOGISTICS.
+        </p>
+      </section>
 
-        <section class="legal-section">
-            <h2>2. Hébergement du Site</h2>
-            <p>Le site est hébergé par :</p>
-            <ul>
-                <li><strong>Nom de l’hébergeur :</strong> IONOS</li>
-                <li><strong>Coordonnées de l'hébergeur :</strong> Le siège social de IONOS se situe à Montabaur, Allemagne. Vous pouvez trouver leurs informations de contact complètes sur leur site web.</li>
-            </ul>
-        </section>
-        
-        <section class="legal-section">
-            <h2>3. Objet du Site et Services</h2>
-            <p>Le site a pour objectif de présenter les services de l'entreprise et permettre la prise de contact. ORYX TRANSPORT LOGISTICS est spécialisée dans :</p>
-            <ul class="plain-list">
-                <li>La logistique du dernier kilomètre (Last Mile B2B)</li>
-                <li>Les tournées quotidiennes et programmées</li>
-                <li>Le tri, scannage et préparation des colis</li>
-                <li>L’acheminement et la livraison en entreprise</li>
-                <li>Le suivi en temps réel et l’optimisation des flux</li>
-                <li>Les solutions éco-responsables (flotte hybride/électrique)</li>
-            </ul>
-        </section>
+      <section class="legal-section">
+        <h2>2. Hébergement du Site</h2>
+        <p>Le site est hébergé par :</p>
+        <ul>
+          <li><strong>Nom de l’hébergeur :</strong> IONOS</li>
+          <li>
+            <strong>Coordonnées de l'hébergeur :</strong> Le siège social de
+            IONOS se situe à Montabaur, Allemagne. Vous pouvez trouver leurs
+            informations de contact complètes sur leur site web.
+          </li>
+        </ul>
+      </section>
 
-        <section class="legal-section">
-            <h2>4. Propriété Intellectuelle</h2>
-            <p>L'ensemble de ce site (textes, logos, visuels, structures, etc.) est protégé par le Code de la Propriété Intellectuelle et appartient exclusivement à ORYX TRANSPORT LOGISTICS.</p>
-            <p>Toute reproduction, modification ou diffusion, même partielle, sans autorisation écrite préalable d'ORYX TRANSPORT LOGISTICS est strictement interdite et sera considérée comme constitutive d'une contrefaçon.</p>
-        </section>
-        
-        <section class="legal-section">
-            <h2>5. Données Personnelles et Droit des Utilisateurs (RGPD)</h2>
-            <p>ORYX TRANSPORT LOGISTICS collecte uniquement les informations nécessaires à la prise de contact et au traitement des demandes professionnelles (nom, email, téléphone, entreprise).</p>
-            
-            <h3>Vos droits</h3>
-            <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
-            <ul class="rgpd-list">
-                <li>Droit d’accès aux données vous concernant.</li>
-                <li>Droit de rectification (mise à jour des données).</li>
-                <li>Droit d’opposition au traitement de vos données.</li>
-                <li>Droit à l’effacement des données (droit à l’oubli).</li>
-            </ul>
-            <p>Pour exercer ces droits, vous pouvez nous contacter à l’adresse : <strong><a href="mailto:contact@oryx-transport.fr">contact@oryx-transport.fr</a></strong></p>
-            <p>Les données sont conservées 3 ans maximum après le dernier échange.</p>
-        </section>
-        
-        <section class="legal-section">
-            <h2>6. Cookies</h2>
-            <p>Le site peut utiliser des cookies pour : améliorer l’expérience utilisateur, mesurer l’audience, et optimiser les performances. Vous avez la possibilité de paramétrer ou désactiver les cookies directement depuis les options de votre navigateur.</p>
-        </section>
+      <section class="legal-section">
+        <h2>3. Objet du Site et Services</h2>
+        <p>
+          Le site a pour objectif de présenter les services de l'entreprise et
+          permettre la prise de contact. ORYX TRANSPORT LOGISTICS est
+          spécialisée dans :
+        </p>
+        <ul class="plain-list">
+          <li>La logistique du dernier kilomètre (Last Mile B2B)</li>
+          <li>Les tournées quotidiennes et programmées</li>
+          <li>Le tri, scannage et préparation des colis</li>
+          <li>L’acheminement et la livraison en entreprise</li>
+          <li>Le suivi en temps réel et l’optimisation des flux</li>
+          <li>Les solutions éco-responsables (flotte hybride/électrique)</li>
+        </ul>
+      </section>
 
-        <section class="legal-section">
-            <h2>7. Limitation de Responsabilité</h2>
-            <p>ORYX TRANSPORT LOGISTICS ne peut être tenue responsable d’éventuels dommages directs et indirects (comme une perte de marché ou un dysfonctionnement lié à l’hébergeur) consécutifs à l'utilisation du site.</p>
-            <p>Des espaces interactifs (formulaire de contact) sont à disposition. L’entreprise se réserve le droit de supprimer tout contenu qui contreviendrait à la législation applicable (caractère raciste, injurieux, diffamant, etc.).</p>
-        </section>
-        
-        <section class="legal-section">
-            <h2>8. Droit Applicable et Attribution de Juridiction</h2>
-            <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, les juridictions compétentes seront celles du siège social d’ORYX TRANSPORT LOGISTICS, à savoir : 165 ROUTE DE VIENNE LYON 69008.</p>
-        </section>
+      <section class="legal-section">
+        <h2>4. Propriété Intellectuelle</h2>
+        <p>
+          L'ensemble de ce site (textes, logos, visuels, structures, etc.) est
+          protégé par le Code de la Propriété Intellectuelle et appartient
+          exclusivement à ORYX TRANSPORT LOGISTICS.
+        </p>
+        <p>
+          Toute reproduction, modification ou diffusion, même partielle, sans
+          autorisation écrite préalable d'ORYX TRANSPORT LOGISTICS est
+          strictement interdite et sera considérée comme constitutive d'une
+          contrefaçon.
+        </p>
+      </section>
 
-        <footer class="legal-footer">
-            <p>Dernière mise à jour : Décembre 2025</p>
-            <p>&copy; 2025 ORYX TRANSPORT LOGISTICS. Tous droits réservés.</p>
-        </footer>
+      <section class="legal-section">
+        <h2>5. Données Personnelles et Droit des Utilisateurs (RGPD)</h2>
+        <p>
+          ORYX TRANSPORT LOGISTICS collecte uniquement les informations
+          nécessaires à la prise de contact et au traitement des demandes
+          professionnelles (nom, email, téléphone, entreprise).
+        </p>
+
+        <h3>Vos droits</h3>
+        <p>
+          Conformément au Règlement Général sur la Protection des Données
+          (RGPD), vous disposez des droits suivants :
+        </p>
+        <ul class="rgpd-list">
+          <li>Droit d’accès aux données vous concernant.</li>
+          <li>Droit de rectification (mise à jour des données).</li>
+          <li>Droit d’opposition au traitement de vos données.</li>
+          <li>Droit à l’effacement des données (droit à l’oubli).</li>
+        </ul>
+        <p>
+          Pour exercer ces droits, vous pouvez nous contacter à l’adresse :
+          <strong
+            ><a href="mailto:Contact.oryxtl@gmail.com"
+              >Contact.oryxtl@gmail.com</a
+            ></strong
+          >
+        </p>
+        <p>
+          Les données sont conservées 3 ans maximum après le dernier échange.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>6. Cookies</h2>
+        <p>
+          Le site peut utiliser des cookies pour : améliorer l’expérience
+          utilisateur, mesurer l’audience, et optimiser les performances. Vous
+          avez la possibilité de paramétrer ou désactiver les cookies
+          directement depuis les options de votre navigateur.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>7. Limitation de Responsabilité</h2>
+        <p>
+          ORYX TRANSPORT LOGISTICS ne peut être tenue responsable d’éventuels
+          dommages directs et indirects (comme une perte de marché ou un
+          dysfonctionnement lié à l’hébergeur) consécutifs à l'utilisation du
+          site.
+        </p>
+        <p>
+          Des espaces interactifs (formulaire de contact) sont à disposition.
+          L’entreprise se réserve le droit de supprimer tout contenu qui
+          contreviendrait à la législation applicable (caractère raciste,
+          injurieux, diffamant, etc.).
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>8. Droit Applicable et Attribution de Juridiction</h2>
+        <p>
+          Les présentes mentions légales sont régies par le droit français. En
+          cas de litige, les juridictions compétentes seront celles du siège
+          social d’ORYX TRANSPORT LOGISTICS, à savoir : 165 ROUTE DE VIENNE LYON
+          69008.
+        </p>
+      </section>
+
+      <footer class="legal-footer">
+        <p>Dernière mise à jour : Décembre 2025</p>
+        <p>&copy; 2025 ORYX TRANSPORT LOGISTICS. Tous droits réservés.</p>
+      </footer>
     </div>
-</body>
+  </body>
 </html>
